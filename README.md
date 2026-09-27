@@ -1,5 +1,7 @@
 # yuyuyuroom.site AI experiments
 
+[English reproduction guide](README_EN.md)
+
 「ぬるま湯ハードウェア」に掲載したAI実験の再現コードです。WordPressへZIPを直接置かず、このリポジトリから取得できるようにしています。実験結果は使用するPC、ソフトウェアの版、GPUの状態で変わります。
 
 ## 取得
@@ -13,7 +15,7 @@ Gitが未導入なら、GitHubの「Code」→「Download ZIP」から取得し�
 
 ## ONNX Runtime の静的 INT8 量子化
 
-対応記事: [ONNXのCNNを実際にINT8量子化したら速くなる？](https://yuyuyuroom.site/?p=471)（公開後に閲覧可能）
+対応記事: [ONNXのCNNを実際にINT8量子化したら速くなる？](https://yuyuyuroom.site/?p=471)
 
 Python、PyTorch、torchvisionを先に用意してください。PyTorchの組み合わせは[公式インストール案内](https://pytorch.org/get-started/locally/)で選びます。実験時は Python 3.14.4、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130、ONNX 1.22.0、ONNX Runtime 1.29.0、NumPy 2.5.2でした。推論にはCPUを使い、GPUは不要です。
 
@@ -28,7 +30,7 @@ python -m unittest discover -s ai_lab -p test_onnx_int8_static.py -v
 
 ## PyTorch profiler による DataLoader 待ちの確認
 
-対応記事: [PyTorch学習が遅いのはDataLoaderかGPUか？](https://yuyuyuroom.site/?p=476)（公開後に閲覧可能）
+対応記事: [PyTorch学習が遅いのはDataLoaderかGPUか？](https://yuyuyuroom.site/?p=476)
 
 CUDAが動くPyTorchとtorchvisionが必要です。実験時はWindows 11のWSL 2、RTX 5070 Ti 16 GB、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130でした。詳細traceは100 MBを超えることがあるため、300 MB以上の空きを確保してください。
 
