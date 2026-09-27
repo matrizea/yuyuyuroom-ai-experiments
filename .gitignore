@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+ai_lab/data/
+ai_lab/results/
+figures/
+ai_lab/models/*
+!ai_lab/models/fashion_cnn_dynamic.onnx
