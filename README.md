@@ -26,6 +26,8 @@ FashionMNISTを使う実験では、初回に画像をダウンロードしま�
 | ONNXモデルをINT8にする | [INT8量子化](#onnx-runtimeのint8量子化) |
 | 学習中にデータ待ちがあるか | [DataLoaderの待ち時間](#dataloaderの待ち時間を見る) |
 | HOG＋SVMとCNNを比べる | [比較実験の手順（英語）](README_EN.md#hog--linear-svm-versus-a-cnn) |
+| NumPyの学習・混合精度・RAG・ローカルLLMなど | [記事ごとの実行コマンド](EXPERIMENTS.md) |
+| NV-Tesseractで予測と異常検知を動かす | [SDKの取得と実行](nv_tesseract_lab/README.md) |
 
 ## ONNX RuntimeのINT8量子化
 

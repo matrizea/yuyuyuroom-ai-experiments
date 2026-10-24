@@ -7,3 +7,8 @@ ai_lab/results/
 figures/
 ai_lab/models/*
 !ai_lab/models/fashion_cnn_dynamic.onnx
+!ai_lab/models/fashion_cnn_state_dict.pt
+ai_lab/generated_images/
+ai_lab/generated_code_*/
+nv_tesseract_lab/NV-Tesseract/
+nv_tesseract_lab/results/

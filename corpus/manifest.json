@@ -1,0 +1,67 @@
+[
+  {
+    "file": "article_ollama_4b_8b_12b.md",
+    "sha256": "c9c3e3c1aeefba3d9ae832747eff1f4f186303a0d9f0cf2414ab61c9f8618fc5",
+    "chunks": 15
+  },
+  {
+    "file": "article_gemma_q4_q8.md",
+    "sha256": "56a282842ff5a304b760a2424b74d2ab163db56b33b6d30de41bbdf7d2b6c232",
+    "chunks": 17
+  },
+  {
+    "file": "article_ollama_context_4k_8k_16k.md",
+    "sha256": "20de361c42de929c5b567deb5eb2ec72b3ea6171a972786b7f0dc1aaf44f9664",
+    "chunks": 17
+  },
+  {
+    "file": "article_truthfulqa_local_4b_8b_12b.md",
+    "sha256": "425d99e5deeb45f015fa0d2f6d6c715003230e5e2cb0150dc5b8dcce68b4d8d2",
+    "chunks": 22
+  },
+  {
+    "file": "article_llm_codegen_pytest.md",
+    "sha256": "22f02b5a44bd9f857852875bfa952129cdb696a7ec5a7aca649302edbe700768",
+    "chunks": 16
+  },
+  {
+    "file": "article_digits_classic_ml.md",
+    "sha256": "93e3e6cf449457861fd1417879bc727a3ed36e4c706d9bc946ebfb5a3e8522df",
+    "chunks": 12
+  },
+  {
+    "file": "article_digits_numpy_nn.md",
+    "sha256": "87fd2017dde21170339b09f5bffaa842ce2a943cbb2a1909a1dac8d3b8785b9e",
+    "chunks": 15
+  },
+  {
+    "file": "article_digits_pytorch_nn.md",
+    "sha256": "143edf302a3a66e2d2d2697a9c2c5ac6bebb12d0fba0c21a240d7a257a978f55",
+    "chunks": 15
+  },
+  {
+    "file": "article_fashion_cnn_cpu_gpu.md",
+    "sha256": "1d372c9b96d80607f8b918c5d991b97ea690c9f8e0f8fee1557c911fa2425d05",
+    "chunks": 15
+  },
+  {
+    "file": "article_fashion_precision.md",
+    "sha256": "c52584ffc00d6862959ed4f44fda7baedf24139585d723fe08c5f25928ddd9f8",
+    "chunks": 13
+  },
+  {
+    "file": "article_fashion_batch_oom.md",
+    "sha256": "ea24c7315a089291889b40e7421d49cb7a9ffd4726ab365222d3e759e60a2052",
+    "chunks": 14
+  },
+  {
+    "file": "article_dataloader_bottleneck.md",
+    "sha256": "ebd65eec174f5e0c391287ef33fa0332de58e49c6cefed34bee6f978140c2945",
+    "chunks": 14
+  },
+  {
+    "file": "article_hog_svm_vs_cnn.md",
+    "sha256": "8353ee20b62fa1d2773dc10bc6974b620efd040b97bb6f4fa2cf075fb93dae92",
+    "chunks": 13
+  }
+]

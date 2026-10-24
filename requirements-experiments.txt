@@ -1,0 +1,8 @@
+# Install torch and torchvision for your CUDA version separately.
+numpy==2.5.2
+matplotlib==3.11.1
+scikit-learn==1.9.0
+scikit-image==0.26.0
+onnx==1.22.0
+onnxruntime==1.29.0
+pytest==9.1.1
