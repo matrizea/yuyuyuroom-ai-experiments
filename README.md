@@ -1,27 +1,37 @@
-# yuyuyuroom.site AI experiments
+# ぬるま湯ハードウェアの実験コード
 
 [English reproduction guide](README_EN.md)
 
-「ぬるま湯ハードウェア」に掲載したAI実験の再現コードです。WordPressへZIPを直接置かず、このリポジトリから取得できるようにしています。実験結果は使用するPC、ソフトウェアの版、GPUの状態で変わります。
+[ぬるま湯ハードウェア](https://yuyuyuroom.site/)の記事で使ったコードを置いています。PyTorchの学習、ONNXの量子化、GPUメモリの確認など。
 
-## 取得
+## コードを手元に置く
 
 ```bash
 git clone https://github.com/matrizea/yuyuyuroom-ai-experiments.git ~/ai-experiments
 cd ~/ai-experiments
 ```
 
-Gitが未導入なら、GitHubの「Code」→「Download ZIP」から取得しても構いません。展開後のフォルダーを `~/ai-experiments` として扱います。データセットは同梱せず、初回実行時に `torchvision` が取得します。
+Gitを使わない場合は、このページの「Code」→「Download ZIP」からダウンロードできます。以下のコマンドは、取得したフォルダー内で実行してください。
 
-## PyTorchのGPUメモリと参照寿命
+PyTorchとtorchvisionは先に用意します。インストール方法は[PyTorch公式](https://pytorch.org/get-started/locally/)を参照してください。記事で使ったのはWindows 11のWSL 2、Python 3.14.4、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130、RTX 5070 Tiです。
 
-GPUメモリの参照寿命と`empty_cache()`を調べる小さな実験は、[CUDA_MEMORY.md](CUDA_MEMORY.md)を参照してください。追加のモデルやデータセットは不要です。
+FashionMNISTを使う実験では、初回に画像をダウンロードします。GPUメモリの実験には画像もモデルも要りません。
 
-## ONNX Runtime の静的 INT8 量子化
+## 実験を選ぶ
+
+| 調べたいこと | 実行手順 |
+|---|---|
+| GPUメモリが解放されない | [empty_cache・del・detach](CUDA_MEMORY.md) |
+| CNNをCPUとGPUで学習する | [CNNの学習手順（英語）](README_EN.md#fashionmnist-cnn-training) |
+| ONNXモデルをINT8にする | [INT8量子化](#onnx-runtimeのint8量子化) |
+| 学習中にデータ待ちがあるか | [DataLoaderの待ち時間](#dataloaderの待ち時間を見る) |
+| HOG＋SVMとCNNを比べる | [比較実験の手順（英語）](README_EN.md#hog--linear-svm-versus-a-cnn) |
+
+## ONNX RuntimeのINT8量子化
 
 対応記事: [ONNXのCNNを実際にINT8量子化したら速くなる？](https://yuyuyuroom.site/?p=471)
 
-Python、PyTorch、torchvisionを先に用意してください。PyTorchの組み合わせは[公式インストール案内](https://pytorch.org/get-started/locally/)で選びます。実験時は Python 3.14.4、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130、ONNX 1.22.0、ONNX Runtime 1.29.0、NumPy 2.5.2でした。推論にはCPUを使い、GPUは不要です。
+同梱のCNNを量子化し、精度、ファイルサイズ、CPUでの推論速度を比べます。GPUは使いません。ONNX、ONNX Runtime、NumPyは記事と同じ版を指定しています。
 
 ```bash
 python -m pip install onnx==1.22.0 onnxruntime==1.29.0 numpy==2.5.2 matplotlib
@@ -30,13 +40,15 @@ python ai_lab/plot_onnx_int8_static.py
 python -m unittest discover -s ai_lab -p test_onnx_int8_static.py -v
 ```
 
-元のFP32モデルは `ai_lab/models/fashion_cnn_dynamic.onnx` です。SHA-256 は `1147ce7c98c4e2e4bfb1eadaaf04cb4b899590d1693a6cbede63a32447be2074`。実行後の未丸め数値は `ai_lab/results/onnx_int8_static/preprocessed/result.json`、各推論呼び出しは同ディレクトリの `timings_raw.csv`、図は `figures/onnx-int8-static-cpu-comparison.png` に出ます。
+結果は `ai_lab/results/onnx_int8_static/preprocessed/` の `result.json` と `timings_raw.csv`、図は `figures/onnx-int8-static-cpu-comparison.png` に出ます。テストはこの結果ファイルを使うため、実験の後に実行します。
 
-## PyTorch profiler による DataLoader 待ちの確認
+元のモデルは `ai_lab/models/fashion_cnn_dynamic.onnx`。ファイルを照合する場合のSHA-256は `1147ce7c98c4e2e4bfb1eadaaf04cb4b899590d1693a6cbede63a32447be2074` です。
+
+## DataLoaderの待ち時間を見る
 
 対応記事: [PyTorch学習が遅いのはDataLoaderかGPUか？](https://yuyuyuroom.site/?p=476)
 
-CUDAが動くPyTorchとtorchvisionが必要です。実験時はWindows 11のWSL 2、RTX 5070 Ti 16 GB、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130でした。詳細traceは100 MBを超えることがあるため、300 MB以上の空きを確保してください。
+DataLoaderのworker数を変え、データの準備とGPUの計算を時系列で見ます。こちらはCUDAが必要です。最初のコマンドが `True` を返す環境で実行してください。記録ファイルが大きくなるので、300 MB以上の空きを用意します。
 
 ```bash
 python -c 'import torch; print(torch.cuda.is_available())'
@@ -46,8 +58,12 @@ python ai_lab/plot_training_profiler.py
 python -m unittest discover -s ai_lab -p test_training_profiler.py -v
 ```
 
-最初の確認が `True` でない場合、CUDA環境を先に直してください。`ai_lab/results/training_profiler/` に集計JSON、600 stepのCSV、2つのtraceと演算子表が作られます。図は `figures/pytorch-profiler-dataloader-wait.png` に出ます。速度測定はprofilerなしの別実行であり、profiler traceの時間と混ぜません。
+`ai_lab/results/training_profiler/` に集計JSON、600ステップのCSV、2条件の実行記録（trace）と演算子表が作られます。図は `figures/pytorch-profiler-dataloader-wait.png` です。
 
-## 配布範囲
+profiler自身も処理を増やすため、通常の学習速度は記録を取らない別実行で測っています。trace上の時間と速度測定の値は分けて読んでください。
 
-コード、元のONNXモデル、テストだけをGitで管理します。FashionMNISTの画像、量子化後の生成モデル、測定時のtraceと結果、生成図はスクリプトを実行して得ます。サイトの記事には実測の図と条件・結果を載せています。モデルはこの実験の再現用であり、製品品質を保証するものではありません。再利用時はFashionMNIST・PyTorch・ONNX Runtime等の利用条件も確認してください。
+## データと生成ファイル
+
+FashionMNISTの画像、量子化したモデル、trace、図は実行時に作られます。結果は主に `ai_lab/results/`、図は `figures/` に保存します。GPUメモリ実験の記事で使った測定値は `evidence/` にも置いています。
+
+モデルやデータを別の用途に使う場合は、FashionMNISTと各ライブラリのライセンスを確認してください。
