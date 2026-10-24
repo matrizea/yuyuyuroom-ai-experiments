@@ -1,0 +1,1206 @@
+{
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "torch": "2.13.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "NVIDIA GeForce RTX 5070 Ti",
+    "allocator": "native",
+    "free_bytes_before": 15738077184,
+    "total_bytes": 17094475776
+  },
+  "seed": 20261024,
+  "repeats": [
+    {
+      "repeat": 1,
+      "references": [
+        {
+          "label": "start",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        },
+        {
+          "label": "tensor_256MiB",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_while_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "del_tensor_list_still_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "clear_last_reference",
+          "allocated_bytes": 0,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_after_clear",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        }
+      ],
+      "histories": [
+        {
+          "mode": "loss_tensor",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8389120,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12583936,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16778752,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20973568,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25168384,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29363200,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33558016,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37752832,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41947648,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46142464,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": true,
+            "grad_fn": "MeanBackward0"
+          },
+          "growth_bytes": 41948160,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "loss_item",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "float",
+            "device": null,
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_gpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8388608,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12582912,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16777216,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20971520,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25165824,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29360128,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33554432,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37748736,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41943040,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46137344,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 41943040,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "no_grad_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "references": [
+        {
+          "label": "start",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        },
+        {
+          "label": "tensor_256MiB",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_while_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "del_tensor_list_still_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "clear_last_reference",
+          "allocated_bytes": 0,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_after_clear",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        }
+      ],
+      "histories": [
+        {
+          "mode": "loss_tensor",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8389120,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12583936,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16778752,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20973568,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25168384,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29363200,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33558016,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37752832,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41947648,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46142464,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": true,
+            "grad_fn": "MeanBackward0"
+          },
+          "growth_bytes": 41948160,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "loss_item",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "float",
+            "device": null,
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_gpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8388608,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12582912,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16777216,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20971520,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25165824,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29360128,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33554432,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37748736,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41943040,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46137344,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 41943040,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "no_grad_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 3,
+      "references": [
+        {
+          "label": "start",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        },
+        {
+          "label": "tensor_256MiB",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_while_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "del_tensor_list_still_live",
+          "allocated_bytes": 268435456,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "clear_last_reference",
+          "allocated_bytes": 0,
+          "reserved_bytes": 268435456
+        },
+        {
+          "label": "empty_cache_after_clear",
+          "allocated_bytes": 0,
+          "reserved_bytes": 0
+        }
+      ],
+      "histories": [
+        {
+          "mode": "loss_tensor",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8389120,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12583936,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16778752,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20973568,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25168384,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29363200,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33558016,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37752832,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41947648,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46142464,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": true,
+            "grad_fn": "MeanBackward0"
+          },
+          "growth_bytes": 41948160,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "loss_item",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "float",
+            "device": null,
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_gpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 8388608,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 12582912,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 16777216,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 20971520,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 25165824,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 29360128,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 33554432,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 37748736,
+              "reserved_bytes": 44040192
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 41943040,
+              "reserved_bytes": 65011712
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 46137344,
+              "reserved_bytes": 65011712
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cuda:0",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 41943040,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "output_detach_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        },
+        {
+          "mode": "no_grad_cpu",
+          "rows": [
+            {
+              "label": "iteration_0",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 20971520
+            },
+            {
+              "label": "iteration_1",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_2",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_3",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_4",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_5",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_6",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_7",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_8",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_9",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            },
+            {
+              "label": "iteration_10",
+              "allocated_bytes": 4194304,
+              "reserved_bytes": 23068672
+            }
+          ],
+          "stored": {
+            "stored_type": "Tensor",
+            "device": "cpu",
+            "requires_grad": false,
+            "grad_fn": null
+          },
+          "growth_bytes": 0,
+          "end": {
+            "label": "cleaned",
+            "allocated_bytes": 0,
+            "reserved_bytes": 0
+          }
+        }
+      ]
+    }
+  ]
+}

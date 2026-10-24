@@ -15,6 +15,8 @@ Gitが未導入なら、GitHubの「Code」→「Download ZIP」から取得し�
 
 ## ONNX Runtime の静的 INT8 量子化
 
+GPUメモリの参照寿命と`empty_cache()`を調べる小さな実験は、[CUDA_MEMORY.md](CUDA_MEMORY.md)を参照してください。追加のモデルやデータセットは不要です。
+
 対応記事: [ONNXのCNNを実際にINT8量子化したら速くなる？](https://yuyuyuroom.site/?p=471)
 
 Python、PyTorch、torchvisionを先に用意してください。PyTorchの組み合わせは[公式インストール案内](https://pytorch.org/get-started/locally/)で選びます。実験時は Python 3.14.4、PyTorch 2.13.0+cu130、torchvision 0.28.0+cu130、ONNX 1.22.0、ONNX Runtime 1.29.0、NumPy 2.5.2でした。推論にはCPUを使い、GPUは不要です。
