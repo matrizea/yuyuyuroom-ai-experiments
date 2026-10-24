@@ -1,0 +1,317 @@
+{
+  "created_at": "2026-10-24T20:27:39.484142+00:00",
+  "model": "depth-anything/DA3-SMALL",
+  "revision": "e08cab65ca0ec38e7826075418411ab90cab4da3",
+  "parameters": 34299463,
+  "weight_dtypes": [
+    "torch.float32"
+  ],
+  "download_or_cache_s": 0.19160228200001939,
+  "load_to_cuda_s": 3.443299245999981,
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "cuda": "13.0"
+  },
+  "protocol": {
+    "seed": 42,
+    "threads": 8,
+    "input": [
+      1,
+      3,
+      518,
+      518
+    ],
+    "weight_dtype": "float32",
+    "autocast": "bfloat16",
+    "warmups": 2,
+    "forward_repeats": 10,
+    "api_repeats": 5,
+    "tf32": false,
+    "compile": false,
+    "forward_timing": "normalized input already on CUDA; all native output heads; synchronized wall time",
+    "api_timing": "PIL input already decoded in RAM; preprocessing + transfer + model + CPU output; no download/save"
+  },
+  "images": [
+    {
+      "input": {
+        "name": "coffee",
+        "original_size": [
+          600,
+          400
+        ],
+        "crop": [
+          100,
+          0,
+          500,
+          400
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "61498061e65946b0add46ec988d03b6087cf38d3fedf7925c7eab3c1c80f947b",
+        "author": "Rachel Michetti",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          821.8813369999793
+        ],
+        "median_ms": 821.8813369999793,
+        "min_ms": 821.8813369999793,
+        "max_ms": 821.8813369999793
+      },
+      "native_api_shapes": {
+        "depth": [
+          1,
+          518,
+          518
+        ],
+        "conf": [
+          1,
+          518,
+          518
+        ],
+        "extrinsics": [
+          1,
+          3,
+          4
+        ],
+        "intrinsics": [
+          1,
+          3,
+          3
+        ]
+      },
+      "forward": {
+        "samples_ms": [
+          21.01078900000175,
+          21.4879469999687,
+          21.435663999966437,
+          21.988836999980776,
+          24.147292999998626,
+          21.10814399998162,
+          22.216300000025058,
+          21.165054999983113,
+          21.567025999956968,
+          22.603090000018256
+        ],
+        "median_ms": 21.527486499962833,
+        "min_ms": 21.01078900000175,
+        "max_ms": 24.147292999998626
+      },
+      "api": {
+        "samples_ms": [
+          30.79232499999307,
+          31.489286999999422,
+          30.3550419999965,
+          31.100412000000688,
+          30.92738200001577
+        ],
+        "median_ms": 30.92738200001577,
+        "min_ms": 30.3550419999965,
+        "max_ms": 31.489286999999422
+      },
+      "allocated_peak_mib": 345.72412109375,
+      "reserved_peak_mib": 398.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 0.6779070496559143,
+        "max": 1.6402066946029663,
+        "median": 0.8982083797454834,
+        "sha256": "9865e8e401fd33ae987686dca7652939ed9b3e160c7f19146fd307af6c8fa770"
+      }
+    },
+    {
+      "input": {
+        "name": "chelsea",
+        "original_size": [
+          451,
+          300
+        ],
+        "crop": [
+          75,
+          0,
+          375,
+          300
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "4c5cd3313df4c84490dbbcac84f15cbe3574a07dc7735c5bdfbfca397317cdda",
+        "author": "Stefan van der Walt",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          34.119488999976966
+        ],
+        "median_ms": 34.119488999976966,
+        "min_ms": 34.119488999976966,
+        "max_ms": 34.119488999976966
+      },
+      "native_api_shapes": {
+        "depth": [
+          1,
+          518,
+          518
+        ],
+        "conf": [
+          1,
+          518,
+          518
+        ],
+        "extrinsics": [
+          1,
+          3,
+          4
+        ],
+        "intrinsics": [
+          1,
+          3,
+          3
+        ]
+      },
+      "forward": {
+        "samples_ms": [
+          20.772056999987853,
+          21.01969399996051,
+          21.638481000024967,
+          21.687980999956835,
+          21.786050999992312,
+          21.460356999966734,
+          20.921014000009563,
+          20.932128999959332,
+          21.302941000044484,
+          21.535211000013987
+        ],
+        "median_ms": 21.38164900000561,
+        "min_ms": 20.772056999987853,
+        "max_ms": 21.786050999992312
+      },
+      "api": {
+        "samples_ms": [
+          30.040862000021207,
+          32.199314000024515,
+          30.41918200000282,
+          31.20587500001193,
+          32.86366699995824
+        ],
+        "median_ms": 31.20587500001193,
+        "min_ms": 30.040862000021207,
+        "max_ms": 32.86366699995824
+      },
+      "allocated_peak_mib": 345.72412109375,
+      "reserved_peak_mib": 398.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 0.7692293524742126,
+        "max": 1.404485821723938,
+        "median": 0.9278278946876526,
+        "sha256": "d1c14f99f2344b9f8332aa5e8a3f70870bb8410e0f1542d1d903b1e08b3ae92f"
+      }
+    },
+    {
+      "input": {
+        "name": "camera",
+        "original_size": [
+          512,
+          512
+        ],
+        "crop": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "41d776de9d90e2efa6faf6d9b6424a588edb3bde26d00cf13989498015a404a7",
+        "author": "Lav Varshney",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          33.12296699999706
+        ],
+        "median_ms": 33.12296699999706,
+        "min_ms": 33.12296699999706,
+        "max_ms": 33.12296699999706
+      },
+      "native_api_shapes": {
+        "depth": [
+          1,
+          518,
+          518
+        ],
+        "conf": [
+          1,
+          518,
+          518
+        ],
+        "extrinsics": [
+          1,
+          3,
+          4
+        ],
+        "intrinsics": [
+          1,
+          3,
+          3
+        ]
+      },
+      "forward": {
+        "samples_ms": [
+          20.58669499996313,
+          22.513516999993044,
+          22.1168770000304,
+          22.605397999996057,
+          22.74957100001984,
+          21.4714510000249,
+          23.307262999992417,
+          22.169025999971836,
+          21.45746000002191,
+          20.996193999962998
+        ],
+        "median_ms": 22.142951500001118,
+        "min_ms": 20.58669499996313,
+        "max_ms": 23.307262999992417
+      },
+      "api": {
+        "samples_ms": [
+          28.933394999967277,
+          29.527310999981182,
+          31.086114999993697,
+          31.245469999987563,
+          32.93410000003405
+        ],
+        "median_ms": 31.086114999993697,
+        "min_ms": 28.933394999967277,
+        "max_ms": 32.93410000003405
+      },
+      "allocated_peak_mib": 345.72412109375,
+      "reserved_peak_mib": 398.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 0.3278076648712158,
+        "max": 7.225081920623779,
+        "median": 1.1144979000091553,
+        "sha256": "f8883183e9e13921b1f72643fb9c770545aaa98bc42ec2673528edafd6aad10f"
+      }
+    }
+  ]
+}

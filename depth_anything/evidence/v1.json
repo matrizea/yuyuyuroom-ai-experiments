@@ -1,0 +1,254 @@
+{
+  "created_at": "2026-10-24T20:26:40.256358+00:00",
+  "model": "LiheYoung/depth-anything-small-hf",
+  "revision": "25216a913fa218ccb7d58cce818d52b728b6c1f6",
+  "parameters": 24785089,
+  "weight_dtypes": [
+    "torch.float32"
+  ],
+  "download_or_cache_s": 4.219192983000028,
+  "load_to_cuda_s": 4.726349083000002,
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "cuda": "13.0"
+  },
+  "protocol": {
+    "seed": 42,
+    "threads": 8,
+    "input": [
+      1,
+      3,
+      518,
+      518
+    ],
+    "weight_dtype": "float32",
+    "autocast": "bfloat16",
+    "warmups": 2,
+    "forward_repeats": 10,
+    "api_repeats": 5,
+    "tf32": false,
+    "compile": false,
+    "forward_timing": "normalized input already on CUDA; all native output heads; synchronized wall time",
+    "api_timing": "PIL input already decoded in RAM; preprocessing + transfer + model + CPU output; no download/save"
+  },
+  "images": [
+    {
+      "input": {
+        "name": "coffee",
+        "original_size": [
+          600,
+          400
+        ],
+        "crop": [
+          100,
+          0,
+          500,
+          400
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "61498061e65946b0add46ec988d03b6087cf38d3fedf7925c7eab3c1c80f947b",
+        "author": "Rachel Michetti",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          910.2965910000194
+        ],
+        "median_ms": 910.2965910000194,
+        "min_ms": 910.2965910000194,
+        "max_ms": 910.2965910000194
+      },
+      "native_api_shapes": {},
+      "forward": {
+        "samples_ms": [
+          7.963849999953254,
+          7.419088999995438,
+          7.584817999997995,
+          10.328771000047254,
+          7.475045000035152,
+          7.333570000014333,
+          7.273876999988715,
+          7.3197070000219355,
+          7.034492000002501,
+          7.144704000040747
+        ],
+        "median_ms": 7.376329500004886,
+        "min_ms": 7.034492000002501,
+        "max_ms": 10.328771000047254
+      },
+      "api": {
+        "samples_ms": [
+          11.668275000033645,
+          12.563993000014761,
+          11.98453699998936,
+          11.89477299999453,
+          13.615303999984008
+        ],
+        "median_ms": 11.98453699998936,
+        "min_ms": 11.668275000033645,
+        "max_ms": 13.615303999984008
+      },
+      "allocated_peak_mib": 254.14404296875,
+      "reserved_peak_mib": 330.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 0.0,
+        "max": 21.375,
+        "median": 12.3125,
+        "sha256": "56fb6e095a7bf4d10fde012b7538545be67ad707182751cae6146cf502e12f29"
+      }
+    },
+    {
+      "input": {
+        "name": "chelsea",
+        "original_size": [
+          451,
+          300
+        ],
+        "crop": [
+          75,
+          0,
+          375,
+          300
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "4c5cd3313df4c84490dbbcac84f15cbe3574a07dc7735c5bdfbfca397317cdda",
+        "author": "Stefan van der Walt",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          14.573369000004277
+        ],
+        "median_ms": 14.573369000004277,
+        "min_ms": 14.573369000004277,
+        "max_ms": 14.573369000004277
+      },
+      "native_api_shapes": {},
+      "forward": {
+        "samples_ms": [
+          7.355541999970683,
+          7.278749000022344,
+          7.182523999972545,
+          7.568369000011899,
+          7.266829000002417,
+          7.229580000000624,
+          7.200486999977329,
+          7.222906999970746,
+          7.228330999964783,
+          7.162844999982099
+        ],
+        "median_ms": 7.228955499982703,
+        "min_ms": 7.162844999982099,
+        "max_ms": 7.568369000011899
+      },
+      "api": {
+        "samples_ms": [
+          12.311714000020402,
+          12.327191999986553,
+          11.210446000006868,
+          11.430690999986837,
+          11.291784999968968
+        ],
+        "median_ms": 11.430690999986837,
+        "min_ms": 11.210446000006868,
+        "max_ms": 12.327191999986553
+      },
+      "allocated_peak_mib": 254.11181640625,
+      "reserved_peak_mib": 330.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 1.8671875,
+        "max": 15.625,
+        "median": 13.25,
+        "sha256": "5b705c535c33fef4f0766253901b6f83109879d319eac56da87e36f69150b216"
+      }
+    },
+    {
+      "input": {
+        "name": "camera",
+        "original_size": [
+          512,
+          512
+        ],
+        "crop": [
+          0,
+          0,
+          512,
+          512
+        ],
+        "size": [
+          518,
+          518
+        ],
+        "sha256": "41d776de9d90e2efa6faf6d9b6424a588edb3bde26d00cf13989498015a404a7",
+        "author": "Lav Varshney",
+        "license": "CC0"
+      },
+      "first_api_for_image": {
+        "samples_ms": [
+          12.51675299999988
+        ],
+        "median_ms": 12.51675299999988,
+        "min_ms": 12.51675299999988,
+        "max_ms": 12.51675299999988
+      },
+      "native_api_shapes": {},
+      "forward": {
+        "samples_ms": [
+          7.349488000045312,
+          7.240055000011125,
+          7.371351000017512,
+          7.078014000001076,
+          7.052001999966251,
+          7.083597000018926,
+          6.99323999998569,
+          7.033309999997073,
+          7.253823000041848,
+          7.076277999999547
+        ],
+        "median_ms": 7.080805500010001,
+        "min_ms": 6.99323999998569,
+        "max_ms": 7.371351000017512
+      },
+      "api": {
+        "samples_ms": [
+          11.27362400001175,
+          15.52406199999723,
+          12.17995899997959,
+          11.670259000027272,
+          12.370804999989105
+        ],
+        "median_ms": 12.17995899997959,
+        "min_ms": 11.27362400001175,
+        "max_ms": 15.52406199999723
+      },
+      "allocated_peak_mib": 254.11181640625,
+      "reserved_peak_mib": 330.0,
+      "raw": {
+        "shape": [
+          518,
+          518
+        ],
+        "min": 0.0,
+        "max": 19.375,
+        "median": 5.78125,
+        "sha256": "400210a901b14d044d2aaa4da6a7534ebd4af7fdae0f1f06dd90ee8915177db0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "coffee",
+    "original_size": [
+      600,
+      400
+    ],
+    "crop": [
+      100,
+      0,
+      500,
+      400
+    ],
+    "size": [
+      518,
+      518
+    ],
+    "sha256": "61498061e65946b0add46ec988d03b6087cf38d3fedf7925c7eab3c1c80f947b",
+    "author": "Rachel Michetti",
+    "license": "CC0"
+  },
+  {
+    "name": "chelsea",
+    "original_size": [
+      451,
+      300
+    ],
+    "crop": [
+      75,
+      0,
+      375,
+      300
+    ],
+    "size": [
+      518,
+      518
+    ],
+    "sha256": "4c5cd3313df4c84490dbbcac84f15cbe3574a07dc7735c5bdfbfca397317cdda",
+    "author": "Stefan van der Walt",
+    "license": "CC0"
+  },
+  {
+    "name": "camera",
+    "original_size": [
+      512,
+      512
+    ],
+    "crop": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "size": [
+      518,
+      518
+    ],
+    "sha256": "41d776de9d90e2efa6faf6d9b6424a588edb3bde26d00cf13989498015a404a7",
+    "author": "Lav Varshney",
+    "license": "CC0"
+  }
+]

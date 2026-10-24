@@ -1,0 +1,27 @@
+[
+  {
+    "version": "v1",
+    "model": "LiheYoung/depth-anything-small-hf",
+    "revision": "25216a913fa218ccb7d58cce818d52b728b6c1f6",
+    "checkpoint_scalars": 24785089,
+    "file_bytes": 99173660,
+    "sha256": "7997c812d8964a741eec21e6816ec2db1e442b5109ea2e7db26dcb03c9060ef0"
+  },
+  {
+    "version": "v2",
+    "model": "depth-anything/Depth-Anything-V2-Small-hf",
+    "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99",
+    "checkpoint_scalars": 24785089,
+    "file_bytes": 99173660,
+    "sha256": "3152477ce0d8d6978d76b995120de97cb5b928701fd0f817769f59e249a16b70"
+  },
+  {
+    "version": "v3",
+    "model": "depth-anything/DA3-SMALL",
+    "revision": "e08cab65ca0ec38e7826075418411ab90cab4da3",
+    "checkpoint_scalars": 34299463,
+    "file_bytes": 137248940,
+    "sha256": "364492e38a3a06d221ac75da7f6621ada3f2361cd24fde11ba79091e9f40efcf",
+    "strict_load_passed": true
+  }
+]

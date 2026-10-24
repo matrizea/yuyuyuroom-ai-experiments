@@ -12,3 +12,7 @@ ai_lab/generated_images/
 ai_lab/generated_code_*/
 nv_tesseract_lab/NV-Tesseract/
 nv_tesseract_lab/results/
+depth_anything/vendor/
+depth_anything/results/
+depth_anything/figures/
+depth_anything/viewer.html

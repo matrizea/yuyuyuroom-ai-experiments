@@ -1,0 +1,110 @@
+[
+  {
+    "version": "v1",
+    "model": "LiheYoung/depth-anything-small-hf",
+    "revision": "25216a913fa218ccb7d58cce818d52b728b6c1f6",
+    "parameters": 24785089,
+    "weight_dtypes": [
+      "torch.float32"
+    ],
+    "load_s": 4.726349083000002,
+    "forward_median_ms": 7.246939000026487,
+    "api_median_ms": 11.98453699998936,
+    "peak_allocated_mib": 254.14404296875,
+    "peak_reserved_mib": 330.0,
+    "raw_ranges": {
+      "coffee": [
+        0.0,
+        21.375
+      ],
+      "chelsea": [
+        1.8671875,
+        15.625
+      ],
+      "camera": [
+        0.0,
+        19.375
+      ]
+    },
+    "native_api_shapes": {}
+  },
+  {
+    "version": "v2",
+    "model": "depth-anything/Depth-Anything-V2-Small-hf",
+    "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99",
+    "parameters": 24785089,
+    "weight_dtypes": [
+      "torch.float32"
+    ],
+    "load_s": 1.9713082060000033,
+    "forward_median_ms": 7.3646260000259645,
+    "api_median_ms": 11.784018000014385,
+    "peak_allocated_mib": 254.14404296875,
+    "peak_reserved_mib": 330.0,
+    "raw_ranges": {
+      "coffee": [
+        0.0,
+        7.25
+      ],
+      "chelsea": [
+        0.05810546875,
+        5.21875
+      ],
+      "camera": [
+        0.0,
+        4.75
+      ]
+    },
+    "native_api_shapes": {}
+  },
+  {
+    "version": "v3",
+    "model": "depth-anything/DA3-SMALL",
+    "revision": "e08cab65ca0ec38e7826075418411ab90cab4da3",
+    "parameters": 34299463,
+    "weight_dtypes": [
+      "torch.float32"
+    ],
+    "load_s": 3.443299245999981,
+    "forward_median_ms": 21.511578999991343,
+    "api_median_ms": 31.086114999993697,
+    "peak_allocated_mib": 345.72412109375,
+    "peak_reserved_mib": 398.0,
+    "raw_ranges": {
+      "coffee": [
+        0.6779070496559143,
+        1.6402066946029663
+      ],
+      "chelsea": [
+        0.7692293524742126,
+        1.404485821723938
+      ],
+      "camera": [
+        0.3278076648712158,
+        7.225081920623779
+      ]
+    },
+    "native_api_shapes": {
+      "depth": [
+        1,
+        518,
+        518
+      ],
+      "conf": [
+        1,
+        518,
+        518
+      ],
+      "extrinsics": [
+        1,
+        3,
+        4
+      ],
+      "intrinsics": [
+        1,
+        3,
+        3
+      ]
+    }
+  }
+]

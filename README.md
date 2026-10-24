@@ -28,6 +28,7 @@ FashionMNISTを使う実験では、初回に画像をダウンロードしま�
 | HOG＋SVMとCNNを比べる | [比較実験の手順（英語）](README_EN.md#hog--linear-svm-versus-a-cnn) |
 | NumPyの学習・混合精度・RAG・ローカルLLMなど | [記事ごとの実行コマンド](EXPERIMENTS.md) |
 | NV-Tesseractで予測と異常検知を動かす | [SDKの取得と実行](nv_tesseract_lab/README.md) |
+| Depth Anything V1・V2・V3の出力と速度を比べる | [深度推定の比較](depth_anything/README.md) |
 
 ## ONNX RuntimeのINT8量子化
 
