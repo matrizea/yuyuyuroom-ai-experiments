@@ -13,9 +13,11 @@ cd ~/ai-experiments
 
 Gitが未導入なら、GitHubの「Code」→「Download ZIP」から取得しても構いません。展開後のフォルダーを `~/ai-experiments` として扱います。データセットは同梱せず、初回実行時に `torchvision` が取得します。
 
-## ONNX Runtime の静的 INT8 量子化
+## PyTorchのGPUメモリと参照寿命
 
 GPUメモリの参照寿命と`empty_cache()`を調べる小さな実験は、[CUDA_MEMORY.md](CUDA_MEMORY.md)を参照してください。追加のモデルやデータセットは不要です。
+
+## ONNX Runtime の静的 INT8 量子化
 
 対応記事: [ONNXのCNNを実際にINT8量子化したら速くなる？](https://yuyuyuroom.site/?p=471)
 
