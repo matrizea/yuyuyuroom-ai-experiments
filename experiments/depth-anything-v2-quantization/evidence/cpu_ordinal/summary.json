@@ -1,0 +1,575 @@
+{
+  "created_utc": "2026-10-25T10:59:49.071229+00:00",
+  "config": {
+    "manifest_sha256": "2bf0a933d58e1f01330f46d6c22e50fb4c8fa1dd0f810cc34e312da4f0bf3f4e",
+    "limit": null,
+    "threads": 8,
+    "inter_op_threads": 1,
+    "execution_mode": "sequential",
+    "allow_spinning": false,
+    "models": {
+      "fp32": {
+        "path": "models\\fp32.onnx",
+        "sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43"
+      },
+      "int8_dynamic": {
+        "path": "models\\int8_dynamic.onnx",
+        "sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f"
+      },
+      "int4_rtn": {
+        "path": "models\\int4_rtn.onnx",
+        "sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238"
+      },
+      "int4_fast": {
+        "path": "models\\int4_fast.onnx",
+        "sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786"
+      }
+    },
+    "input_size": 518,
+    "resize_mode": "square",
+    "previews_enabled": true
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "onnxruntime": "1.31.0",
+    "numpy": "2.5.2",
+    "opencv": "5.0.0",
+    "providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "completed_images": 256,
+  "expected_images": 256,
+  "models": {
+    "fp32": {
+      "path": "models\\fp32.onnx",
+      "sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+      "file_size_mib": 94.35752868652344,
+      "images": 256,
+      "pairs": 507,
+      "correct_pairs": 476,
+      "accuracy": 0.9388560157790927,
+      "fp32_correct_to_wrong": 0,
+      "fp32_wrong_to_correct": 0,
+      "decision_disagreements_with_fp32": 0,
+      "versus_fp32": {
+        "difference_percentage_points": 0.0,
+        "ci95_percentage_points": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 42,
+        "bootstrap_unit": "image"
+      },
+      "map_metrics": {
+        "aligned_nrmse": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0
+        },
+        "spearman_64x64": {
+          "mean": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "max": 1.0
+        },
+        "raw_rmse": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0
+        }
+      },
+      "by_category": {
+        "adverse_style": {
+          "pairs": 61,
+          "correct": 55,
+          "accuracy": 0.9016393442622951
+        },
+        "aerial": {
+          "pairs": 76,
+          "correct": 71,
+          "accuracy": 0.9342105263157895
+        },
+        "indoor": {
+          "pairs": 68,
+          "correct": 58,
+          "accuracy": 0.8529411764705882
+        },
+        "non_real": {
+          "pairs": 69,
+          "correct": 68,
+          "accuracy": 0.9855072463768116
+        },
+        "object": {
+          "pairs": 46,
+          "correct": 45,
+          "accuracy": 0.9782608695652174
+        },
+        "outdoor": {
+          "pairs": 74,
+          "correct": 68,
+          "accuracy": 0.918918918918919
+        },
+        "transparent_reflective": {
+          "pairs": 62,
+          "correct": 61,
+          "accuracy": 0.9838709677419355
+        },
+        "underwater": {
+          "pairs": 51,
+          "correct": 50,
+          "accuracy": 0.9803921568627451
+        }
+      },
+      "benchmark": {
+        "median_ms": 275.0163999153301,
+        "p90_ms": 304.34886006405577,
+        "min_ms": 184.52359992079437,
+        "iterations": 30,
+        "warmup": 5,
+        "input_shape": [
+          1,
+          3,
+          518,
+          518
+        ],
+        "timing_scope": "session.run model only",
+        "samples_ms": [
+          184.52359992079437,
+          202.2249000146985,
+          199.5001999894157,
+          196.1074999999255,
+          209.83359997626394,
+          304.50959992595017,
+          300.92419998254627,
+          276.6390999313444,
+          308.95480001345277,
+          320.5242999829352,
+          266.8993000406772,
+          272.81049999874085,
+          298.2942999806255,
+          298.23059996124357,
+          261.0639000777155,
+          283.7610000278801,
+          293.0157999508083,
+          270.4756000312045,
+          266.12479996401817,
+          274.54479993321,
+          289.0810000244528,
+          263.871300034225,
+          265.43460006359965,
+          262.76579999830574,
+          275.4879998974502,
+          277.67059998586774,
+          280.8053999906406,
+          285.8448999468237,
+          304.33100007940084,
+          273.1198000255972
+        ]
+      }
+    },
+    "int8_dynamic": {
+      "path": "models\\int8_dynamic.onnx",
+      "sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f",
+      "file_size_mib": 33.88845348358154,
+      "images": 256,
+      "pairs": 507,
+      "correct_pairs": 478,
+      "accuracy": 0.9428007889546351,
+      "fp32_correct_to_wrong": 0,
+      "fp32_wrong_to_correct": 2,
+      "decision_disagreements_with_fp32": 2,
+      "versus_fp32": {
+        "difference_percentage_points": 0.39447731755424065,
+        "ci95_percentage_points": [
+          0.0,
+          1.002004008016032
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 42,
+        "bootstrap_unit": "image"
+      },
+      "map_metrics": {
+        "aligned_nrmse": {
+          "mean": 0.02861252823429107,
+          "median": 0.02123153946593646,
+          "p90": 0.047171033970622694,
+          "max": 0.3339118272018057
+        },
+        "spearman_64x64": {
+          "mean": 0.9985361274394685,
+          "median": 0.9996052097674719,
+          "p90": 0.9999018240554864,
+          "max": 0.9999903970469883
+        },
+        "raw_rmse": {
+          "mean": 0.0551236090673612,
+          "median": 0.0466063254863304,
+          "p90": 0.08402952323662419,
+          "max": 0.382550793568828
+        }
+      },
+      "by_category": {
+        "adverse_style": {
+          "pairs": 61,
+          "correct": 55,
+          "accuracy": 0.9016393442622951
+        },
+        "aerial": {
+          "pairs": 76,
+          "correct": 71,
+          "accuracy": 0.9342105263157895
+        },
+        "indoor": {
+          "pairs": 68,
+          "correct": 58,
+          "accuracy": 0.8529411764705882
+        },
+        "non_real": {
+          "pairs": 69,
+          "correct": 68,
+          "accuracy": 0.9855072463768116
+        },
+        "object": {
+          "pairs": 46,
+          "correct": 45,
+          "accuracy": 0.9782608695652174
+        },
+        "outdoor": {
+          "pairs": 74,
+          "correct": 69,
+          "accuracy": 0.9324324324324325
+        },
+        "transparent_reflective": {
+          "pairs": 62,
+          "correct": 61,
+          "accuracy": 0.9838709677419355
+        },
+        "underwater": {
+          "pairs": 51,
+          "correct": 51,
+          "accuracy": 1.0
+        }
+      },
+      "benchmark": {
+        "median_ms": 198.79215001128614,
+        "p90_ms": 206.9780099671334,
+        "min_ms": 187.59380001574755,
+        "iterations": 30,
+        "warmup": 5,
+        "input_shape": [
+          1,
+          3,
+          518,
+          518
+        ],
+        "timing_scope": "session.run model only",
+        "samples_ms": [
+          202.4302000645548,
+          195.59430005028844,
+          188.86380002368242,
+          204.60230007302016,
+          220.1355000725016,
+          214.14990001358092,
+          204.37260007020086,
+          197.5009999005124,
+          205.1588000031188,
+          197.08209997043014,
+          200.55299997329712,
+          196.50239998009056,
+          206.65169996209443,
+          199.19299997854978,
+          198.32840003073215,
+          205.68949996959418,
+          193.53109993971884,
+          198.3913000440225,
+          203.353299992159,
+          200.98680001683533,
+          195.27400005608797,
+          209.9148000124842,
+          190.20389998331666,
+          202.60570000391454,
+          189.70650003757328,
+          201.02790009696037,
+          195.79700008034706,
+          187.59380001574755,
+          188.24040004983544,
+          196.78140000905842
+        ]
+      }
+    },
+    "int4_rtn": {
+      "path": "models\\int4_rtn.onnx",
+      "sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238",
+      "file_size_mib": 26.021737098693848,
+      "images": 256,
+      "pairs": 507,
+      "correct_pairs": 472,
+      "accuracy": 0.9309664694280079,
+      "fp32_correct_to_wrong": 11,
+      "fp32_wrong_to_correct": 7,
+      "decision_disagreements_with_fp32": 18,
+      "versus_fp32": {
+        "difference_percentage_points": -0.7889546351084813,
+        "ci95_percentage_points": [
+          -2.4096385542168677,
+          0.7984431137724545
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 42,
+        "bootstrap_unit": "image"
+      },
+      "map_metrics": {
+        "aligned_nrmse": {
+          "mean": 0.09507482545928356,
+          "median": 0.08029746216646697,
+          "p90": 0.15098608762258592,
+          "max": 0.5329403075410121
+        },
+        "spearman_64x64": {
+          "mean": 0.9902013216743389,
+          "median": 0.9953173668002709,
+          "p90": 0.9988608129626609,
+          "max": 0.9998370246172852
+        },
+        "raw_rmse": {
+          "mean": 0.2304546801770282,
+          "median": 0.19951887121431072,
+          "p90": 0.36318792820685913,
+          "max": 0.9356502230813044
+        }
+      },
+      "by_category": {
+        "adverse_style": {
+          "pairs": 61,
+          "correct": 57,
+          "accuracy": 0.9344262295081968
+        },
+        "aerial": {
+          "pairs": 76,
+          "correct": 72,
+          "accuracy": 0.9473684210526315
+        },
+        "indoor": {
+          "pairs": 68,
+          "correct": 58,
+          "accuracy": 0.8529411764705882
+        },
+        "non_real": {
+          "pairs": 69,
+          "correct": 67,
+          "accuracy": 0.9710144927536232
+        },
+        "object": {
+          "pairs": 46,
+          "correct": 44,
+          "accuracy": 0.9565217391304348
+        },
+        "outdoor": {
+          "pairs": 74,
+          "correct": 65,
+          "accuracy": 0.8783783783783784
+        },
+        "transparent_reflective": {
+          "pairs": 62,
+          "correct": 59,
+          "accuracy": 0.9516129032258065
+        },
+        "underwater": {
+          "pairs": 51,
+          "correct": 50,
+          "accuracy": 0.9803921568627451
+        }
+      },
+      "benchmark": {
+        "median_ms": 266.8727500131354,
+        "p90_ms": 280.1239500171505,
+        "min_ms": 242.31160001363605,
+        "iterations": 30,
+        "warmup": 5,
+        "input_shape": [
+          1,
+          3,
+          518,
+          518
+        ],
+        "timing_scope": "session.run model only",
+        "samples_ms": [
+          277.8634000569582,
+          242.31160001363605,
+          259.2513000126928,
+          266.15709997713566,
+          248.0961000546813,
+          260.8862000051886,
+          264.28290002513677,
+          308.69989993516356,
+          287.5899000791833,
+          272.4794000387192,
+          309.1884999303147,
+          264.71220003440976,
+          270.56209999136627,
+          263.8465999625623,
+          279.29440001025796,
+          272.8736000135541,
+          274.9038999900222,
+          243.27189999166876,
+          267.5884000491351,
+          260.2335000410676,
+          257.79429997783154,
+          278.3874999731779,
+          258.1267999485135,
+          254.51809994410723,
+          272.5116000510752,
+          272.842799895443,
+          268.22820003144443,
+          266.09689998440444,
+          274.4933000067249,
+          258.0682000843808
+        ]
+      }
+    },
+    "int4_fast": {
+      "path": "models\\int4_fast.onnx",
+      "sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786",
+      "file_size_mib": 26.021737098693848,
+      "images": 256,
+      "pairs": 507,
+      "correct_pairs": 473,
+      "accuracy": 0.9329388560157791,
+      "fp32_correct_to_wrong": 10,
+      "fp32_wrong_to_correct": 7,
+      "decision_disagreements_with_fp32": 17,
+      "versus_fp32": {
+        "difference_percentage_points": -0.591715976331361,
+        "ci95_percentage_points": [
+          -2.152641878669276,
+          0.9823182711198428
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 42,
+        "bootstrap_unit": "image"
+      },
+      "map_metrics": {
+        "aligned_nrmse": {
+          "mean": 0.09539291151689425,
+          "median": 0.07992297018726979,
+          "p90": 0.154343976112147,
+          "max": 0.5339562577487242
+        },
+        "spearman_64x64": {
+          "mean": 0.9901803092638886,
+          "median": 0.9954465462847883,
+          "p90": 0.9988453883536066,
+          "max": 0.9998378331111528
+        },
+        "raw_rmse": {
+          "mean": 0.23071596803171393,
+          "median": 0.1988693197657827,
+          "p90": 0.36493950346324067,
+          "max": 0.9228978968353474
+        }
+      },
+      "by_category": {
+        "adverse_style": {
+          "pairs": 61,
+          "correct": 57,
+          "accuracy": 0.9344262295081968
+        },
+        "aerial": {
+          "pairs": 76,
+          "correct": 72,
+          "accuracy": 0.9473684210526315
+        },
+        "indoor": {
+          "pairs": 68,
+          "correct": 58,
+          "accuracy": 0.8529411764705882
+        },
+        "non_real": {
+          "pairs": 69,
+          "correct": 67,
+          "accuracy": 0.9710144927536232
+        },
+        "object": {
+          "pairs": 46,
+          "correct": 44,
+          "accuracy": 0.9565217391304348
+        },
+        "outdoor": {
+          "pairs": 74,
+          "correct": 65,
+          "accuracy": 0.8783783783783784
+        },
+        "transparent_reflective": {
+          "pairs": 62,
+          "correct": 60,
+          "accuracy": 0.967741935483871
+        },
+        "underwater": {
+          "pairs": 51,
+          "correct": 50,
+          "accuracy": 0.9803921568627451
+        }
+      },
+      "benchmark": {
+        "median_ms": 429.5862000435591,
+        "p90_ms": 453.40609999839216,
+        "min_ms": 407.2069999529049,
+        "iterations": 30,
+        "warmup": 5,
+        "input_shape": [
+          1,
+          3,
+          518,
+          518
+        ],
+        "timing_scope": "session.run model only",
+        "samples_ms": [
+          438.74880007933825,
+          427.59239999577403,
+          420.3452999936417,
+          427.2664999589324,
+          415.16860004048795,
+          437.5325000146404,
+          434.7154999850318,
+          417.43530007079244,
+          442.2400000039488,
+          417.4619000405073,
+          425.5636999150738,
+          425.07530003786087,
+          437.1920999838039,
+          407.2069999529049,
+          417.6591000286862,
+          424.6749000158161,
+          418.8830000348389,
+          413.37309998925775,
+          435.102199902758,
+          412.14510006830096,
+          431.5800000913441,
+          408.1037000287324,
+          434.65279997326434,
+          472.863300004974,
+          489.7963999537751,
+          446.71639997977763,
+          453.4591999836266,
+          453.4002000000328,
+          443.2242999318987,
+          433.120199944824
+        ]
+      }
+    }
+  },
+  "method": {
+    "task": "DA-2K ordinal near/far accuracy; point1 is closer, predicted inverse depth point1 > point2",
+    "preprocessing": "OpenCV RGB/255(float64), square 518x518 CUBIC resize without crop (aspect ratio may change), official ImageNet normalization, float32 NCHW",
+    "point_sampling": "Direct bilinear sample equivalent to official align_corners=True upsampling to original image",
+    "map_metrics": "Native model output resolution; least-squares scale+shift candidate to FP32, RMSE/std(FP32); Spearman on bilinear 64x64 grid",
+    "confidence_interval": "Paired percentile bootstrap of whole images, 10000 resamples, seed42; no generalization beyond this fixed dataset is implied",
+    "preview": "Shared FP32 min/max for depth; scale+shift aligned difference clipped to +/-10% FP32 range"
+  }
+}

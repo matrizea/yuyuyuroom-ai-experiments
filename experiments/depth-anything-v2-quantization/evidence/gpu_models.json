@@ -1,0 +1,28 @@
+{
+  "source_fp32_sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+  "io_type": "FP32; internal noninteger tensors converted to FP16 in *_a16 and fp16 models",
+  "matmul_quantization": "48 constant MatMul weights; symmetric RTN, group32; all other weights FP16 in W8A16/W4A16",
+  "activation_note": "A16 means stored floating activation precision. CUDA may dequantize weights for GEMM; this does not certify native integer Tensor Core execution.",
+  "models": {
+    "fp16": {
+      "path": "models_gpu\\fp16.onnx",
+      "size_mib": 47.26022720336914,
+      "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999"
+    },
+    "int4_w4a16": {
+      "path": "models_gpu\\int4_w4a16.onnx",
+      "size_mib": 18.15201473236084,
+      "sha256": "6dce01bd147966138b79f8353ce8cf47d352ebc598b5a8f9d55cc163b1518e51"
+    },
+    "int8_w8a16": {
+      "path": "models_gpu\\int8_w8a16.onnx",
+      "size_mib": 28.27701473236084,
+      "sha256": "441107d295a15dfc2baf66bde6f55bfda5f5b2e5eea7f594266392bab5dbd944"
+    },
+    "int8_weight_only": {
+      "path": "models_gpu\\int8_weight_only.onnx",
+      "size_mib": 36.14673709869385,
+      "sha256": "78f5296f15c83e112bf9d67d7a2e2473600b1c0c886e120dd057134bba14217b"
+    }
+  }
+}

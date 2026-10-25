@@ -1,0 +1,140 @@
+{
+  "dataset": "DA-2K",
+  "source_url": "https://huggingface.co/datasets/depth-anything/DA-2K/resolve/main/DA-2K.zip",
+  "archive_sha256": "ff0e48e7cc53273efd1312610e51f1ec87bea0b8a22daf37125fd81246592b81",
+  "annotations_path": "data/DA-2K/annotations.json",
+  "annotations_sha256": "830d51c1145198593a0f59e19b0f3c3b53cea725deaf6494e25f9b3ab35320cb",
+  "path_base": "workspace",
+  "seed": 42,
+  "sampling": "For each sorted category, shuffle sorted image paths using a fresh random.Random(42); evaluation first, calibration next.",
+  "annotation_coordinates": "point1 and point2 are [row, column] in the original image; closer_point identifies the nearer point.",
+  "zip_filename_decoding": "Unflagged UTF-8 member filenames are decoded by recovering CP437 bytes and decoding UTF-8 when valid. archive_manifest.json retains the ZIP library's original member names for audit.",
+  "population": {
+    "image_count": 1033,
+    "pair_count": 2068,
+    "categories": {
+      "adverse_style": {
+        "images": 151,
+        "pairs": 328
+      },
+      "aerial": {
+        "images": 89,
+        "pairs": 194
+      },
+      "indoor": {
+        "images": 195,
+        "pairs": 420
+      },
+      "non_real": {
+        "images": 163,
+        "pairs": 303
+      },
+      "object": {
+        "images": 96,
+        "pairs": 148
+      },
+      "outdoor": {
+        "images": 155,
+        "pairs": 344
+      },
+      "transparent_reflective": {
+        "images": 117,
+        "pairs": 214
+      },
+      "underwater": {
+        "images": 67,
+        "pairs": 117
+      }
+    }
+  },
+  "splits": {
+    "evaluation": {
+      "manifest": "data/eval_manifest.json",
+      "manifest_sha256": "2bf0a933d58e1f01330f46d6c22e50fb4c8fa1dd0f810cc34e312da4f0bf3f4e",
+      "image_count": 256,
+      "pair_count": 507,
+      "categories": {
+        "adverse_style": {
+          "images": 32,
+          "pairs": 61
+        },
+        "aerial": {
+          "images": 32,
+          "pairs": 76
+        },
+        "indoor": {
+          "images": 32,
+          "pairs": 68
+        },
+        "non_real": {
+          "images": 32,
+          "pairs": 69
+        },
+        "object": {
+          "images": 32,
+          "pairs": 46
+        },
+        "outdoor": {
+          "images": 32,
+          "pairs": 74
+        },
+        "transparent_reflective": {
+          "images": 32,
+          "pairs": 62
+        },
+        "underwater": {
+          "images": 32,
+          "pairs": 51
+        }
+      }
+    },
+    "calibration": {
+      "manifest": "data/calibration_manifest.json",
+      "manifest_sha256": "91d3f87980ddafdac723415726a483a996b9095bbaf2c8ed665836d267ee561e",
+      "image_count": 64,
+      "pair_count": 128,
+      "categories": {
+        "adverse_style": {
+          "images": 8,
+          "pairs": 18
+        },
+        "aerial": {
+          "images": 8,
+          "pairs": 16
+        },
+        "indoor": {
+          "images": 8,
+          "pairs": 19
+        },
+        "non_real": {
+          "images": 8,
+          "pairs": 13
+        },
+        "object": {
+          "images": 8,
+          "pairs": 12
+        },
+        "outdoor": {
+          "images": 8,
+          "pairs": 17
+        },
+        "transparent_reflective": {
+          "images": 8,
+          "pairs": 14
+        },
+        "underwater": {
+          "images": 8,
+          "pairs": 19
+        }
+      }
+    }
+  },
+  "overlap_images": 0,
+  "sampling_limitations": [
+    "The evaluation is a fixed stratified subset, not the complete benchmark.",
+    "Equal images per category differs from the full benchmark category proportions.",
+    "Multiple point pairs from an image are correlated; use paired image-level bootstrap for confidence intervals.",
+    "A few hundred images can reveal large degradation but cannot establish equivalence for small percentage-point changes.",
+    "Calibration is disjoint from evaluation but drawn from the same public benchmark; it is not an independent deployment-domain validation."
+  ]
+}

@@ -29,6 +29,7 @@ FashionMNISTを使う実験では、初回に画像をダウンロードしま�
 | NumPyの学習・混合精度・RAG・ローカルLLMなど | [記事ごとの実行コマンド](EXPERIMENTS.md) |
 | NV-Tesseractで予測と異常検知を動かす | [SDKの取得と実行](nv_tesseract_lab/README.md) |
 | Depth Anything V1・V2・V3の出力と速度を比べる | [深度推定の比較](depth_anything/README.md) |
+| Depth Anything V2 SmallのFP32・INT8・INT4をCPU/GPUで比べる | [量子化と深度GTの評価](experiments/depth-anything-v2-quantization/README.md) |
 
 ## ONNX RuntimeのINT8量子化
 

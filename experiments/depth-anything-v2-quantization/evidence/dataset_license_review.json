@@ -1,0 +1,39 @@
+{
+  "review_date": "2026-10-25",
+  "nyuv2": {
+    "primary_sources_reviewed": [
+      "https://cs.nyu.edu/~fergus/datasets/nyu_depth_v2.html",
+      "https://cs.nyu.edu/~fergus/datasets/indoor_seg_support.pdf",
+      "https://cs.nyu.edu/~fergus/datasets/toolbox_nyu_depth_v2.zip"
+    ],
+    "finding": "The original author dataset page requests citation. An explicit dataset license or a dataset redistribution grant was not located in the reviewed page, original paper, or toolbox README.",
+    "attribution": "Silberman, Hoiem, Kohli, Fergus. Indoor Segmentation and Support Inference from RGBD Images. ECCV 2012.",
+    "do_not_infer": "Third-party cards referring to MIT or Apache licenses do not establish the license of the original NYUv2 images and metric depth arrays.",
+    "public_dataset_redistribution_permission_verified": false
+  },
+  "sintel": {
+    "primary_sources_reviewed": [
+      "https://sintel.is.tue.mpg.de/depth",
+      "https://sintel.is.tue.mpg.de/downloads",
+      "https://sintel.is.tue.mpg.de/about",
+      "https://files.is.tue.mpg.de/jwulff/sintel/MPI-Sintel-depth-training-20150305.zip",
+      "https://files.is.tue.mpg.de/sintel/MPI-Sintel-training_images.zip"
+    ],
+    "archive_documentation_reviewed": [
+      "data_dense/sintel/README_depth.txt",
+      "data_dense/sintel/README.txt",
+      "data_dense/sintel/sdk/python/sintel_io.py",
+      "data_dense/sintel/sdk/matlab/depth_read.m"
+    ],
+    "finding": "The MPI pages and archive documentation identify copyright holders and request scientific citation. No explicit license for redistribution of MPI's modified benchmark images or depth arrays was located.",
+    "dataset_attribution": "Butler, Wulff, Stanley, Black. A naturalistic open source movie for optical flow evaluation. ECCV 2012. MPI Sintel Depth: copyright 2015 Jonas Wulff and Michael Black, Max Planck Institute for Intelligent Systems.",
+    "original_film_license": {
+      "source": "https://durian.blender.org/sharing",
+      "license": "Creative Commons Attribution 3.0",
+      "scope": "Original Durian Open Movie project content published by Blender Foundation; do not automatically equate this with the separate MPI benchmark's terms.",
+      "requested_credit": "(c) copyright Blender Foundation | www.sintel.org"
+    },
+    "public_dataset_redistribution_permission_verified": false
+  },
+  "publication_handling": "Keep downloaded RGB/depth datasets local. Publish acquisition scripts, provenance, measured aggregate numbers and original charts. If dataset image examples are needed in a public article, resolve their applicable reproduction terms separately. This record does not assert a new license on third-party material."
+}

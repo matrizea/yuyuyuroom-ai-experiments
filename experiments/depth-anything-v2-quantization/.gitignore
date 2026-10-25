@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+/.venv*/
+/vendor/
+/models*/
+/data/
+/data_dense/
+/results*/
+*.onnx
+*.pth
+*.npy
+*.npz
+*.mat
+*.zip
+*.tar
+*.tar.gz
+*.part
