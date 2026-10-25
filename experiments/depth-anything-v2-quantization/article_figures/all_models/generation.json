@@ -5,15 +5,15 @@
   "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
   "numpy": "2.5.2",
   "matplotlib": "3.11.2",
-  "script_sha256": "d7311db9f19b870aaca90da866d566bea420dabf48efa47e4e550b761c1bd42a",
+  "script_sha256": "61d9fb4dc71f792da194f3918ec73ec352359d642fdc001c130f5a00df21a8be",
   "artifacts": {
     "metadata.json": {
-      "bytes": 39338,
-      "sha256": "62398a1c4ace7de9f3ea1ebee7a2b37b9de59b0e572aaa41287490812e0d419a"
+      "bytes": 38621,
+      "sha256": "4a5caf77e7f4bc8202262c89d726a1fef9350d0b05a1f61c5ddd16a61ba51c77"
     },
     "nyu128_aggregate_source.csv": {
-      "bytes": 581,
-      "sha256": "b09dc8f9ba4ed4d866e0871d756f3272d4843042b9057036234ab3992463a8fb"
+      "bytes": 572,
+      "sha256": "f51b2aebec2335b57c487acdcb8d7a8fdb6582bbb5de85c6b61560a3363717fa"
     },
     "nyu_all_models_fixed_nyu_0014.png": {
       "bytes": 579814,
@@ -88,16 +88,16 @@
       "sha256": "2e88da2e550eadd1bb45568ef59eb5638edbe47c8b912541e66cd31398c2a995"
     },
     "plot_all_models_dense.py": {
-      "bytes": 23061,
-      "sha256": "d7311db9f19b870aaca90da866d566bea420dabf48efa47e4e550b761c1bd42a"
+      "bytes": 23138,
+      "sha256": "61d9fb4dc71f792da194f3918ec73ec352359d642fdc001c130f5a00df21a8be"
     },
     "selected_image_metrics.csv": {
-      "bytes": 3498,
-      "sha256": "94ff9d0de029220be4f481df46d6eaecbc175bed9a93a38a2346cbc39fd361e8"
+      "bytes": 3481,
+      "sha256": "ea503d42123e0a165a4af47be083355813c1ee4b82d5bb36d0a9a32e8624aff9"
     },
     "selection_candidates.csv": {
-      "bytes": 36880,
-      "sha256": "bb088533d47af3e0449b61f43bed62c50fc8284c415e4c7d3dee44c7293442c7"
+      "bytes": 35983,
+      "sha256": "bac1e6d92ec49636f68b3f0e9cd736971eac877080c2d08c9fc45abcb6c81b8e"
     }
   }
 }

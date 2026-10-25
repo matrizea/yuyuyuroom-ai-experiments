@@ -200,9 +200,9 @@ def main():
         "all_24_mean_metric_rows_match_source_summaries": True, "row_count": len(output_rows),
         "no_images_or_GT_or_predictions_read": True, "no_inference_or_benchmark_performed": True}
     args.output_dir.mkdir(parents=True)
-    (args.output_dir / "all_models_summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (args.output_dir / "all_models_summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     with (args.output_dir / "all_models_metrics.csv").open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(output_rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(output_rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(output_rows)
     print(f"PASS: {len(output_rows)} dataset/GT/model rows; eight models; source inputs unchanged; saved {args.output_dir}")

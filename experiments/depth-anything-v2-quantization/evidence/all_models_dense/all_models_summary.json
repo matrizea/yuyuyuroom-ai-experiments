@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-25T15:52:51.752958+00:00",
+  "created_utc": "2026-10-25T16:12:49.941300+00:00",
   "model_order": [
     "fp32",
     "fp16",
@@ -19,8 +19,8 @@
     "nyu_seven": {
       "directory": "results_dense_nyu_gpu",
       "file_sha256": {
-        "summary.json": "2971bb56c725236696e922d300b0cd9489ea3e65b71562ebfa773e145877a2a3",
-        "per_image.csv": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1"
+        "summary.json": "a7dc40ee3cba58eb1ec3df98d2f3887dfef227abc31306d44f5f16f69f319ec8",
+        "per_image.csv": "819605aa13be47c5a9e7749163ac5e7b5fb643174b29c1289ed95360fd9bede1"
       },
       "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
       "provider": "CUDA",
@@ -31,8 +31,8 @@
     "nyu_fp8": {
       "directory": "results_dense_fp8_nyu_gpu",
       "file_sha256": {
-        "summary.json": "7269a888fd46f305cda9c8cdd79e3c3e16bbc3b486ee7f1f81fb7171fd9c0bbb",
-        "per_image.csv": "daa878a7fcbeefba4a90bef358418ae965790b51b7b0b35c4f4456575858f60c"
+        "summary.json": "a062abde524a871ddad80c2cc03092225b94932091b8e5f69df4ff891347a602",
+        "per_image.csv": "6490b8ff141aef595d240563d6f5f773a9eb594245d89a178b0b933b7e4b1dde"
       },
       "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
       "provider": "CUDA",
@@ -43,8 +43,8 @@
     "sintel_seven": {
       "directory": "results_dense_sintel_full_gpu",
       "file_sha256": {
-        "summary.json": "7b8061007aa9d6215f97cedc51b6632468a00d5257b513a44d970380fd5af40d",
-        "per_image.csv": "f8496fa9a67495ae42abb7f0e0675f2524786443924ba8f077af1a4230e5ca4d"
+        "summary.json": "1894826edc727dbd0a68524a15778a4cbacce64c707abfdbb0e5c3b13c08c214",
+        "per_image.csv": "87eaa113a162eb16f6f4cd7d5aee0b10cd74a1bdef16fdcfec468d5f5d1c1882"
       },
       "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
       "provider": "CUDA",
@@ -55,8 +55,8 @@
     "sintel_fp8": {
       "directory": "results_dense_fp8_sintel_gpu",
       "file_sha256": {
-        "summary.json": "932a900a26f74553e58e0479c4baba48b18f614a071656df96a865e7ab079efa",
-        "per_image.csv": "e4cf4577ca1de924db8d49647ee828dcfe494aebdee5160688093d62fc6ddc38"
+        "summary.json": "a904c63cadf5315ab8e1a4b18ea572c56502cfb349b6cd45a02602ff199bf49b",
+        "per_image.csv": "248720dfa19eb8719458ca0a2ae5c82c7158781e33c059dbe2e7f2d9b7fce68c"
       },
       "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
       "provider": "CUDA",

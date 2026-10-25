@@ -43,7 +43,7 @@ def sha256(path: Path) -> str:
 
 
 def write_json(path: Path, value: object) -> None:
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8", newline="\n")
 
 
 def workspace() -> Path:
@@ -276,11 +276,11 @@ def main() -> None:
         sample["caption_ja"] = reason + DISPLAY_CAPTION_JA
         metadata["samples"][kind] = sample
     with (output / "selected_image_metrics.csv").open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(selected_rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(selected_rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(selected_rows)
     with (output / "selection_candidates.csv").open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(candidates[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(candidates[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(candidates)
     aggregate = [{"model": model, "label": LABELS[model], "images_per_gt_kind": len(ids),
@@ -288,7 +288,7 @@ def main() -> None:
                   "inpainted_mean_abs_rel": float(np.mean([float(metrics[model, "inpainted"][identifier]["abs_rel"]) for identifier in ids]))}
                  for model in MODELS]
     with (output / "nyu128_aggregate_source.csv").open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(aggregate[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(aggregate[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(aggregate)
     for path in output.glob("nyu_all_models_*.png"):
