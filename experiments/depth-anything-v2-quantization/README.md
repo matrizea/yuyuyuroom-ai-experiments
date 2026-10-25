@@ -103,10 +103,17 @@ maskは全モデル共通のGTだけから決め、予測が苦手な画素を�
 
 `article_figures/`へ、公開した数値記録を使ったCPU/GPUグラフが出ます。元のRGB画像やGTファイルは含みません。検算スクリプトはCSVから正答数・誤差平均を再集計し、各回の推論時間から中央値を計算し直します。
 
+NYUv2をGPUで128画像評価した後は、保存した予測から4bitの差が大きい画像も描けます。元RGBやGTの配列はこの図へ含めません。
+
+```powershell
+.venv/Scripts/python.exe scripts/plot_dense_example.py --results-dir results_dense_nyu_gpu --output-dir article_figures
+```
+
 ## 途中で止まった場合
 
 - `No module named depth_anything_v2`：上の公式repoを`vendor/Depth-Anything-V2`へ取得したか確認します。モデル重みだけでは実装は揃いません。
 - DLLの読み込みに失敗する：指定したvenvのPythonとrequirementsを使っているか確認します。`runtime_init.py`はWindows用の同梱MSVC DLLを先に読み込みます。
+- パッケージ導入で`WinError 3`と長いパスが出る：深い作業フォルダー内のvenvでWindowsのパス長制限へ当たった実例がありました。短い作業場所へcloneし直してvenvを作ります。既存環境やシステム設定を変更する前に、パスを短くして確認してください。
 - CUDAがない、またはCUDA初期化エラー：CPU用とGPU用venvを取り違えていないか、Provider一覧とドライバーを確認します。実行ログだけでGPU計算と判断しません。
 - `Checkpoint configuration differs`：同じ出力フォルダーに別条件を混ぜています。既存結果を残し、別の`--output-dir`を指定します。
 - データ取得が止まった：既存ファイルのハッシュ・途中ファイルを確認します。データを別のsplitへ勝手に替えず、元のエラーを確認して再実行してください。

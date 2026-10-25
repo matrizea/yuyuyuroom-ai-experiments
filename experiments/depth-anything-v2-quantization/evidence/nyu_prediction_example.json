@@ -1,0 +1,88 @@
+{
+  "id": "nyu_0861",
+  "dataset": "NYUv2 official test subset, 128 images, seed42",
+  "provider": "CUDA",
+  "selection_reason": "Largest per-image measured-GT AbsRel(W4A16) minus AbsRel(FP32); ascending ID resolves any tie",
+  "selection_images": 128,
+  "measured_gt_abs_rel_increase_w4a16": 0.04093932616339982,
+  "measured_gt_valid_pixels": 161665,
+  "native_prediction_shape": [
+    518,
+    518
+  ],
+  "models": {
+    "fp32": {
+      "label": "FP32",
+      "measured_gt_abs_rel": 0.07166506265640077,
+      "fp32_map_alignment": {
+        "scale": 1.0,
+        "shift": 0.0,
+        "unconstrained_scale": 1.0,
+        "nonnegative_scale_boundary": false,
+        "aligned_nrmse": 0.0
+      },
+      "prediction_sha256": "988f51ab3076734be69654579ff6eaf5e358cec31153f094e18713cf768b5d39"
+    },
+    "fp16": {
+      "label": "FP16",
+      "measured_gt_abs_rel": 0.07155338570102056,
+      "fp32_map_alignment": {
+        "scale": 0.999604410166014,
+        "shift": 0.0007587859869437885,
+        "unconstrained_scale": 0.999604410166014,
+        "nonnegative_scale_boundary": false,
+        "aligned_nrmse": 0.001343897126801672
+      },
+      "prediction_sha256": "ff40f4f3b5246bd38052b6675a572ea8d363d23b0630d842b1efea4c4f104f61"
+    },
+    "int8_w8a16": {
+      "label": "INT8 W8A16",
+      "measured_gt_abs_rel": 0.07023601409311338,
+      "fp32_map_alignment": {
+        "scale": 1.0008974928218304,
+        "shift": -0.005842097828234749,
+        "unconstrained_scale": 1.0008974928218304,
+        "nonnegative_scale_boundary": false,
+        "aligned_nrmse": 0.005454271708374493
+      },
+      "prediction_sha256": "7d1f74d02c28c4d15fcc8b6c531b6dd998a60cbf3bbcf9b5f7e69b8eb24acf3d"
+    },
+    "int4_w4a16": {
+      "label": "INT4 W4A16",
+      "measured_gt_abs_rel": 0.11260438881980059,
+      "fp32_map_alignment": {
+        "scale": 1.0165477722869856,
+        "shift": -0.0295653670836451,
+        "unconstrained_scale": 1.0165477722869856,
+        "nonnegative_scale_boundary": false,
+        "aligned_nrmse": 0.15248426729095121
+      },
+      "prediction_sha256": "d9e1546a592438902ecb65be113a0530f80215462c3424ddacd6cc70015cb4fb"
+    }
+  },
+  "raw_inverse_display": {
+    "common_reference": "fp32",
+    "min": 0.0,
+    "max": 8.768038749694824,
+    "colormap": "inferno",
+    "out_of_range_colors_clipped": true
+  },
+  "difference_display": {
+    "formula": "100 * (s * prediction + t - FP32) / (max(FP32) - min(FP32))",
+    "alignment": "Least squares on all native map pixels with s >= 0, independently for each variant",
+    "fixed_percent_limits": [
+      -10,
+      10
+    ],
+    "colormap": "blue_white_red",
+    "colors_clipped": true
+  },
+  "nrmse_definition": "RMSE of positive-affine-aligned candidate versus FP32 divided by std(FP32), on all native map pixels",
+  "gt_metric_interpretation": "Measured-GT AbsRel is copied from per_image.csv after per-image oracle alignment against inverse metric GT on measured valid pixels; it is not uncalibrated absolute-distance accuracy",
+  "rgb_or_gt_arrays_loaded": false,
+  "rgb_or_gt_rendered": false,
+  "alt_ja": "NYUv2の同一入力に対するGPUモデル出力の比較。上段にFP32、FP16、INT8 W8A16、INT4 W4A16の逆深度予測を共通色域で表示し、下段にFP32へscaleとshiftを整合した差を青・白・赤で表示。INT4 W4A16で実測GTのAbsRel増加が最大だった画像を選択。元RGB画像とGT深度画像は含まない。",
+  "caption_ja": "NYUv2テスト128画像のうち、実測GTに対するAbsRelの増加（W4A16−FP32）が最大だった nyu_0861。AbsRelはFP32 0.0717、FP16 0.0716、W8A16 0.0702、W4A16 0.1126。上段は共通のFP32最小・最大値で表示したモデルの逆深度出力、下段は各出力をFP32へ正のscaleとshiftで整合した差（色域はFP32レンジの±10%）。下段はGT誤差を表すものではない。AbsRelは画像ごとのGTを用いたoracle整合後の値で、絶対距離を直接推定した精度ではない。元RGB画像・GT深度画像は掲載していない。",
+  "source_csv": "results_dense_nyu_gpu\\per_image.csv",
+  "source_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1"
+}
