@@ -1,0 +1,1534 @@
+{
+  "created_utc": "2026-10-25T15:52:51.752958+00:00",
+  "model_order": [
+    "fp32",
+    "fp16",
+    "int8_dynamic",
+    "int4_rtn",
+    "int4_fast",
+    "int8_w8a16",
+    "int4_w4a16",
+    "fp8"
+  ],
+  "reference": "fp32",
+  "aggregation": "Arithmetic mean of per-image metrics, not pooled-pixel accuracy",
+  "interpretation": "Oracle relative-depth evaluation: each image's GT fits nonnegative inverse-depth scale and shift. This is not uncalibrated absolute metric-distance accuracy.",
+  "uncertainty": "Paired image and scene/sequence cluster bootstrap, 10000 draws, seed42; scene resampling retains image-weighted mean difference",
+  "provider_note": "All rows originate from CUDA-provider sessions. Dynamic INT8 is CUDA+CPU hybrid: original profiles place DynamicQuantizeLinear and MatMulInteger on CPU. These rows are not CPU-only scores.",
+  "source_inputs": {
+    "nyu_seven": {
+      "directory": "results_dense_nyu_gpu",
+      "file_sha256": {
+        "summary.json": "2971bb56c725236696e922d300b0cd9489ea3e65b71562ebfa773e145877a2a3",
+        "per_image.csv": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1"
+      },
+      "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "provider": "CUDA",
+      "threads": 8,
+      "inter_op_threads": 1,
+      "cuda_use_tf32": false
+    },
+    "nyu_fp8": {
+      "directory": "results_dense_fp8_nyu_gpu",
+      "file_sha256": {
+        "summary.json": "7269a888fd46f305cda9c8cdd79e3c3e16bbc3b486ee7f1f81fb7171fd9c0bbb",
+        "per_image.csv": "daa878a7fcbeefba4a90bef358418ae965790b51b7b0b35c4f4456575858f60c"
+      },
+      "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "provider": "CUDA",
+      "threads": 8,
+      "inter_op_threads": 1,
+      "cuda_use_tf32": false
+    },
+    "sintel_seven": {
+      "directory": "results_dense_sintel_full_gpu",
+      "file_sha256": {
+        "summary.json": "7b8061007aa9d6215f97cedc51b6632468a00d5257b513a44d970380fd5af40d",
+        "per_image.csv": "f8496fa9a67495ae42abb7f0e0675f2524786443924ba8f077af1a4230e5ca4d"
+      },
+      "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "provider": "CUDA",
+      "threads": 8,
+      "inter_op_threads": 1,
+      "cuda_use_tf32": false
+    },
+    "sintel_fp8": {
+      "directory": "results_dense_fp8_sintel_gpu",
+      "file_sha256": {
+        "summary.json": "932a900a26f74553e58e0479c4baba48b18f614a071656df96a865e7ab079efa",
+        "per_image.csv": "e4cf4577ca1de924db8d49647ee828dcfe494aebdee5160688093d62fc6ddc38"
+      },
+      "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "provider": "CUDA",
+      "threads": 8,
+      "inter_op_threads": 1,
+      "cuda_use_tf32": false
+    }
+  },
+  "datasets": {
+    "nyu": {
+      "images": 128,
+      "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "minimum_depth_exclusive": 0.0,
+      "maximum_depth_exclusive": 10.0,
+      "fp16_opset_control_metric_check": {
+        "per_image_metric_comparisons": 1536,
+        "maximum_absolute_metric_difference": 0.0,
+        "all_selected_metrics_exactly_equal": true,
+        "note": "CSV-level check of opset17 and opset21 FP16 controls. Native-map bitwise equality is separately documented in the FP16 control evidence; this CSV-only script does not read arrays."
+      },
+      "ground_truth_variants": {
+        "inpainted": {
+          "models": {
+            "fp32": {
+              "model": "fp32",
+              "file": "fp32.onnx",
+              "sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+              "file_size_mib": 94.35752868652344,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08896354141204084,
+                "rmse": 0.40604341524122195,
+                "delta1": 0.9207822163899739,
+                "inverse_nrmse": 0.4676458270698738,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0,
+                "ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0,
+                "ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp16": {
+              "model": "fp16",
+              "file": "fp16.onnx",
+              "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+              "file_size_mib": 47.26022720336914,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08893212341884829,
+                "rmse": 0.4059499459354171,
+                "delta1": 0.9208508809407552,
+                "inverse_nrmse": 0.46738981148362463,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -3.141799319255576e-05,
+                "ci95_delta_abs_rel": [
+                  -4.947082465975234e-05,
+                  -1.262538914954857e-05
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -4.955609543222732e-05,
+                  -1.1591144124136097e-05
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.00025601558624920116,
+                "ci95_delta_inverse_nrmse": [
+                  -0.00032786509437892394,
+                  -0.00018417077580147912
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.00033258657787240314,
+                  -0.00017983904168274902
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_dynamic": {
+              "model": "int8_dynamic",
+              "file": "int8_dynamic.onnx",
+              "sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f",
+              "file_size_mib": 33.88845348358154,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08809319489390846,
+                "rmse": 0.40264764222325816,
+                "delta1": 0.9225093332926433,
+                "inverse_nrmse": 0.46094062818237985,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.0008703465181323753,
+                "ci95_delta_abs_rel": [
+                  -0.0013438400612616943,
+                  -0.00039081700352396363
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.0013513274638812852,
+                  -0.0004221586242248902
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.006705198887493996,
+                "ci95_delta_inverse_nrmse": [
+                  -0.008728308905787336,
+                  -0.0047076521485099965
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.00884525220075072,
+                  -0.004604192323725824
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_rtn": {
+              "model": "int4_rtn",
+              "file": "int4_rtn.onnx",
+              "sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238",
+              "file_size_mib": 26.021737098693848,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08733978692036504,
+                "rmse": 0.40096036407219926,
+                "delta1": 0.9217690531412761,
+                "inverse_nrmse": 0.4389378828091147,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.0016237544916757945,
+                "ci95_delta_abs_rel": [
+                  -0.0038336782272665893,
+                  0.0006544610809971145
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.003964490439373157,
+                  0.0007964692939466345
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.02870794426075912,
+                "ci95_delta_inverse_nrmse": [
+                  -0.035784255812639394,
+                  -0.0218206585239837
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.035417120752558255,
+                  -0.022120465180617728
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_fast": {
+              "model": "int4_fast",
+              "file": "int4_fast.onnx",
+              "sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786",
+              "file_size_mib": 26.021737098693848,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08733978692036504,
+                "rmse": 0.40096036407219926,
+                "delta1": 0.9217690531412761,
+                "inverse_nrmse": 0.4389378828091147,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.0016237544916757945,
+                "ci95_delta_abs_rel": [
+                  -0.0038336782272665893,
+                  0.0006544610809971145
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.003964490439373157,
+                  0.0007964692939466345
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.02870794426075912,
+                "ci95_delta_inverse_nrmse": [
+                  -0.035784255812639394,
+                  -0.0218206585239837
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.035417120752558255,
+                  -0.022120465180617728
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_w8a16": {
+              "model": "int8_w8a16",
+              "file": "int8_w8a16.onnx",
+              "sha256": "441107d295a15dfc2baf66bde6f55bfda5f5b2e5eea7f594266392bab5dbd944",
+              "file_size_mib": 28.27701473236084,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08903501380785371,
+                "rmse": 0.4059980281607972,
+                "delta1": 0.9206517028808594,
+                "inverse_nrmse": 0.46817965633711944,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 7.147239581287856e-05,
+                "ci95_delta_abs_rel": [
+                  -2.156844483152602e-05,
+                  0.00016706609704554917
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -2.2311119034649095e-05,
+                  0.00016713869227289382
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0005338292672456869,
+                "ci95_delta_inverse_nrmse": [
+                  0.00015018150295047713,
+                  0.0009335923291372563
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.00011852805694703251,
+                  0.000962662855575606
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_w4a16": {
+              "model": "int4_w4a16",
+              "file": "int4_w4a16.onnx",
+              "sha256": "6dce01bd147966138b79f8353ce8cf47d352ebc598b5a8f9d55cc163b1518e51",
+              "file_size_mib": 18.15201473236084,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.08729147323442199,
+                "rmse": 0.4007367939470151,
+                "delta1": 0.9218861897786459,
+                "inverse_nrmse": 0.4385354904701533,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.0016720681776188312,
+                "ci95_delta_abs_rel": [
+                  -0.003881967990240445,
+                  0.0006060020546789297
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.004015218041053188,
+                  0.0007467025791249455
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.029110336599720517,
+                "ci95_delta_inverse_nrmse": [
+                  -0.036196765840886914,
+                  -0.022235949635633145
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.03581664372635788,
+                  -0.02251577334465533
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp8": {
+              "model": "fp8",
+              "file": "fp8_w8a8.onnx",
+              "sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+              "file_size_mib": 27.03370952606201,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 39321600,
+              "image_means": {
+                "abs_rel": 0.09125678319830699,
+                "rmse": 0.41243289226290125,
+                "delta1": 0.9182076772054036,
+                "inverse_nrmse": 0.47816125981479485,
+                "clipped_inverse_depth_rate": 0.0,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0022932417862661586,
+                "ci95_delta_abs_rel": [
+                  0.001636263411987735,
+                  0.0029454836834391916
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.001670654691713369,
+                  0.0029211284052829056
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.010515432744921085,
+                "ci95_delta_inverse_nrmse": [
+                  0.008243131562949224,
+                  0.012779448641456904
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.008324949261954482,
+                  0.012606682950552481
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            }
+          }
+        },
+        "measured": {
+          "models": {
+            "fp32": {
+              "model": "fp32",
+              "file": "fp32.onnx",
+              "sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+              "file_size_mib": 94.35752868652344,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05179161942371911,
+                "rmse": 0.23211038253855928,
+                "delta1": 0.9756134349834134,
+                "inverse_nrmse": 0.21773143986889143,
+                "clipped_inverse_depth_rate": 0.0002335618544917808,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0,
+                "ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0,
+                "ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp16": {
+              "model": "fp16",
+              "file": "fp16.onnx",
+              "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+              "file_size_mib": 47.26022720336914,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05175738674847545,
+                "rmse": 0.2320273611796017,
+                "delta1": 0.9756552342920973,
+                "inverse_nrmse": 0.21764819281153736,
+                "clipped_inverse_depth_rate": 0.00023410970430049483,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -3.423267524366573e-05,
+                "ci95_delta_abs_rel": [
+                  -4.8981515537631395e-05,
+                  -1.9318204590109235e-05
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -4.904117128089425e-05,
+                  -1.9292895394448064e-05
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -8.324705735408833e-05,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0001403479967773362,
+                  -2.5768691652469318e-05
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0001390110063463659,
+                  -2.3936458795683844e-05
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_dynamic": {
+              "model": "int8_dynamic",
+              "file": "int8_dynamic.onnx",
+              "sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f",
+              "file_size_mib": 33.88845348358154,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05212044204584315,
+                "rmse": 0.2333879663535028,
+                "delta1": 0.9755596010783725,
+                "inverse_nrmse": 0.21936115993144992,
+                "clipped_inverse_depth_rate": 0.00023446051885963795,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0003288226221240282,
+                "ci95_delta_abs_rel": [
+                  -7.743122520377231e-05,
+                  0.0007245272855496951
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -9.347113751999482e-05,
+                  0.0007275039132698688
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0016297200625584659,
+                "ci95_delta_inverse_nrmse": [
+                  0.00031088664917100506,
+                  0.0029187232613918316
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.00025853535110939113,
+                  0.0029675953470056447
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_rtn": {
+              "model": "int4_rtn",
+              "file": "int4_rtn.onnx",
+              "sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238",
+              "file_size_mib": 26.021737098693848,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05552046559569561,
+                "rmse": 0.2454790468100571,
+                "delta1": 0.9727644312195802,
+                "inverse_nrmse": 0.22889049420763247,
+                "clipped_inverse_depth_rate": 0.00019989462848723463,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0037288461719764926,
+                "ci95_delta_abs_rel": [
+                  0.0018263364780810901,
+                  0.005622955061683754
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0019543242200186404,
+                  0.005591001915709172
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.011159054338741018,
+                "ci95_delta_inverse_nrmse": [
+                  0.00478559268654002,
+                  0.017360183916134152
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.004811668537603005,
+                  0.017331645351451846
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_fast": {
+              "model": "int4_fast",
+              "file": "int4_fast.onnx",
+              "sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786",
+              "file_size_mib": 26.021737098693848,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05552046559569561,
+                "rmse": 0.2454790468100571,
+                "delta1": 0.9727644312195802,
+                "inverse_nrmse": 0.22889049420763247,
+                "clipped_inverse_depth_rate": 0.00019989462848723463,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0037288461719764926,
+                "ci95_delta_abs_rel": [
+                  0.0018263364780810901,
+                  0.005622955061683754
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0019543242200186404,
+                  0.005591001915709172
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.011159054338741018,
+                "ci95_delta_inverse_nrmse": [
+                  0.00478559268654002,
+                  0.017360183916134152
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.004811668537603005,
+                  0.017331645351451846
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_w8a16": {
+              "model": "int8_w8a16",
+              "file": "int8_w8a16.onnx",
+              "sha256": "441107d295a15dfc2baf66bde6f55bfda5f5b2e5eea7f594266392bab5dbd944",
+              "file_size_mib": 28.27701473236084,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.051731467930212605,
+                "rmse": 0.23187353308582576,
+                "delta1": 0.9757023161217002,
+                "inverse_nrmse": 0.21774474970171803,
+                "clipped_inverse_depth_rate": 0.00022235487928325414,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -6.015149350651506e-05,
+                "ci95_delta_abs_rel": [
+                  -0.00016205556663114,
+                  4.119065990454675e-05
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.00016245039597818578,
+                  3.634421439842015e-05
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 1.3309832826557478e-05,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0003470999068926222,
+                  0.00037034427744609506
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0003351301976562259,
+                  0.0003701535058322146
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_w4a16": {
+              "model": "int4_w4a16",
+              "file": "int4_w4a16.onnx",
+              "sha256": "6dce01bd147966138b79f8353ce8cf47d352ebc598b5a8f9d55cc163b1518e51",
+              "file_size_mib": 18.15201473236084,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.05550835585112237,
+                "rmse": 0.24547322962906237,
+                "delta1": 0.9727566829328418,
+                "inverse_nrmse": 0.22884921724173563,
+                "clipped_inverse_depth_rate": 0.00019907285377416357,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.003716736427403255,
+                "ci95_delta_abs_rel": [
+                  0.001810900733483654,
+                  0.0056203083753102664
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0019380829204037522,
+                  0.00559591391585983
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.011117777372844188,
+                "ci95_delta_inverse_nrmse": [
+                  0.00477279826377023,
+                  0.017337511501357532
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.004742721916642273,
+                  0.017282539527036348
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp8": {
+              "model": "fp8",
+              "file": "fp8_w8a8.onnx",
+              "sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+              "file_size_mib": 27.03370952606201,
+              "images": 128,
+              "scenes": 95,
+              "valid_pixels": 27170135,
+              "image_means": {
+                "abs_rel": 0.0524912402086994,
+                "rmse": 0.2352164809904692,
+                "delta1": 0.9756476568539942,
+                "inverse_nrmse": 0.21983001073247965,
+                "clipped_inverse_depth_rate": 0.00023154279899485707,
+                "nonpositive_aligned_inverse_rate": 0.0
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0006996207849802929,
+                "ci95_delta_abs_rel": [
+                  9.730165295011933e-05,
+                  0.0012952200908574294
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0001326432955367793,
+                  0.0012829359477350654
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0020985708635881863,
+                "ci95_delta_inverse_nrmse": [
+                  0.00038515929610187435,
+                  0.0037569554220581248
+                ],
+                "images": 128,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.0003530039545205025,
+                  0.0038213380888542808
+                ],
+                "scene_count": 95,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sintel": {
+      "images": 64,
+      "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "minimum_depth_exclusive": 0.0,
+      "maximum_depth_exclusive": 10000.0,
+      "fp16_opset_control_metric_check": {
+        "per_image_metric_comparisons": 384,
+        "maximum_absolute_metric_difference": 0.0,
+        "all_selected_metrics_exactly_equal": true,
+        "note": "CSV-level check of opset17 and opset21 FP16 controls. Native-map bitwise equality is separately documented in the FP16 control evidence; this CSV-only script does not read arrays."
+      },
+      "ground_truth_variants": {
+        "rendered_dense": {
+          "models": {
+            "fp32": {
+              "model": "fp32",
+              "file": "fp32.onnx",
+              "sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+              "file_size_mib": 94.35752868652344,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.951151321766037,
+                "rmse": 488.6697438461076,
+                "delta1": 0.6546827350030738,
+                "inverse_nrmse": 0.41316393141864305,
+                "clipped_inverse_depth_rate": 0.014890124623391073,
+                "nonpositive_aligned_inverse_rate": 0.01487686853663545
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.0,
+                "ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0,
+                "ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  0.0,
+                  0.0
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp16": {
+              "model": "fp16",
+              "file": "fp16.onnx",
+              "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+              "file_size_mib": 47.26022720336914,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.944520279387375,
+                "rmse": 487.7243157748511,
+                "delta1": 0.6545455800483835,
+                "inverse_nrmse": 0.4131020076645825,
+                "clipped_inverse_depth_rate": 0.014879725576979523,
+                "nonpositive_aligned_inverse_rate": 0.014867836964091873
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.006631042378662071,
+                "ci95_delta_abs_rel": [
+                  -0.01392966996186639,
+                  -0.0011179565475709736
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.015731250637949074,
+                  -0.000460737952648419
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -6.192375406054184e-05,
+                "ci95_delta_inverse_nrmse": [
+                  -0.00014016490006344882,
+                  1.581066865714703e-05
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.00013611012038010952,
+                  1.2758615207161219e-05
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_dynamic": {
+              "model": "int8_dynamic",
+              "file": "int8_dynamic.onnx",
+              "sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f",
+              "file_size_mib": 33.88845348358154,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 5.055942416947982,
+                "rmse": 542.4636062162883,
+                "delta1": 0.6562254182762605,
+                "inverse_nrmse": 0.414637886980372,
+                "clipped_inverse_depth_rate": 0.01721039736745428,
+                "nonpositive_aligned_inverse_rate": 0.01719453955027041
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.10479109518194407,
+                "ci95_delta_abs_rel": [
+                  -0.03051980783917371,
+                  0.2734760119435349
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  0.0035872704420306122,
+                  0.2447391855983759
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.0014739555617289794,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0011130640653079819,
+                  0.004045447727019625
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0014992758450449036,
+                  0.004337084090412288
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_rtn": {
+              "model": "int4_rtn",
+              "file": "int4_rtn.onnx",
+              "sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238",
+              "file_size_mib": 26.021737098693848,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.491257046954274,
+                "rmse": 532.6233476531206,
+                "delta1": 0.6711114488108447,
+                "inverse_nrmse": 0.4233820659858527,
+                "clipped_inverse_depth_rate": 0.029160347985952365,
+                "nonpositive_aligned_inverse_rate": 0.02536769891742923
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.45989427481176415,
+                "ci95_delta_abs_rel": [
+                  -1.6171029757823794,
+                  0.49307753691855016
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -1.9924141167821028,
+                  0.6636544916775553
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.01021813456720962,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0005037666828555594,
+                  0.020773492552858517
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0040002729863413055,
+                  0.023970669774578356
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_fast": {
+              "model": "int4_fast",
+              "file": "int4_fast.onnx",
+              "sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786",
+              "file_size_mib": 26.021737098693848,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.491257046954274,
+                "rmse": 532.6233476531206,
+                "delta1": 0.6711114488108447,
+                "inverse_nrmse": 0.4233820659858527,
+                "clipped_inverse_depth_rate": 0.029160347985952365,
+                "nonpositive_aligned_inverse_rate": 0.02536769891742923
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.45989427481176415,
+                "ci95_delta_abs_rel": [
+                  -1.6171029757823794,
+                  0.49307753691855016
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -1.9924141167821028,
+                  0.6636544916775553
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.01021813456720962,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0005037666828555594,
+                  0.020773492552858517
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0040002729863413055,
+                  0.023970669774578356
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int8_w8a16": {
+              "model": "int8_w8a16",
+              "file": "int8_w8a16.onnx",
+              "sha256": "441107d295a15dfc2baf66bde6f55bfda5f5b2e5eea7f594266392bab5dbd944",
+              "file_size_mib": 28.27701473236084,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.980933241170252,
+                "rmse": 492.53587800265086,
+                "delta1": 0.655828444155067,
+                "inverse_nrmse": 0.4129908149964223,
+                "clipped_inverse_depth_rate": 0.014929955080424327,
+                "nonpositive_aligned_inverse_rate": 0.01491725935158531
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.029781919404214253,
+                "ci95_delta_abs_rel": [
+                  -0.0010802912432952107,
+                  0.07134834060444546
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -9.862283667349179e-06,
+                  0.08032620054647965
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": -0.000173116422220681,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0008237637965569746,
+                  0.0004986453080879248
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0010049607444973855,
+                  0.0006842448918720635
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "int4_w4a16": {
+              "model": "int4_w4a16",
+              "file": "int4_w4a16.onnx",
+              "sha256": "6dce01bd147966138b79f8353ce8cf47d352ebc598b5a8f9d55cc163b1518e51",
+              "file_size_mib": 18.15201473236084,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 4.4796230560383,
+                "rmse": 532.1019637715694,
+                "delta1": 0.6711355626607345,
+                "inverse_nrmse": 0.42322160900739786,
+                "clipped_inverse_depth_rate": 0.029151703487512146,
+                "nonpositive_aligned_inverse_rate": 0.025358424454244275
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": -0.4715282657277372,
+                "ci95_delta_abs_rel": [
+                  -1.62668712191188,
+                  0.4807846037415425
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -2.012675730505919,
+                  0.6535269412305158
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.010057677588754858,
+                "ci95_delta_inverse_nrmse": [
+                  -0.000690478187101081,
+                  0.02063450033318322
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.004198210888667415,
+                  0.02387021793379551
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            },
+            "fp8": {
+              "model": "fp8",
+              "file": "fp8_w8a8.onnx",
+              "sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+              "file_size_mib": 27.03370952606201,
+              "images": 64,
+              "scenes": 23,
+              "valid_pixels": 28566139,
+              "image_means": {
+                "abs_rel": 5.3813859188366635,
+                "rmse": 545.6778595354401,
+                "delta1": 0.6500884177067611,
+                "inverse_nrmse": 0.41516572523501544,
+                "clipped_inverse_depth_rate": 0.017273536524192806,
+                "nonpositive_aligned_inverse_rate": 0.017258222268716816
+              },
+              "versus_fp32": {
+                "mean_delta_abs_rel": 0.43023459707062706,
+                "ci95_delta_abs_rel": [
+                  -0.010831262276997206,
+                  1.169327732065602
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_abs_rel": [
+                  -0.017542766876926994,
+                  1.2376719065389845
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              },
+              "versus_fp32_inverse_nrmse": {
+                "mean_delta_inverse_nrmse": 0.002001793816372401,
+                "ci95_delta_inverse_nrmse": [
+                  -0.0009957993276061624,
+                  0.004908604792290895
+                ],
+                "images": 64,
+                "draws": 10000,
+                "seed": 42,
+                "unit": "image",
+                "positive_is_worse": true,
+                "scene_cluster_ci95_delta_inverse_nrmse": [
+                  -0.0021113427642911443,
+                  0.0055247648661711345
+                ],
+                "scene_count": 23,
+                "scene_cluster_draws": 10000,
+                "scene_cluster_seed": 42,
+                "scene_cluster_unit": "scene/sequence",
+                "scene_cluster_aggregation": "Resample whole scenes; sum selected scene delta sums / sum selected scene image counts"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "validation": {
+    "status": "PASS",
+    "source_inputs_unchanged": true,
+    "all_24_mean_metric_rows_match_source_summaries": true,
+    "row_count": 24,
+    "no_images_or_GT_or_predictions_read": true,
+    "no_inference_or_benchmark_performed": true
+  }
+}

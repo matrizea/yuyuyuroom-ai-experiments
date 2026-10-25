@@ -1,0 +1,717 @@
+{
+  "dataset": "NYUv2 labeled official test subset",
+  "manifest": "data_dense/manifest.json",
+  "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+  "subset_images": 128,
+  "subset_seed": 42,
+  "provider": "CUDA experiment outputs (some models have CPU fallback)",
+  "models_order": [
+    "fp32",
+    "fp16",
+    "int8_dynamic",
+    "int4_rtn",
+    "int4_fast",
+    "int8_w8a16",
+    "int4_w4a16",
+    "fp8"
+  ],
+  "models": {
+    "fp32": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "dd0d420daa2c26c4d45f677be0f2f8055572193b934bf88f7034f05041bbde43",
+      "label": "FP32"
+    },
+    "fp16": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+      "label": "FP16"
+    },
+    "int8_dynamic": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "b14b68bdfa6f705dd48954de5149f3e9bccac57e115a6dff767b33d601ab322f",
+      "label": "dynamic INT8"
+    },
+    "int4_rtn": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "bcb704b6f89f46a43305e497bc549f881dbf4b75b60663af51e574463596b238",
+      "label": "INT4 (FP32)"
+    },
+    "int4_fast": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "6420f730b1588c4f1842a0f08c771c2fee284079b237035871308dd78785a786",
+      "label": "INT4 (INT8 allowed)"
+    },
+    "int8_w8a16": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "441107d295a15dfc2baf66bde6f55bfda5f5b2e5eea7f594266392bab5dbd944",
+      "label": "W8A16"
+    },
+    "int4_w4a16": {
+      "result_directory": "results_dense_nyu_gpu",
+      "per_image_csv": "results_dense_nyu_gpu/per_image.csv",
+      "per_image_csv_sha256": "9f3dd3be99ab4e5e67a258703ac226f08233216923a5da5a53a3a89864192ba1",
+      "summary_sha256": "8e3f07635c0fecc69f1874c8f69f8b41e5c5cece976391bfa34bb1caba2485cd",
+      "source_model_sha256": "6dce01bd147966138b79f8353ce8cf47d352ebc598b5a8f9d55cc163b1518e51",
+      "label": "W4A16"
+    },
+    "fp8": {
+      "result_directory": "results_fp8/nyu",
+      "per_image_csv": "results_fp8/nyu/per_image.csv",
+      "per_image_csv_sha256": "daa878a7fcbeefba4a90bef358418ae965790b51b7b0b35c4f4456575858f60c",
+      "summary_sha256": "50ec38dc2e46ede5f34820ddff0bcdf358897dc86c0b03295cd2e19637bddac9",
+      "source_model_sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+      "label": "FP8 W8A8"
+    }
+  },
+  "selection": {
+    "fixed": "First image in the existing ordered manifest; independent of error and appearance.",
+    "worst": "Maximize per-image measured-GT AbsRel(model) - AbsRel(FP32) over all 7 alternatives x 128 images. Ascending image ID then model key breaks ties.",
+    "candidate_image_model_pairs": 896,
+    "worst_pair": {
+      "id": "nyu_0861",
+      "model": "int4_w4a16",
+      "measured_absrel_minus_fp32": 0.04093932616339982
+    }
+  },
+  "display": {
+    "quantity": "Raw model inverse-depth output before GT alignment",
+    "unit": "arbitrary units, not inverse meters",
+    "restore": "Bilinear align_corners=True, using dense_utils.restore_prediction, from native 518x518 to original 480x640",
+    "common_range": "Each sample uses the min and max over all eight restored model outputs, shared by its summary and all eight individual images",
+    "range_strategy": "per_sample_all_eight_models_global_min_max",
+    "per_model_normalization": false,
+    "gt_alignment_used_for_display": false,
+    "colormap": "inferno",
+    "direction": "Darker = farther, brighter = nearer",
+    "out_of_range": "None: every displayed value is inside the common range; below/above fractions are independently asserted zero"
+  },
+  "metric": {
+    "name": "AbsRel",
+    "gt_kind": "measured",
+    "definition": "mean(abs(predicted_depth - measured_depth) / measured_depth) on common GT-only valid mask",
+    "gt_unit": "meters",
+    "gt_distance_type": "depth_camera_z_projected_to_rgb",
+    "mask_rule": "isfinite(depth) & (depth > 0) & (depth < 10.0)",
+    "crop": "none, full 480x640",
+    "alignment": "Per-image, per-model least squares fit s * raw_inverse_prediction + t to 1 / measured_depth, with s >= 0; inverse depth floored at 0.1 before inversion",
+    "interpretation": "Oracle-aligned relative depth shape error; not absolute-distance accuracy without GT",
+    "label_source": "Existing per_image.csv; independently recomputed for the 16 displayed image/model pairs with a two-column np.linalg.lstsq solver"
+  },
+  "privacy_and_redistribution": {
+    "rgb_arrays_loaded": false,
+    "gt_arrays_loaded_privately_for_metric_check": true,
+    "rgb_or_gt_rendered": false,
+    "rgb_or_gt_copied_to_output": false,
+    "prediction_arrays_copied_to_output": false
+  },
+  "caption_display_ja": "色はGTへ整合する前の逆深度出力で、同じ例の8モデル全体の最小・最大値を8モデルに共通適用した。明るい色ほど近く、暗い色ほど遠い。全出力値を色域に含め、表示のクリッピングもモデル別の正規化も行わない。AbsRelは実測GTの共通有効画素で画像・モデルごとに倍率と切片を合わせ、距離へ戻した後の誤差であり、この表示色の正規化とは別の処理である。元RGB画像・GT深度画像は掲載していない。",
+  "samples": {
+    "fixed": {
+      "id": "nyu_0014",
+      "scene": "office_0007",
+      "category": "office",
+      "selection": "First image in the existing ordered manifest; independent of error and appearance.",
+      "native_prediction_shape": [
+        518,
+        518
+      ],
+      "display_shape": [
+        480,
+        640
+      ],
+      "common_vmin": 0.6455139287578288,
+      "common_vmax": 9.066316544885177,
+      "fp32_map_min": 0.9004281051807816,
+      "fp32_map_max": 8.764958825638995,
+      "measured_valid_pixels": 117818,
+      "total_pixels": 307200,
+      "measured_valid_fraction": 0.3835221354166667,
+      "private_gt_hashes_checked_against_manifest": true,
+      "models": {
+        "fp32": {
+          "label": "FP32",
+          "measured_gt_abs_rel": 0.031122659287245037,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.031122659287245225,
+            "alignment_scale": 0.10628959594498026,
+            "alignment_shift": 0.2017792212538111,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 1.8735013540549517e-16,
+          "measured_gt_absrel_minus_fp32": 0.0,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/fp32/nyu_0014.npy",
+          "native_prediction_sha256": "935ee6b3516f8434b73a5f2f039d651a76ed434f0cb68c71b38fb736ab615564",
+          "restored_prediction_min": 0.9004281051807816,
+          "restored_prediction_max": 8.764958825638995,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_fp32.png",
+          "png_sha256": "5801c8bdf82710d8e7b90f20b2d98f8eefcd0d286940c19acb5bd0552a9d796a",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するFP32の逆深度出力。実測GTによる整合後のAbsRelは0.031123。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "fp16": {
+          "label": "FP16",
+          "measured_gt_abs_rel": 0.031191023701593865,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.03119102370159341,
+            "alignment_scale": 0.10646345860886197,
+            "alignment_shift": 0.20149685486128904,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 4.544975507059235e-16,
+          "measured_gt_absrel_minus_fp32": 6.83644143488274e-05,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/fp16/nyu_0014.npy",
+          "native_prediction_sha256": "99f4441ba45ad02e8562d2b415d26307475b7211832ea2cbc9d5452515d33722",
+          "restored_prediction_min": 0.9009262825215179,
+          "restored_prediction_max": 8.7578125,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_fp16.png",
+          "png_sha256": "4bc0779f3a25f3b88d20f509de7033140b9f82c734c6c10cae00c069b982043e",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するFP16の逆深度出力。実測GTによる整合後のAbsRelは0.031191。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int8_dynamic": {
+          "label": "dynamic INT8",
+          "measured_gt_abs_rel": 0.030386938045054605,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.03038693804505463,
+            "alignment_scale": 0.10464168576980985,
+            "alignment_shift": 0.20272952999775307,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 2.42861286636753e-17,
+          "measured_gt_absrel_minus_fp32": -0.0007357212421904326,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int8_dynamic/nyu_0014.npy",
+          "native_prediction_sha256": "0d8a14838ba619b973fa13bad62e3329234fa73cf6617e5fbf3970b46e9f31be",
+          "restored_prediction_min": 0.9154972416395062,
+          "restored_prediction_max": 8.785567916758623,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_int8_dynamic.png",
+          "png_sha256": "2be00847d3bd32c64b9a528c3fc7dbd1c1959012cfb1ea6aa2919988eb878d03",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するdynamic INT8の逆深度出力。実測GTによる整合後のAbsRelは0.030387。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_rtn": {
+          "label": "INT4 (FP32)",
+          "measured_gt_abs_rel": 0.02209415422542352,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.022094154225423775,
+            "alignment_scale": 0.08957845637810266,
+            "alignment_shift": 0.2557004050649496,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 2.5326962749261384e-16,
+          "measured_gt_absrel_minus_fp32": -0.009028505061821516,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_rtn/nyu_0014.npy",
+          "native_prediction_sha256": "ada5423cb55d5b8f95f0a1b083b89e2c004353d8ea4510ed40a2fe762391bd61",
+          "restored_prediction_min": 0.6460158356201603,
+          "restored_prediction_max": 7.6773167204010715,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_int4_rtn.png",
+          "png_sha256": "71c374496d764439f04c4356a14a6c19370e0bc9b547ac35bde8adcba73f5eba",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するINT4 (FP32)の逆深度出力。実測GTによる整合後のAbsRelは0.022094。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_fast": {
+          "label": "INT4 (INT8 allowed)",
+          "measured_gt_abs_rel": 0.02209415422542352,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.022094154225423775,
+            "alignment_scale": 0.08957845637810266,
+            "alignment_shift": 0.2557004050649496,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 2.5326962749261384e-16,
+          "measured_gt_absrel_minus_fp32": -0.009028505061821516,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_fast/nyu_0014.npy",
+          "native_prediction_sha256": "ada5423cb55d5b8f95f0a1b083b89e2c004353d8ea4510ed40a2fe762391bd61",
+          "restored_prediction_min": 0.6460158356201603,
+          "restored_prediction_max": 7.6773167204010715,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_int4_fast.png",
+          "png_sha256": "b0aa2603ca62a0a2058e86eb78098bc7328ee3992bee668ee952021bba022264",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するINT4 (INT8 allowed)の逆深度出力。実測GTによる整合後のAbsRelは0.022094。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int8_w8a16": {
+          "label": "W8A16",
+          "measured_gt_abs_rel": 0.031449028895427195,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.03144902889542773,
+            "alignment_scale": 0.10645841730659411,
+            "alignment_shift": 0.20033568179073846,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 5.342948306008566e-16,
+          "measured_gt_absrel_minus_fp32": 0.0003263696081821574,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int8_w8a16/nyu_0014.npy",
+          "native_prediction_sha256": "23889ace0d1b0fab6906b47063bfcda9db046a2e1ac3b5573ee53d544e2c04ff",
+          "restored_prediction_min": 0.9136544320197308,
+          "restored_prediction_max": 8.794738387265136,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_int8_w8a16.png",
+          "png_sha256": "5817613b596e559c2eb8a987cb9611e3c0f7af50659afd3621ef9fdb3d80e69e",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するW8A16の逆深度出力。実測GTによる整合後のAbsRelは0.031449。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_w4a16": {
+          "label": "W4A16",
+          "measured_gt_abs_rel": 0.022205380331818618,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.022205380331818944,
+            "alignment_scale": 0.08935105046226616,
+            "alignment_shift": 0.2560560869842848,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 3.2612801348363973e-16,
+          "measured_gt_absrel_minus_fp32": -0.00891727895542642,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_w4a16/nyu_0014.npy",
+          "native_prediction_sha256": "fd07b02ff896738e5b2f717eb30e188f129923588bb6d53d47e4111d015b8345",
+          "restored_prediction_min": 0.6455139287578288,
+          "restored_prediction_max": 7.67578125,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_int4_w4a16.png",
+          "png_sha256": "d61d217900c2f5c6c2ef58173afa2f6563d2e5110280b38efbdeb8c25ae08ae4",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するW4A16の逆深度出力。実測GTによる整合後のAbsRelは0.022205。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "fp8": {
+          "label": "FP8 W8A8",
+          "measured_gt_abs_rel": 0.030108365453202206,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.03010836545320256,
+            "alignment_scale": 0.1079853480387301,
+            "alignment_shift": 0.20058290379789004,
+            "valid_pixels": 117818
+          },
+          "absrel_absolute_verification_error": 3.5388358909926865e-16,
+          "measured_gt_absrel_minus_fp32": -0.0010142938340428308,
+          "native_prediction_file": "results_fp8/nyu/predictions/fp8/nyu_0014.npy",
+          "native_prediction_sha256": "7201f0f9f3a7e6a3c5ccc922c737b0dba1fb20662ddfc7293b1f4412c1ae4129",
+          "restored_prediction_min": 0.88843163241256,
+          "restored_prediction_max": 9.066316544885177,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_fixed_nyu_0014_fp8.png",
+          "png_sha256": "024da72151ce73b26dcffaa400663b5907c95fe0954f26039dba582071dab7a1",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0014に対するFP8 W8A8の逆深度出力。実測GTによる整合後のAbsRelは0.030108。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        }
+      },
+      "summary_png": "nyu_all_models_fixed_nyu_0014.png",
+      "summary_png_sha256": "0b757bdf0bfdeea6a66523becea6b9d27f85b538f1ab47ab3d1ee2362cf8349d",
+      "summary_png_size": [
+        1600,
+        2680
+      ],
+      "alt_ja": "NYUv2のnyu_0014に対する8モデルの逆深度出力を2列4行で比較。FP32、FP16、dynamic INT8、INT4（FP32）、INT4（INT8許可）、W8A16、W4A16、FP8 W8A8を、8モデル全体の最小・最大値による共通色域で表示。各出力に実測GTによる整合後のAbsRelを付記。クリッピングなし、元RGB・GT画像は含まない。",
+      "caption_ja": "既存のNYUv2テスト128画像manifestの先頭nyu_0014を固定例とした。誤差や見た目による選定ではない。色はGTへ整合する前の逆深度出力で、同じ例の8モデル全体の最小・最大値を8モデルに共通適用した。明るい色ほど近く、暗い色ほど遠い。全出力値を色域に含め、表示のクリッピングもモデル別の正規化も行わない。AbsRelは実測GTの共通有効画素で画像・モデルごとに倍率と切片を合わせ、距離へ戻した後の誤差であり、この表示色の正規化とは別の処理である。元RGB画像・GT深度画像は掲載していない。"
+    },
+    "worst": {
+      "id": "nyu_0861",
+      "scene": "kitchen_0044",
+      "category": "kitchen",
+      "selection": "Maximize per-image measured-GT AbsRel(model) - AbsRel(FP32) over all 7 alternatives x 128 images. Ascending image ID then model key breaks ties.",
+      "native_prediction_shape": [
+        518,
+        518
+      ],
+      "display_shape": [
+        480,
+        640
+      ],
+      "common_vmin": 0.0,
+      "common_vmax": 8.966890657620041,
+      "fp32_map_min": 0.0,
+      "fp32_map_max": 8.767753523426414,
+      "measured_valid_pixels": 161665,
+      "total_pixels": 307200,
+      "measured_valid_fraction": 0.5262532552083333,
+      "private_gt_hashes_checked_against_manifest": true,
+      "models": {
+        "fp32": {
+          "label": "FP32",
+          "measured_gt_abs_rel": 0.07166506265640077,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.07166506265640103,
+            "alignment_scale": 0.16938385470903145,
+            "alignment_shift": 0.15601567802936978,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 2.636779683484747e-16,
+          "measured_gt_absrel_minus_fp32": 0.0,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/fp32/nyu_0861.npy",
+          "native_prediction_sha256": "988f51ab3076734be69654579ff6eaf5e358cec31153f094e18713cf768b5d39",
+          "restored_prediction_min": 0.0,
+          "restored_prediction_max": 8.767753523426414,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_fp32.png",
+          "png_sha256": "06ce95b35d69940376a10c159e9242ca1ec7c1394088481645a7558e031ff56a",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するFP32の逆深度出力。実測GTによる整合後のAbsRelは0.071665。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "fp16": {
+          "label": "FP16",
+          "measured_gt_abs_rel": 0.07155338570102056,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.07155338570102009,
+            "alignment_scale": 0.16934407705125942,
+            "alignment_shift": 0.1561286529572891,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 4.718447854656915e-16,
+          "measured_gt_absrel_minus_fp32": -0.0001116769553802105,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/fp16/nyu_0861.npy",
+          "native_prediction_sha256": "ff40f4f3b5246bd38052b6675a572ea8d363d23b0630d842b1efea4c4f104f61",
+          "restored_prediction_min": 0.0,
+          "restored_prediction_max": 8.762526096033403,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_fp16.png",
+          "png_sha256": "8ed7ccd67454a4b2a9491153e93f699e50705cfa04cd39162e8de64cc3e73913",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するFP16の逆深度出力。実測GTによる整合後のAbsRelは0.071553。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int8_dynamic": {
+          "label": "dynamic INT8",
+          "measured_gt_abs_rel": 0.06845708069139012,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.06845708069139,
+            "alignment_scale": 0.17021329243266806,
+            "alignment_shift": 0.15179164506348314,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 1.1102230246251565e-16,
+          "measured_gt_absrel_minus_fp32": -0.0032079819650106534,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int8_dynamic/nyu_0861.npy",
+          "native_prediction_sha256": "ab27e7fb5f2cd062969c34f19d993d6a498b10e600857fd583b748fe8cd69d4b",
+          "restored_prediction_min": 0.0,
+          "restored_prediction_max": 8.719957708068083,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_int8_dynamic.png",
+          "png_sha256": "3f2cacaead3ed8a9b0e3826c57190e503f0068c34b032999e83b38f07ba9cc29",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するdynamic INT8の逆深度出力。実測GTによる整合後のAbsRelは0.068457。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_rtn": {
+          "label": "INT4 (FP32)",
+          "measured_gt_abs_rel": 0.11175927289140461,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.11175927289140528,
+            "alignment_scale": 0.17896451934819715,
+            "alignment_shift": 0.13881532031346835,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 6.661338147750939e-16,
+          "measured_gt_absrel_minus_fp32": 0.04009421023500384,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_rtn/nyu_0861.npy",
+          "native_prediction_sha256": "dba38cd2d16ae893daf440ce07b430be76088b3c0098fa4197cec66e997ef266",
+          "restored_prediction_min": 0.18287562877871089,
+          "restored_prediction_max": 8.962679506592561,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_int4_rtn.png",
+          "png_sha256": "a92818269d0c5f38e4d7f465df5df75a282ad3aa2dca77377ffcb87f94d57d2b",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するINT4 (FP32)の逆深度出力。実測GTによる整合後のAbsRelは0.111759。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_fast": {
+          "label": "INT4 (INT8 allowed)",
+          "measured_gt_abs_rel": 0.11175927289140461,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.11175927289140528,
+            "alignment_scale": 0.17896451934819715,
+            "alignment_shift": 0.13881532031346835,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 6.661338147750939e-16,
+          "measured_gt_absrel_minus_fp32": 0.04009421023500384,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_fast/nyu_0861.npy",
+          "native_prediction_sha256": "dba38cd2d16ae893daf440ce07b430be76088b3c0098fa4197cec66e997ef266",
+          "restored_prediction_min": 0.18287562877871089,
+          "restored_prediction_max": 8.962679506592561,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_int4_fast.png",
+          "png_sha256": "7bce9f0aa473229866df79af9096424f7245c2e45423798a05a6e761f58320a0",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するINT4 (INT8 allowed)の逆深度出力。実測GTによる整合後のAbsRelは0.111759。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int8_w8a16": {
+          "label": "W8A16",
+          "measured_gt_abs_rel": 0.07023601409311338,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.07023601409311322,
+            "alignment_scale": 0.1696054821901784,
+            "alignment_shift": 0.15488363111076497,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 1.5265566588595902e-16,
+          "measured_gt_absrel_minus_fp32": -0.0014290485632873912,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int8_w8a16/nyu_0861.npy",
+          "native_prediction_sha256": "7d1f74d02c28c4d15fcc8b6c531b6dd998a60cbf3bbcf9b5f7e69b8eb24acf3d",
+          "restored_prediction_min": 0.0,
+          "restored_prediction_max": 8.770338596033403,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_int8_w8a16.png",
+          "png_sha256": "2e88da2e550eadd1bb45568ef59eb5638edbe47c8b912541e66cd31398c2a995",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するW8A16の逆深度出力。実測GTによる整合後のAbsRelは0.070236。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "int4_w4a16": {
+          "label": "W4A16",
+          "measured_gt_abs_rel": 0.11260438881980059,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.11260438881980066,
+            "alignment_scale": 0.17892097250469008,
+            "alignment_shift": 0.13892508768765677,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 6.938893903907228e-17,
+          "measured_gt_absrel_minus_fp32": 0.04093932616339982,
+          "native_prediction_file": "results_dense_nyu_gpu/predictions/int4_w4a16/nyu_0861.npy",
+          "native_prediction_sha256": "d9e1546a592438902ecb65be113a0530f80215462c3424ddacd6cc70015cb4fb",
+          "restored_prediction_min": 0.18381334064565932,
+          "restored_prediction_max": 8.966890657620041,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_int4_w4a16.png",
+          "png_sha256": "9aff756d84e8222314509f52f7a7b589ed1448e629244041335ae1265295094e",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するW4A16の逆深度出力。実測GTによる整合後のAbsRelは0.112604。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        },
+        "fp8": {
+          "label": "FP8 W8A8",
+          "measured_gt_abs_rel": 0.07804370391302941,
+          "measured_gt_absrel_independent_check": {
+            "abs_rel": 0.07804370391302942,
+            "alignment_scale": 0.16719409772760538,
+            "alignment_shift": 0.16690825514515983,
+            "valid_pixels": 161665
+          },
+          "absrel_absolute_verification_error": 1.3877787807814457e-17,
+          "measured_gt_absrel_minus_fp32": 0.006378641256628639,
+          "native_prediction_file": "results_fp8/nyu/predictions/fp8/nyu_0861.npy",
+          "native_prediction_sha256": "f87fe8bdbc82a05815bba6dd2191a709a5275bd1f9b306e28f1296a0e9293e03",
+          "restored_prediction_min": 0.0,
+          "restored_prediction_max": 8.859375,
+          "display_clipped_below_fraction": 0.0,
+          "display_clipped_above_fraction": 0.0,
+          "png": "nyu_all_models_worst_nyu_0861_fp8.png",
+          "png_sha256": "235279791c0f5388846e938b0229613c3057fa86cad343382b1ae5461eebbe55",
+          "png_size": [
+            1280,
+            1120
+          ],
+          "alt_ja": "nyu_0861に対するFP8 W8A8の逆深度出力。実測GTによる整合後のAbsRelは0.078044。8モデル全体の最小・最大値による共通色域で明るいほど近い。クリッピングなし、元RGB・GT画像は含まない。"
+        }
+      },
+      "summary_png": "nyu_all_models_worst_nyu_0861.png",
+      "summary_png_sha256": "72f2edc89de0812282fa822cb61767d1ad1053f856f3aae309e313247853837b",
+      "summary_png_size": [
+        1600,
+        2680
+      ],
+      "alt_ja": "NYUv2のnyu_0861に対する8モデルの逆深度出力を2列4行で比較。FP32、FP16、dynamic INT8、INT4（FP32）、INT4（INT8許可）、W8A16、W4A16、FP8 W8A8を、8モデル全体の最小・最大値による共通色域で表示。各出力に実測GTによる整合後のAbsRelを付記。クリッピングなし、元RGB・GT画像は含まない。",
+      "caption_ja": "NYUv2テスト128画像×FP32以外の7モデルの896組から、実測GTに対するAbsRelのFP32比増加が最大の例nyu_0861を選んだ。最大はW4A16の+0.040939。典型例や平均的な画質を表すものではない。色はGTへ整合する前の逆深度出力で、同じ例の8モデル全体の最小・最大値を8モデルに共通適用した。明るい色ほど近く、暗い色ほど遠い。全出力値を色域に含め、表示のクリッピングもモデル別の正規化も行わない。AbsRelは実測GTの共通有効画素で画像・モデルごとに倍率と切片を合わせ、距離へ戻した後の誤差であり、この表示色の正規化とは別の処理である。元RGB画像・GT深度画像は掲載していない。"
+    }
+  },
+  "model_image_links": {
+    "fp32": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.031122659287245037,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_fp32.png",
+        "image_sha256": "5801c8bdf82710d8e7b90f20b2d98f8eefcd0d286940c19acb5bd0552a9d796a"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.07166506265640077,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_fp32.png",
+        "image_sha256": "06ce95b35d69940376a10c159e9242ca1ec7c1394088481645a7558e031ff56a"
+      }
+    },
+    "fp16": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.031191023701593865,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_fp16.png",
+        "image_sha256": "4bc0779f3a25f3b88d20f509de7033140b9f82c734c6c10cae00c069b982043e"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.07155338570102056,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_fp16.png",
+        "image_sha256": "8ed7ccd67454a4b2a9491153e93f699e50705cfa04cd39162e8de64cc3e73913"
+      }
+    },
+    "int8_dynamic": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.030386938045054605,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_int8_dynamic.png",
+        "image_sha256": "2be00847d3bd32c64b9a528c3fc7dbd1c1959012cfb1ea6aa2919988eb878d03"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.06845708069139012,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_int8_dynamic.png",
+        "image_sha256": "3f2cacaead3ed8a9b0e3826c57190e503f0068c34b032999e83b38f07ba9cc29"
+      }
+    },
+    "int4_rtn": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.02209415422542352,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_int4_rtn.png",
+        "image_sha256": "71c374496d764439f04c4356a14a6c19370e0bc9b547ac35bde8adcba73f5eba"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.11175927289140461,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_int4_rtn.png",
+        "image_sha256": "a92818269d0c5f38e4d7f465df5df75a282ad3aa2dca77377ffcb87f94d57d2b"
+      }
+    },
+    "int4_fast": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.02209415422542352,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_int4_fast.png",
+        "image_sha256": "b0aa2603ca62a0a2058e86eb78098bc7328ee3992bee668ee952021bba022264"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.11175927289140461,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_int4_fast.png",
+        "image_sha256": "7bce9f0aa473229866df79af9096424f7245c2e45423798a05a6e761f58320a0"
+      }
+    },
+    "int8_w8a16": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.031449028895427195,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_int8_w8a16.png",
+        "image_sha256": "5817613b596e559c2eb8a987cb9611e3c0f7af50659afd3621ef9fdb3d80e69e"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.07023601409311338,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_int8_w8a16.png",
+        "image_sha256": "2e88da2e550eadd1bb45568ef59eb5638edbe47c8b912541e66cd31398c2a995"
+      }
+    },
+    "int4_w4a16": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.022205380331818618,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_int4_w4a16.png",
+        "image_sha256": "d61d217900c2f5c6c2ef58173afa2f6563d2e5110280b38efbdeb8c25ae08ae4"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.11260438881980059,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_int4_w4a16.png",
+        "image_sha256": "9aff756d84e8222314509f52f7a7b589ed1448e629244041335ae1265295094e"
+      }
+    },
+    "fp8": {
+      "fixed": {
+        "sample_id": "nyu_0014",
+        "measured_gt_abs_rel": 0.030108365453202206,
+        "image_relative_path": "nyu_all_models_fixed_nyu_0014_fp8.png",
+        "image_sha256": "024da72151ce73b26dcffaa400663b5907c95fe0954f26039dba582071dab7a1"
+      },
+      "worst": {
+        "sample_id": "nyu_0861",
+        "measured_gt_abs_rel": 0.07804370391302941,
+        "image_relative_path": "nyu_all_models_worst_nyu_0861_fp8.png",
+        "image_sha256": "235279791c0f5388846e938b0229613c3057fa86cad343382b1ae5461eebbe55"
+      }
+    }
+  },
+  "checks": {
+    "all_source_rows_complete": true,
+    "all_source_provider_cuda": true,
+    "all_source_manifest_hashes_match": true,
+    "displayed_metric_checks": 16,
+    "max_absrel_verification_error": 6.661338147750939e-16,
+    "gt_mask_valid_counts_match_all_displayed_csv_rows": true,
+    "all_display_clipping_fractions_zero": true,
+    "original_rgb_files_opened": 0,
+    "gt_or_rgb_arrays_written_to_output": 0
+  }
+}

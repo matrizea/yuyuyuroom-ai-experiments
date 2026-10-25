@@ -1,0 +1,103 @@
+{
+  "generator": "scripts/plot_all_models_dense.py",
+  "command": ".venv/Scripts/python.exe scripts/plot_all_models_dense.py --output-dir work/depth_quant_article/all_models_figures",
+  "default_public_output_directory": "article_figures/all_models",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.2",
+  "matplotlib": "3.11.2",
+  "script_sha256": "d7311db9f19b870aaca90da866d566bea420dabf48efa47e4e550b761c1bd42a",
+  "artifacts": {
+    "metadata.json": {
+      "bytes": 39338,
+      "sha256": "62398a1c4ace7de9f3ea1ebee7a2b37b9de59b0e572aaa41287490812e0d419a"
+    },
+    "nyu128_aggregate_source.csv": {
+      "bytes": 581,
+      "sha256": "b09dc8f9ba4ed4d866e0871d756f3272d4843042b9057036234ab3992463a8fb"
+    },
+    "nyu_all_models_fixed_nyu_0014.png": {
+      "bytes": 579814,
+      "sha256": "0b757bdf0bfdeea6a66523becea6b9d27f85b538f1ab47ab3d1ee2362cf8349d"
+    },
+    "nyu_all_models_fixed_nyu_0014_fp16.png": {
+      "bytes": 133463,
+      "sha256": "4bc0779f3a25f3b88d20f509de7033140b9f82c734c6c10cae00c069b982043e"
+    },
+    "nyu_all_models_fixed_nyu_0014_fp32.png": {
+      "bytes": 131643,
+      "sha256": "5801c8bdf82710d8e7b90f20b2d98f8eefcd0d286940c19acb5bd0552a9d796a"
+    },
+    "nyu_all_models_fixed_nyu_0014_fp8.png": {
+      "bytes": 134872,
+      "sha256": "024da72151ce73b26dcffaa400663b5907c95fe0954f26039dba582071dab7a1"
+    },
+    "nyu_all_models_fixed_nyu_0014_int4_fast.png": {
+      "bytes": 137286,
+      "sha256": "b0aa2603ca62a0a2058e86eb78098bc7328ee3992bee668ee952021bba022264"
+    },
+    "nyu_all_models_fixed_nyu_0014_int4_rtn.png": {
+      "bytes": 135934,
+      "sha256": "71c374496d764439f04c4356a14a6c19370e0bc9b547ac35bde8adcba73f5eba"
+    },
+    "nyu_all_models_fixed_nyu_0014_int4_w4a16.png": {
+      "bytes": 136268,
+      "sha256": "d61d217900c2f5c6c2ef58173afa2f6563d2e5110280b38efbdeb8c25ae08ae4"
+    },
+    "nyu_all_models_fixed_nyu_0014_int8_dynamic.png": {
+      "bytes": 134068,
+      "sha256": "2be00847d3bd32c64b9a528c3fc7dbd1c1959012cfb1ea6aa2919988eb878d03"
+    },
+    "nyu_all_models_fixed_nyu_0014_int8_w8a16.png": {
+      "bytes": 134741,
+      "sha256": "5817613b596e559c2eb8a987cb9611e3c0f7af50659afd3621ef9fdb3d80e69e"
+    },
+    "nyu_all_models_worst_nyu_0861.png": {
+      "bytes": 624909,
+      "sha256": "72f2edc89de0812282fa822cb61767d1ad1053f856f3aae309e313247853837b"
+    },
+    "nyu_all_models_worst_nyu_0861_fp16.png": {
+      "bytes": 141235,
+      "sha256": "8ed7ccd67454a4b2a9491153e93f699e50705cfa04cd39162e8de64cc3e73913"
+    },
+    "nyu_all_models_worst_nyu_0861_fp32.png": {
+      "bytes": 140768,
+      "sha256": "06ce95b35d69940376a10c159e9242ca1ec7c1394088481645a7558e031ff56a"
+    },
+    "nyu_all_models_worst_nyu_0861_fp8.png": {
+      "bytes": 143482,
+      "sha256": "235279791c0f5388846e938b0229613c3057fa86cad343382b1ae5461eebbe55"
+    },
+    "nyu_all_models_worst_nyu_0861_int4_fast.png": {
+      "bytes": 143678,
+      "sha256": "7bce9f0aa473229866df79af9096424f7245c2e45423798a05a6e761f58320a0"
+    },
+    "nyu_all_models_worst_nyu_0861_int4_rtn.png": {
+      "bytes": 142996,
+      "sha256": "a92818269d0c5f38e4d7f465df5df75a282ad3aa2dca77377ffcb87f94d57d2b"
+    },
+    "nyu_all_models_worst_nyu_0861_int4_w4a16.png": {
+      "bytes": 142996,
+      "sha256": "9aff756d84e8222314509f52f7a7b589ed1448e629244041335ae1265295094e"
+    },
+    "nyu_all_models_worst_nyu_0861_int8_dynamic.png": {
+      "bytes": 143133,
+      "sha256": "3f2cacaead3ed8a9b0e3826c57190e503f0068c34b032999e83b38f07ba9cc29"
+    },
+    "nyu_all_models_worst_nyu_0861_int8_w8a16.png": {
+      "bytes": 142680,
+      "sha256": "2e88da2e550eadd1bb45568ef59eb5638edbe47c8b912541e66cd31398c2a995"
+    },
+    "plot_all_models_dense.py": {
+      "bytes": 23061,
+      "sha256": "d7311db9f19b870aaca90da866d566bea420dabf48efa47e4e550b761c1bd42a"
+    },
+    "selected_image_metrics.csv": {
+      "bytes": 3498,
+      "sha256": "94ff9d0de029220be4f481df46d6eaecbc175bed9a93a38a2346cbc39fd361e8"
+    },
+    "selection_candidates.csv": {
+      "bytes": 36880,
+      "sha256": "bb088533d47af3e0449b61f43bed62c50fc8284c415e4c7d3dee44c7293442c7"
+    }
+  }
+}

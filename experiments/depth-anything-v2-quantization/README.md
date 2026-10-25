@@ -141,6 +141,26 @@ NYUv2をGPUで128画像評価した後は、保存した予測から4bitの差�
 .venv/Scripts/python.exe scripts/plot_dense_example.py --results-dir results_dense_nyu_gpu --output-dir article_figures
 ```
 
+## 全8構成の出力とAbsRelを揃える
+
+FP32、FP16、dynamic INT8、INT4の2設定、W8A16、W4A16、FP8の値を同じ順で集計します。公開済みのCSVだけで表を作り直す場合は、次のコマンドを使います。モデル推論やGTファイルの取得は不要です。
+
+```powershell
+.venv/Scripts/python.exe scripts/summarize_all_models_dense.py --output-dir results/all-models
+```
+
+`all_models_metrics.csv`に、NYUv2の実測・補完GTとSintelの計24行が出ます。`all_models_summary.json`には元ファイルとモデルのハッシュ、FP32との差、撮影場所・シーケンス単位の95%信頼区間も記録します。既存の出力先は上書きしないので、再集計には別のフォルダーを指定してください。FP8節のFP16基準の差とは参照モデルが異なります。
+
+出力画像も再生成する場合は、上の手順でNYUv2のGPU評価7構成とFP8評価を全128画像について済ませ、予測配列を残します。その後、次を実行します。
+
+```powershell
+.venv/Scripts/python.exe scripts/plot_all_models_dense.py --output-dir article_figures/all_models
+```
+
+固定例は選択リスト先頭の`nyu_0014`、悪化例はFP32以外の7構成×128画像で実測GTのAbsRel増加が最大だった`nyu_0861`です。2列4行のまとめ図2枚、モデル別16枚、画像ごとのAbsRelと選定・表示条件の記録を出力します。記事の図と記録は`article_figures/all_models/`にあります。
+
+各例の全8出力の最小値・最大値を共通の色域とし、モデルごとの正規化や範囲外の切り捨ては行いません。図はGTへ整合する前の逆深度で、AbsRelは実測GTの共通有効画素で倍率・切片を合わせた後の値です。元RGBやGT画像は描画しません。画像のAbsRelは1枚ごとの値で、128画像平均とは別です。
+
 ## 途中で止まった場合
 
 - `No module named depth_anything_v2`：上の公式repoを`vendor/Depth-Anything-V2`へ取得したか確認します。モデル重みだけでは実装は揃いません。
