@@ -1,0 +1,53 @@
+{
+  "checked_utc": "2026-10-25T12:30:11.389182+00:00",
+  "pass": true,
+  "benchmark": {
+    "rounds": 3,
+    "balanced_blocks": 12,
+    "samples_per_model_per_mode": 600,
+    "opset21_for_both": true,
+    "FP8_over_FP16_host_latency_ratio": 7.0524892215052395,
+    "FP8_file_reduction_vs_FP16": 0.4279818351551061,
+    "raw_timing_median_recalculation_pass": true
+  },
+  "dense_runs": {
+    "nyu": {
+      "images": 128,
+      "GT_variants": [
+        "inpainted",
+        "measured"
+      ],
+      "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "CSV_reaggregation_pass": true,
+      "common_GT_mask_pixel_counts_pass": true,
+      "CUDA_GemmFloat8_count": 48,
+      "CPU_fallback_count": 0
+    },
+    "sintel": {
+      "images": 64,
+      "GT_variants": [
+        "rendered_dense"
+      ],
+      "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "CSV_reaggregation_pass": true,
+      "common_GT_mask_pixel_counts_pass": true,
+      "CUDA_GemmFloat8_count": 48,
+      "CPU_fallback_count": 0
+    }
+  },
+  "FP16_controls_all_192_images_bitwise_equal": true,
+  "legacy_packaging_source_hashes_unchanged": [
+    "results/summary.json",
+    "results/per_image.csv",
+    "results/per_pair.csv",
+    "results_gpu/benchmark.json",
+    "results_dense_nyu_cpu/summary.json",
+    "results_dense_nyu_cpu/per_image.csv",
+    "results_dense_nyu_gpu/summary.json",
+    "results_dense_nyu_gpu/per_image.csv",
+    "results_dense_sintel_full_cpu/summary.json",
+    "results_dense_sintel_full_cpu/per_image.csv",
+    "results_dense_sintel_full_gpu/summary.json",
+    "results_dense_sintel_full_gpu/per_image.csv"
+  ]
+}

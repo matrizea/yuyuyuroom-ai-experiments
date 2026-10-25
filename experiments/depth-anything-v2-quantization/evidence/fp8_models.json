@@ -1,0 +1,573 @@
+{
+  "source": "models_gpu\\fp16.onnx",
+  "source_sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+  "source_opset": 17,
+  "target_opset": 21,
+  "opset_conversion": "onnx.version_converter.convert_version",
+  "fp16_opset_conversion_control": "models_fp8\\fp16_opset21.onnx",
+  "opset_conversion_control_max_abs": 0.0,
+  "model": "models_fp8\\fp8_w8a8.onnx",
+  "sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+  "size_mib": 27.03370952606201,
+  "format": "48 constant MatMuls: E4M3FN W8A8; other operations FP16; external IO FP32",
+  "activation_quantization": "Static max-calibrated per-tensor, FP16-representable scale rounded upward to cover calibration amax",
+  "weight_quantization": "Per-tensor max-abs /448, nearest-even E4M3FN; transpose stored weights for native GemmFloat8",
+  "compute": "ORT CUDA GemmFloat8 -> cuBLASLt with FP8 A/B, FP32 compute type, FP8 fast accumulation enabled (FAST_ACCUM=1), FP16 output; not DQ+FP16 MatMul",
+  "native_claim_limit": "FP8 operand cuBLASLt path established by kernel source and CUDA profile; no instruction-level profiler used",
+  "fixed_input": [
+    1,
+    3,
+    518,
+    518
+  ],
+  "transformer_sequence_length": 1370,
+  "onnxruntime": "1.31.0",
+  "provider_options": {
+    "use_tf32": 0
+  },
+  "profile": "models_fp8\\model_smoke_profile_2026-10-25_21-19-41_715.json",
+  "placement": {
+    "CUDAExecutionProvider": {
+      "Cast": 2,
+      "Conv": 31,
+      "Reshape": 113,
+      "Transpose": 53,
+      "Concat": 1,
+      "Add": 70,
+      "LayerNormalization": 27,
+      "QuantizeLinear": 108,
+      "DequantizeLinear": 60,
+      "GemmFloat8": 48,
+      "Split": 12,
+      "Squeeze": 37,
+      "FusedMatMul": 12,
+      "Softmax": 12,
+      "MatMul": 12,
+      "Mul": 24,
+      "BiasGelu": 12,
+      "SkipLayerNormalization": 1,
+      "Slice": 4,
+      "Relu": 17,
+      "Resize": 5,
+      "ConvTranspose": 2
+    }
+  },
+  "finite_output": true,
+  "layers": [
+    {
+      "name": "/blocks.0/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 11.09375,
+      "activation_scale": 0.0247650146484375,
+      "weight_scale": 0.0009438651031814516
+    },
+    {
+      "name": "/blocks.0/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 8.453125,
+      "activation_scale": 0.0188751220703125,
+      "weight_scale": 0.00038092475733719766
+    },
+    {
+      "name": "/blocks.0/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 65.8125,
+      "activation_scale": 0.14697265625,
+      "weight_scale": 0.0012479509459808469
+    },
+    {
+      "name": "/blocks.0/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 13.703125,
+      "activation_scale": 0.0305938720703125,
+      "weight_scale": 0.001056671142578125
+    },
+    {
+      "name": "/blocks.1/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 24.71875,
+      "activation_scale": 0.05517578125,
+      "weight_scale": 0.00116729736328125
+    },
+    {
+      "name": "/blocks.1/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 4.23828125,
+      "activation_scale": 0.00946044921875,
+      "weight_scale": 0.00032942634425126016
+    },
+    {
+      "name": "/blocks.1/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 24.640625,
+      "activation_scale": 0.055023193359375,
+      "weight_scale": 0.0008708409150131047
+    },
+    {
+      "name": "/blocks.1/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 7.90625,
+      "activation_scale": 0.0176544189453125,
+      "weight_scale": 0.0009002685546875
+    },
+    {
+      "name": "/blocks.2/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 25.234375,
+      "activation_scale": 0.05633544921875,
+      "weight_scale": 0.0009367806487716734
+    },
+    {
+      "name": "/blocks.2/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 3.232421875,
+      "activation_scale": 0.0072174072265625,
+      "weight_scale": 0.00021580288012046367
+    },
+    {
+      "name": "/blocks.2/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 23.671875,
+      "activation_scale": 0.0528564453125,
+      "weight_scale": 0.0006931849638931453
+    },
+    {
+      "name": "/blocks.2/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 16.671875,
+      "activation_scale": 0.0372314453125,
+      "weight_scale": 0.00061798095703125
+    },
+    {
+      "name": "/blocks.3/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 30.328125,
+      "activation_scale": 0.0677490234375,
+      "weight_scale": 0.0006561279296875
+    },
+    {
+      "name": "/blocks.3/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.91796875,
+      "activation_scale": 0.0065155029296875,
+      "weight_scale": 0.00024345943529624492
+    },
+    {
+      "name": "/blocks.3/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 31.34375,
+      "activation_scale": 0.07000732421875,
+      "weight_scale": 0.0006103515625
+    },
+    {
+      "name": "/blocks.3/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 3.421875,
+      "activation_scale": 0.007640838623046875,
+      "weight_scale": 0.0006621224456466734
+    },
+    {
+      "name": "/blocks.4/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 21.90625,
+      "activation_scale": 0.048919677734375,
+      "weight_scale": 0.0005542210419662297
+    },
+    {
+      "name": "/blocks.4/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.970703125,
+      "activation_scale": 0.006633758544921875,
+      "weight_scale": 0.00020899091032333672
+    },
+    {
+      "name": "/blocks.4/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 31.6875,
+      "activation_scale": 0.07073974609375,
+      "weight_scale": 0.0005923680146224797
+    },
+    {
+      "name": "/blocks.4/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 4.44921875,
+      "activation_scale": 0.0099334716796875,
+      "weight_scale": 0.0007111685699783266
+    },
+    {
+      "name": "/blocks.5/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 19.75,
+      "activation_scale": 0.044097900390625,
+      "weight_scale": 0.000484466552734375
+    },
+    {
+      "name": "/blocks.5/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.255859375,
+      "activation_scale": 0.005035400390625,
+      "weight_scale": 0.00020231519010849297
+    },
+    {
+      "name": "/blocks.5/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 32.5,
+      "activation_scale": 0.07257080078125,
+      "weight_scale": 0.0005667550140060484
+    },
+    {
+      "name": "/blocks.5/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 5.74609375,
+      "activation_scale": 0.0128326416015625,
+      "weight_scale": 0.0005435943603515625
+    },
+    {
+      "name": "/blocks.6/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 24.03125,
+      "activation_scale": 0.05364990234375,
+      "weight_scale": 0.0007264273590408266
+    },
+    {
+      "name": "/blocks.6/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.951171875,
+      "activation_scale": 0.006587982177734375,
+      "weight_scale": 0.00020612988737411797
+    },
+    {
+      "name": "/blocks.6/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 34.1875,
+      "activation_scale": 0.07635498046875,
+      "weight_scale": 0.00040871757664717734
+    },
+    {
+      "name": "/blocks.6/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 4.87890625,
+      "activation_scale": 0.010894775390625,
+      "weight_scale": 0.0003746577713172883
+    },
+    {
+      "name": "/blocks.7/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 22.578125,
+      "activation_scale": 0.0504150390625,
+      "weight_scale": 0.00043841771548613906
+    },
+    {
+      "name": "/blocks.7/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.248046875,
+      "activation_scale": 0.0050201416015625,
+      "weight_scale": 0.00027901786961592734
+    },
+    {
+      "name": "/blocks.7/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 19.921875,
+      "activation_scale": 0.04449462890625,
+      "weight_scale": 0.0004970005829818547
+    },
+    {
+      "name": "/blocks.7/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 7.48828125,
+      "activation_scale": 0.0167236328125,
+      "weight_scale": 0.0006534031708724797
+    },
+    {
+      "name": "/blocks.8/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 25.0625,
+      "activation_scale": 0.05596923828125,
+      "weight_scale": 0.0005705697112716734
+    },
+    {
+      "name": "/blocks.8/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 3.65625,
+      "activation_scale": 0.0081634521484375,
+      "weight_scale": 0.00032588414615020156
+    },
+    {
+      "name": "/blocks.8/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 24.265625,
+      "activation_scale": 0.054168701171875,
+      "weight_scale": 0.0003643035888671875
+    },
+    {
+      "name": "/blocks.8/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 5.95703125,
+      "activation_scale": 0.01329803466796875,
+      "weight_scale": 0.00048664637142792344
+    },
+    {
+      "name": "/blocks.9/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 33.59375,
+      "activation_scale": 0.07501220703125,
+      "weight_scale": 0.00045994349056854844
+    },
+    {
+      "name": "/blocks.9/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 3.35546875,
+      "activation_scale": 0.0074920654296875,
+      "weight_scale": 0.00025612968602217734
+    },
+    {
+      "name": "/blocks.9/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 20.5625,
+      "activation_scale": 0.0458984375,
+      "weight_scale": 0.00040790013736113906
+    },
+    {
+      "name": "/blocks.9/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 11.21875,
+      "activation_scale": 0.025054931640625,
+      "weight_scale": 0.0005457741790451109
+    },
+    {
+      "name": "/blocks.10/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 30.0625,
+      "activation_scale": 0.067138671875,
+      "weight_scale": 0.0003346034500282258
+    },
+    {
+      "name": "/blocks.10/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 2.6328125,
+      "activation_scale": 0.005878448486328125,
+      "weight_scale": 0.0002623966720420867
+    },
+    {
+      "name": "/blocks.10/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 25.234375,
+      "activation_scale": 0.05633544921875,
+      "weight_scale": 0.0003272465255577117
+    },
+    {
+      "name": "/blocks.10/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 7.11328125,
+      "activation_scale": 0.0158843994140625,
+      "weight_scale": 0.0006299699889495969
+    },
+    {
+      "name": "/blocks.11/attn/qkv/MatMul",
+      "weight_shape": [
+        384,
+        1152
+      ],
+      "activation_amax": 29.265625,
+      "activation_scale": 0.06536865234375,
+      "weight_scale": 0.0005108969635330141
+    },
+    {
+      "name": "/blocks.11/attn/proj/MatMul",
+      "weight_shape": [
+        384,
+        384
+      ],
+      "activation_amax": 3.615234375,
+      "activation_scale": 0.0080718994140625,
+      "weight_scale": 0.0004337855789344758
+    },
+    {
+      "name": "/blocks.11/mlp/fc1/MatMul",
+      "weight_shape": [
+        384,
+        1536
+      ],
+      "activation_amax": 17.625,
+      "activation_scale": 0.03936767578125,
+      "weight_scale": 0.000293731689453125
+    },
+    {
+      "name": "/blocks.11/mlp/fc2/MatMul",
+      "weight_shape": [
+        1536,
+        384
+      ],
+      "activation_amax": 4.87109375,
+      "activation_scale": 0.0108795166015625,
+      "weight_scale": 0.0006986345397308469
+    }
+  ],
+  "sources": [
+    "https://github.com/microsoft/onnxruntime/blob/v1.31.0/onnxruntime/contrib_ops/cuda/math/gemm_float8.cu",
+    "https://github.com/microsoft/onnxruntime/blob/v1.31.0/docs/ContribOperators.md#com.microsoft.GemmFloat8"
+  ],
+  "fp16_opset_conversion_control_sha256": "7c333f2e78dd86d3b2d7eb0a1735fdda6c9fcfc7076c311689394d15f82a1afd",
+  "cublaslt_fast_accumulation": true,
+  "source_graph_node_counts": {
+    "Constant": 120,
+    "Cast": 3,
+    "ConstantOfShape": 1,
+    "Conv": 31,
+    "Mul": 61,
+    "Shape": 5,
+    "Equal": 1,
+    "Slice": 9,
+    "Where": 1,
+    "Concat": 6,
+    "Expand": 1,
+    "Reshape": 125,
+    "Transpose": 41,
+    "Add": 95,
+    "LayerNormalization": 28,
+    "QuantizeLinear": 48,
+    "GemmFloat8": 48,
+    "Gather": 36,
+    "MatMul": 24,
+    "Softmax": 12,
+    "Div": 12,
+    "Erf": 12,
+    "ConvTranspose": 2,
+    "Relu": 17,
+    "Resize": 5,
+    "Squeeze": 1
+  },
+  "static_native_operand_check": "PASS: all 48 GemmFloat8 A inputs are QuantizeLinear outputs with E4M3FN zero points; B inputs are stored E4M3FN initializers"
+}

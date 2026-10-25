@@ -1,0 +1,726 @@
+{
+  "purpose": "Static FP8 activation calibration using RGB inputs only; evaluation GT is not used",
+  "dataset": "NYUv2 original labeled dataset, official TRAIN split only",
+  "count": 64,
+  "seed": 43,
+  "selection": "Sort official 0-based train indices; random.Random(43).sample(...,64); sort selected indices",
+  "official_train_images": 795,
+  "official_test_images": 654,
+  "selected_indices_1based": [
+    45,
+    74,
+    97,
+    106,
+    109,
+    112,
+    138,
+    159,
+    161,
+    177,
+    204,
+    231,
+    235,
+    252,
+    262,
+    270,
+    278,
+    303,
+    309,
+    320,
+    458,
+    461,
+    486,
+    497,
+    577,
+    643,
+    648,
+    653,
+    654,
+    682,
+    696,
+    788,
+    790,
+    820,
+    827,
+    832,
+    892,
+    895,
+    903,
+    912,
+    914,
+    925,
+    968,
+    1016,
+    1018,
+    1024,
+    1029,
+    1047,
+    1051,
+    1065,
+    1105,
+    1110,
+    1111,
+    1169,
+    1177,
+    1187,
+    1232,
+    1243,
+    1282,
+    1296,
+    1343,
+    1403,
+    1418,
+    1436
+  ],
+  "array": {
+    "path": "data_fp8_calibration/inputs.npy",
+    "format": "NumPy NPY, no pickle",
+    "shape": [
+      64,
+      3,
+      518,
+      518
+    ],
+    "dtype": "float32",
+    "layout": "NCHW",
+    "input_batch_size": 1,
+    "bytes": 206072960,
+    "sha256": "f559691c51e2c60ef4c7008f5cdf2adc7f3826add7a7e6c98b0e64cb47d9612c",
+    "loading": "np.load(path, mmap_mode='r', allow_pickle=False); inputs[i:i+1] -> [1,3,518,518]"
+  },
+  "preprocessing": {
+    "implementation": "scripts/eval_utils.py::preprocess(image_bgr,input_size=518,resize_mode='square')",
+    "steps": "RGB uint8 -> BGR to match evaluation reader; exact shared function converts to RGB/255 float64, square 518x518 OpenCV CUBIC with no crop, official ImageNet mean/std, float32 NCHW",
+    "eval_utils_sha256": "9416c759bc24116870f7c907668d4e7f48960d422273f114bf1d636372b2f784",
+    "official_transform_sha256": "ad93afd07aee97a1c73aaa9217c1a8e80c097a861800c56e5425446ff3ecabaa",
+    "opencv": "5.0.0",
+    "numpy": "2.5.2",
+    "h5py": "3.16.0"
+  },
+  "source": {
+    "dataset_url": "https://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat",
+    "dataset_sha256": "2d724b0c0ab358aa1ce5df855e5bd14a2279ab7202efe22f32a30d612dcb86aa",
+    "dataset_bytes": 2972037809,
+    "split_url": "https://horatio.cs.nyu.edu/mit/silberman/indoor_seg_sup/splits.mat",
+    "split_sha256": "6e081404491a8bfba2f066beaa9713ef6046f9007aa5f799f2a350506a580cee"
+  },
+  "separation_checks": {
+    "official_nyu_test_index_overlap": 0,
+    "nyu_eval128_index_overlap": 0,
+    "official_nyu_test_scene_overlap": 0,
+    "exact_decoded_rgb_overlap_with_evaluation_images": 0,
+    "evaluation_images_checked": 448,
+    "rgb_hash_definition": "SHA256(little-endian int64 RGB shape + contiguous uint8 RGB bytes); excludes encoding differences, but is not a perceptual near-duplicate test",
+    "evaluation_manifests": {
+      "nyuv2": {
+        "manifest": "data_dense/manifest.json",
+        "sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+        "evaluation_images": 128
+      },
+      "sintel": {
+        "manifest": "data_dense/sintel_manifest.json",
+        "sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+        "evaluation_images": 64
+      },
+      "da2k": {
+        "manifest": "data/eval_manifest.json",
+        "sha256": "2bf0a933d58e1f01330f46d6c22e50fb4c8fa1dd0f810cc34e312da4f0bf3f4e",
+        "evaluation_images": 256
+      }
+    }
+  },
+  "gt_access": {
+    "depth_arrays_opened": false,
+    "gt_values_used_for_calibration": false,
+    "hdf5_variables_read": [
+      "images",
+      "scenes",
+      "sceneTypes"
+    ],
+    "note": "Evaluation RGB images are decoded only to assert nonoverlap; they are never included in calibration tensors"
+  },
+  "publication": {
+    "publish_input_array": false,
+    "publish_rgb_or_gt": false,
+    "publish_script_indices_seed_hash_metadata": true,
+    "reason": "Normalized tensors encode original image content; no original dataset redistribution license is asserted. See data_dense/license_review.json."
+  },
+  "images": [
+    {
+      "row": 0,
+      "id": "nyu_0045",
+      "original_matlab_index_1based": 45,
+      "scene": "bathroom_0002",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "975c0cca0bc693bc772ac479d18c510bccc98cd2757ced2ed87211719cfc8c2f",
+      "tensor_float32_nchw_sha256": "5df8dd8e9462a0ed4639f4d5869c3b0ec8fb6a6d7898a2bb61652a478a0efbbd"
+    },
+    {
+      "row": 1,
+      "id": "nyu_0074",
+      "original_matlab_index_1based": 74,
+      "scene": "bedroom_0017",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "e31fa22da14f82ef46adfba586435811c7f1fa9f2d8d8168a1d32f45a88e8ac7",
+      "tensor_float32_nchw_sha256": "8ce79edeb43028379d1599ffd3eba77c6cf026eeba91d8845a64f6f07e049202"
+    },
+    {
+      "row": 2,
+      "id": "nyu_0097",
+      "original_matlab_index_1based": 97,
+      "scene": "bookstore_0002",
+      "category": "bookstore",
+      "decoded_rgb_sha256": "fd7859bc695a8161c17e54e9455d9b7825a23371c6dfeec11bc6690e3034f8cf",
+      "tensor_float32_nchw_sha256": "f8e92bd831e4a18d2967e250e0a4ba007172fe9576d7b2316474c3e60062eefe"
+    },
+    {
+      "row": 3,
+      "id": "nyu_0106",
+      "original_matlab_index_1based": 106,
+      "scene": "bookstore_0000",
+      "category": "bookstore",
+      "decoded_rgb_sha256": "bba8463aeaecf24b0c306fe3faebc85afb32ba1817ff331c9fbf056fb298b4a8",
+      "tensor_float32_nchw_sha256": "aba0962c714fc958dc2a5129de03cfec9e103af96f27a03f968367ed1b0171f3"
+    },
+    {
+      "row": 4,
+      "id": "nyu_0109",
+      "original_matlab_index_1based": 109,
+      "scene": "bookstore_0000",
+      "category": "bookstore",
+      "decoded_rgb_sha256": "6260a49858b467d38b6efc922599ff062b70ee64f82ac1d788a369215e44615d",
+      "tensor_float32_nchw_sha256": "6b5580fedfac57d89d440f16069dac5631a6cc5ad83515e727c9403df6c102d0"
+    },
+    {
+      "row": 5,
+      "id": "nyu_0112",
+      "original_matlab_index_1based": 112,
+      "scene": "bookstore_0000",
+      "category": "bookstore",
+      "decoded_rgb_sha256": "6e987c5c25aeb11869a0a6185e2e7156c1969d5188e73f95393941ae5b01b42e",
+      "tensor_float32_nchw_sha256": "d8816ea73b91b91f7ce01fa9b479efc31bacb0bcdfcaa1f63cf604d5deda231e"
+    },
+    {
+      "row": 6,
+      "id": "nyu_0138",
+      "original_matlab_index_1based": 138,
+      "scene": "kitchen_0010",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "77a5ce4f7a54b90190655869e7c5c1c8712e1fb1ca5addd4db974d636d5ed8ad",
+      "tensor_float32_nchw_sha256": "40404020121a95c10e42a2ba160f4deca584062913206b4a02dc248e129c0a46"
+    },
+    {
+      "row": 7,
+      "id": "nyu_0159",
+      "original_matlab_index_1based": 159,
+      "scene": "living_room_0010",
+      "category": "living_room",
+      "decoded_rgb_sha256": "36c2bdd695b45886e0e723b32ea2f61f889afeb6b3f94879905ea9a0969e0b41",
+      "tensor_float32_nchw_sha256": "9150441d7411b6c0326ea5519af1b8de2b089ba12eaa5e370f8c04c9b034c83b"
+    },
+    {
+      "row": 8,
+      "id": "nyu_0161",
+      "original_matlab_index_1based": 161,
+      "scene": "living_room_0011",
+      "category": "living_room",
+      "decoded_rgb_sha256": "6693871efb37b688906b2b7a8b99fa68b3f12c983505a409f9ec9dc059fdb9eb",
+      "tensor_float32_nchw_sha256": "044f2223aba8314080ae982721d6e1f8c3f0205ed0d6952993bb744eacf0039b"
+    },
+    {
+      "row": 9,
+      "id": "nyu_0177",
+      "original_matlab_index_1based": 177,
+      "scene": "bedroom_0004",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "e05fd36cf88ad482eb0c56f9c9a0b378a59d7c4dbac8b5e625ba3bedb232c947",
+      "tensor_float32_nchw_sha256": "7e58fe603d4f7e4d3edbfefbf0fe7430f69d51818f408a2066924759f4cc48cd"
+    },
+    {
+      "row": 10,
+      "id": "nyu_0204",
+      "original_matlab_index_1based": 204,
+      "scene": "kitchen_0003",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "3efadcd7ef86bf5c44e478409e4478e902a2c2f212262ede9b5cfc1566cc3632",
+      "tensor_float32_nchw_sha256": "37d9846f13473289aba509a6abe80b5225435f35c52ae20235889983a4249a00"
+    },
+    {
+      "row": 11,
+      "id": "nyu_0231",
+      "original_matlab_index_1based": 231,
+      "scene": "furniture_store_0001",
+      "category": "furniture_store",
+      "decoded_rgb_sha256": "a65b416b2ae357bdfe6484696a3cf36165cb1b26e09d295bc7b72e3eac6dc2f3",
+      "tensor_float32_nchw_sha256": "b68e7d6212c4c3d1d227f222392be9a63e8f558fe7c837e062d4c42c0d6a5ef6"
+    },
+    {
+      "row": 12,
+      "id": "nyu_0235",
+      "original_matlab_index_1based": 235,
+      "scene": "furniture_store_0001",
+      "category": "furniture_store",
+      "decoded_rgb_sha256": "18dc47210c2b7feefe1fc97bb596d6cd910116bddae5db7acf18700d089ecd8b",
+      "tensor_float32_nchw_sha256": "3805351649df5eb09ad52d6af55cce208538f20b6ca31a679d7e98fd714089ec"
+    },
+    {
+      "row": 13,
+      "id": "nyu_0252",
+      "original_matlab_index_1based": 252,
+      "scene": "kitchen_0016",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "0c7b73ef03fcdc392fdd01df0b2aee824210a9baf4035ce111209850b0e33b6a",
+      "tensor_float32_nchw_sha256": "885a339907f3db56c11ecb8a7feff457d307784fe6c586c72e70770a72eca682"
+    },
+    {
+      "row": 14,
+      "id": "nyu_0262",
+      "original_matlab_index_1based": 262,
+      "scene": "living_room_0020",
+      "category": "living_room",
+      "decoded_rgb_sha256": "5175d0deb647b4e437b6491bd03d808916539fb814430d1ec327ce230390a385",
+      "tensor_float32_nchw_sha256": "1ad13e28bc50fdbd4df475592f1e4fa5b454ba4564958f26f13b9176eb4f89f1"
+    },
+    {
+      "row": 15,
+      "id": "nyu_0270",
+      "original_matlab_index_1based": 270,
+      "scene": "living_room_0022",
+      "category": "living_room",
+      "decoded_rgb_sha256": "c431d489d26305748d1aa2ac6c655dcf8a6633437375741a5fd3d90953c69e63",
+      "tensor_float32_nchw_sha256": "766cfbe486d9ce68151fd2cac7162a66b0e45f50f0f43f5b42c3ce187bed1043"
+    },
+    {
+      "row": 16,
+      "id": "nyu_0278",
+      "original_matlab_index_1based": 278,
+      "scene": "study_room_0005",
+      "category": "study_room",
+      "decoded_rgb_sha256": "144eabf2520e1edd551a6cebcd94cd37e591b9f0f73f45a637cc5bf5250c2c75",
+      "tensor_float32_nchw_sha256": "65c30c70478598476c1c171966e32a2031e6ab6c3d17d1c3756ab78deaccadee"
+    },
+    {
+      "row": 17,
+      "id": "nyu_0303",
+      "original_matlab_index_1based": 303,
+      "scene": "classroom_0010",
+      "category": "classroom",
+      "decoded_rgb_sha256": "23ae9f631d70256c1262f61c33b7202224cc0da7e506cba0e100d2cf553f8122",
+      "tensor_float32_nchw_sha256": "50dd70d56b8c28dcdcdd0d0a9f64834b659c373636aa028f319b83c15cf17c18"
+    },
+    {
+      "row": 18,
+      "id": "nyu_0309",
+      "original_matlab_index_1based": 309,
+      "scene": "classroom_0012",
+      "category": "classroom",
+      "decoded_rgb_sha256": "c6069d450e317cc48587ff0b1c20cfb728639468e1aecfac9d6f705190dd9dc9",
+      "tensor_float32_nchw_sha256": "a1adf398027da7944c7db7277621a944ff58f868df2e512b434e83a6ca51af76"
+    },
+    {
+      "row": 19,
+      "id": "nyu_0320",
+      "original_matlab_index_1based": 320,
+      "scene": "classroom_0018",
+      "category": "classroom",
+      "decoded_rgb_sha256": "72979cb5c46c072f25f06e36f68a0413192c381833d806ad73b750ff7c06cb52",
+      "tensor_float32_nchw_sha256": "32733c7ecceee26c2b8fdb3facbe30ec765d6382667ea7f97cf3f2793b8aeb79"
+    },
+    {
+      "row": 20,
+      "id": "nyu_0458",
+      "original_matlab_index_1based": 458,
+      "scene": "reception_room_0002",
+      "category": "reception_room",
+      "decoded_rgb_sha256": "c2671edc0befc043b5758b5c0ca907877a80bfcd9a9e50233aaa911502eb1a74",
+      "tensor_float32_nchw_sha256": "9bfd6351197c3cf6049dc0ff7b5cd64fb345598b97c40a6011224b53c89a273d"
+    },
+    {
+      "row": 21,
+      "id": "nyu_0461",
+      "original_matlab_index_1based": 461,
+      "scene": "reception_room_0002",
+      "category": "reception_room",
+      "decoded_rgb_sha256": "d42149aa449f2045279ccc83789d39c51e8cdd1d64d6c9057de64bd37085ba79",
+      "tensor_float32_nchw_sha256": "6e328c33a9d2689d841e273a23a27aec1c0fb18c3857fcbdc943f9b63f298854"
+    },
+    {
+      "row": 22,
+      "id": "nyu_0486",
+      "original_matlab_index_1based": 486,
+      "scene": "study_0005",
+      "category": "study",
+      "decoded_rgb_sha256": "efc1f384195f5153b56f72d19166e679d55b5e684653486c0fb770571875361f",
+      "tensor_float32_nchw_sha256": "e1cba604ea6118040a7383f3540004545263bfba4d00df15707be208f6b8200d"
+    },
+    {
+      "row": 23,
+      "id": "nyu_0497",
+      "original_matlab_index_1based": 497,
+      "scene": "bathroom_0053",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "e8441dde12aefd4607d01048fe81d101163bd0aa294abed936f86e4b10d35fa5",
+      "tensor_float32_nchw_sha256": "3a92096ac8d9c8ddaf0435479644b54b0a0100c7856d6482b9b7f961796255b8"
+    },
+    {
+      "row": 24,
+      "id": "nyu_0577",
+      "original_matlab_index_1based": 577,
+      "scene": "kitchen_0060",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "2eeb71e72ca34bb6edef73597d45011f5384f7fa34dbbdc9d1662b41bf396b45",
+      "tensor_float32_nchw_sha256": "a7db4451bc651b6e8c750d8ce449418f7e15d61bb6aad6bc4f4147beaa3bd139"
+    },
+    {
+      "row": 25,
+      "id": "nyu_0643",
+      "original_matlab_index_1based": 643,
+      "scene": "student_lounge_0001",
+      "category": "student_lounge",
+      "decoded_rgb_sha256": "8caa0a198ed4725f013ab76e71e8bb036b5e6db3e9dc59c976a317cf3ff22446",
+      "tensor_float32_nchw_sha256": "8185d05642699ea0f84c04598f09cd233361b1fb8b2a70261f6d512579a7fbc3"
+    },
+    {
+      "row": 26,
+      "id": "nyu_0648",
+      "original_matlab_index_1based": 648,
+      "scene": "bathroom_0007",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "889e0837588ad9e42f2eb91e9eec65dc5c848f049c4805c2c01254d718fb6adc",
+      "tensor_float32_nchw_sha256": "3c1750711958277fe4a528a31ae3f03aa1af09524fb869cde662e1ccd4df6ab9"
+    },
+    {
+      "row": 27,
+      "id": "nyu_0653",
+      "original_matlab_index_1based": 653,
+      "scene": "bathroom_0010",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "024a2a3c9cec0ca611c080f6ffaafa94151699c03ac071208f1c3e4f514a30d0",
+      "tensor_float32_nchw_sha256": "2d02bdb4664765826538380d492e632fa5393337c863f888749c882c4668b6a3"
+    },
+    {
+      "row": 28,
+      "id": "nyu_0654",
+      "original_matlab_index_1based": 654,
+      "scene": "bathroom_0011",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "9d1eb5d604b581d098d6c36bf88a1039e640be364ac4f8bbe1c695b2b8705e85",
+      "tensor_float32_nchw_sha256": "c29d0fd10a59096460fa32f52f3ff609404a49036d1d22992473f28b6da583fb"
+    },
+    {
+      "row": 29,
+      "id": "nyu_0682",
+      "original_matlab_index_1based": 682,
+      "scene": "bathroom_0023",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "7ad08ed894b95b9fa67119e5ff30efc9c820e8525cd86f66fc18947120e0ce7a",
+      "tensor_float32_nchw_sha256": "e121da224493fc40ffa0569a6d994fc74737a182c53a25eeb625b58184b72e26"
+    },
+    {
+      "row": 30,
+      "id": "nyu_0696",
+      "original_matlab_index_1based": 696,
+      "scene": "bathroom_0030",
+      "category": "bathroom",
+      "decoded_rgb_sha256": "cd919987de4164b575c76f0ad15e1b6a476de77647be97ead198f13dec5a926f",
+      "tensor_float32_nchw_sha256": "6c639a35eb9f7a9b6ebd86ddfa57459e8d7e87496160fbce4eba8f7437af8cbb"
+    },
+    {
+      "row": 31,
+      "id": "nyu_0788",
+      "original_matlab_index_1based": 788,
+      "scene": "kitchen_0028",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "923fc21a34de7d288e50b7ace82637e2a2446c1c7bcb026b536c05f019adcd5d",
+      "tensor_float32_nchw_sha256": "5695a2a8d86a0e59f498531883af3345d2378dc2d8b6088b225ff508d051a1bb"
+    },
+    {
+      "row": 32,
+      "id": "nyu_0790",
+      "original_matlab_index_1based": 790,
+      "scene": "kitchen_0028",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "f23b19fd4f890466c50ce4207656305880abadc6b6158e5dd9c7184d436a6c16",
+      "tensor_float32_nchw_sha256": "3b94be2c4b9bfc68071a4b19c326e636bc2ff6872b2d79a7e29c5aaa15c25cbf"
+    },
+    {
+      "row": 33,
+      "id": "nyu_0820",
+      "original_matlab_index_1based": 820,
+      "scene": "kitchen_0033",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "0eaab55ad08433697573e3e98695003ed3c8d346d3eab0bdc999a3e3cf488d82",
+      "tensor_float32_nchw_sha256": "eec979c486f6030c91c0e9287137a85a968004b3521a942486ebed89e78c309f"
+    },
+    {
+      "row": 34,
+      "id": "nyu_0827",
+      "original_matlab_index_1based": 827,
+      "scene": "kitchen_0035",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "7aeb3642dbe81e917b90b48e421ad442f9b11a8b0c3fb3a8db9992b93ea2594c",
+      "tensor_float32_nchw_sha256": "424922e694721b8cd2c5ccadbb698e486f7882c8bc5d84923919e402ed57e112"
+    },
+    {
+      "row": 35,
+      "id": "nyu_0832",
+      "original_matlab_index_1based": 832,
+      "scene": "kitchen_0037",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "8de6c314f85b139ce7823365d11701ea2a76235e16c1c4411e7915dc15e1cdc5",
+      "tensor_float32_nchw_sha256": "dd78516757a695b2950bbf7dab6f0900c10f43fc25ba378165fe7f8f9b0bb574"
+    },
+    {
+      "row": 36,
+      "id": "nyu_0892",
+      "original_matlab_index_1based": 892,
+      "scene": "kitchen_0051",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "9af32db578ffa9841de1d858f0cfaa5ef3e48768d36cdd8e58c728ba25811f8d",
+      "tensor_float32_nchw_sha256": "577ab0330f8e455e01a734f174acda977c27b360d6779c51d75d393c24c80c72"
+    },
+    {
+      "row": 37,
+      "id": "nyu_0895",
+      "original_matlab_index_1based": 895,
+      "scene": "kitchen_0052",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "5752a37950a24adc3437197d8efd4b38769bc2fb0e4b375c24734a93c952f5c7",
+      "tensor_float32_nchw_sha256": "cc4c5322d12b5d0c5a1e14fcd38526b2e787adb6c719874023f08a750dd38b3e"
+    },
+    {
+      "row": 38,
+      "id": "nyu_0903",
+      "original_matlab_index_1based": 903,
+      "scene": "kitchen_0053",
+      "category": "kitchen",
+      "decoded_rgb_sha256": "99c3b9e0ea22faa2e842df64fe9f35620d4cc299034b1c6a199c7a6a9bd6e4a4",
+      "tensor_float32_nchw_sha256": "940c9a12bf000b8d81bbf5697a6ac77b38f226429c862747fa2b692a5017a42c"
+    },
+    {
+      "row": 39,
+      "id": "nyu_0912",
+      "original_matlab_index_1based": 912,
+      "scene": "bedroom_0025",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "d3b4436f3ad97fcfefd9e8a6ff22753c2897109cfc23f26ed6037162fab8c4ec",
+      "tensor_float32_nchw_sha256": "3427252b6493115447189e3a022acf708d342e8025eb55d412c357ce85c6f71d"
+    },
+    {
+      "row": 40,
+      "id": "nyu_0914",
+      "original_matlab_index_1based": 914,
+      "scene": "bedroom_0026",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "63d5af4a39b3fa1e0195e9fea172a4b00401a22c848b71d4fca74461793d5669",
+      "tensor_float32_nchw_sha256": "d29a2ed721dade1faa9f9de7ea46d9284a0b96dbccbe5ecbab124bd94dfa98ee"
+    },
+    {
+      "row": 41,
+      "id": "nyu_0925",
+      "original_matlab_index_1based": 925,
+      "scene": "bedroom_0029",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "f8104faa8b02fcdcf715c65b250b858f1099ab1ed10479ecd856487a23a89824",
+      "tensor_float32_nchw_sha256": "ee3de5e80a19ec3a5b4f43a7c319c2d5cb1281c5c80590af597b2374ca41a7e2"
+    },
+    {
+      "row": 42,
+      "id": "nyu_0968",
+      "original_matlab_index_1based": 968,
+      "scene": "bedroom_0047",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "8f01a596063e3ce348dc446bce493406bd92d951c5357cc654da60433499768b",
+      "tensor_float32_nchw_sha256": "5b6fe19386e1779a7490810755efdc595c0f82737a35a711351e764471eac70e"
+    },
+    {
+      "row": 43,
+      "id": "nyu_1016",
+      "original_matlab_index_1based": 1016,
+      "scene": "bedroom_0062",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "f014ee77d3ee6c930b6a4f8ceea9472895a2ea9f58aac3dd1654749ba2ad98e1",
+      "tensor_float32_nchw_sha256": "8eae3882ba07d07409b324a15cf9cdaf52b582730226709744b979eb1323e78a"
+    },
+    {
+      "row": 44,
+      "id": "nyu_1018",
+      "original_matlab_index_1based": 1018,
+      "scene": "bedroom_0063",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "74f632a2482dd18c829f73aed1c58f2478d95a04740b7d81cd8fb69aec71c484",
+      "tensor_float32_nchw_sha256": "7cb366ddfb856945b8b2dabedd101b01d088d90a7ede872c7156bb44d7d09444"
+    },
+    {
+      "row": 45,
+      "id": "nyu_1024",
+      "original_matlab_index_1based": 1024,
+      "scene": "bedroom_0065",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "079d6ba4c78508019e2a5b1f931773111dfcf40b02781abdae5cdf1e57f6a988",
+      "tensor_float32_nchw_sha256": "30a91eaabaa99aeb86e6953f9dbf691e0e9582af889f8ec07303c2270060017c"
+    },
+    {
+      "row": 46,
+      "id": "nyu_1029",
+      "original_matlab_index_1based": 1029,
+      "scene": "bedroom_0067",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "de3091f42b959626518f086ddf8a4f110ef624cdf176e0a226def18a59af29c6",
+      "tensor_float32_nchw_sha256": "e25a286c4fd0cc14030e619bdba0a0caa4bb9fe3d227095dfc17866412e21efa"
+    },
+    {
+      "row": 47,
+      "id": "nyu_1047",
+      "original_matlab_index_1based": 1047,
+      "scene": "bedroom_0072",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "047534b68a02e12857da7eb56d5874463fbbc64efca768cc710c5b829f6401f2",
+      "tensor_float32_nchw_sha256": "63f1a02ac7dbf8a0477a351ddb63c939495fdb3b8870f28e333c369925d5c607"
+    },
+    {
+      "row": 48,
+      "id": "nyu_1051",
+      "original_matlab_index_1based": 1051,
+      "scene": "bedroom_0074",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "fbd011f7aace4a46362aa94cb23c32d3f01a974bd551a146155156e42db335c2",
+      "tensor_float32_nchw_sha256": "3ce76a7a0f5ac3f28671272ea9499e97ef80c3108270d6da0300c40ffbabe6f5"
+    },
+    {
+      "row": 49,
+      "id": "nyu_1065",
+      "original_matlab_index_1based": 1065,
+      "scene": "bedroom_0079",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "3b3d4eae613f7ec1ec79e27e099455273d5081562690a9bc386a396408e87a9d",
+      "tensor_float32_nchw_sha256": "8a577b0d64fad1af920889c3973dbbb2c5c6044085e69baa47efeeccf9fd1244"
+    },
+    {
+      "row": 50,
+      "id": "nyu_1105",
+      "original_matlab_index_1based": 1105,
+      "scene": "bedroom_0094",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "95915f23ec61f6b0bd6b423fa0ab5461eb834f9c1d7a5804cb61977bccda2036",
+      "tensor_float32_nchw_sha256": "6257a717e4dcb3f6315fb71e5d65e827aee732b8ae141a428e1a90dfe20f48a0"
+    },
+    {
+      "row": 51,
+      "id": "nyu_1110",
+      "original_matlab_index_1based": 1110,
+      "scene": "bedroom_0096",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "2791dbe091ce3ddccab623c38a5dcce9189160a4cccf491f7f69033a92474ce1",
+      "tensor_float32_nchw_sha256": "f7d2b2af22efde409f24d338fad53dcb80ae23b393517f8985d7751bdb5523eb"
+    },
+    {
+      "row": 52,
+      "id": "nyu_1111",
+      "original_matlab_index_1based": 1111,
+      "scene": "bedroom_0096",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "b2b6457634f65c21058b6dada49a24b0719af36dc93623fae5d6cbe52ad600ce",
+      "tensor_float32_nchw_sha256": "5bd8461e1ad99fd52a6e3559bac8017c424fe11caca38999d2a6c1db70c7484d"
+    },
+    {
+      "row": 53,
+      "id": "nyu_1169",
+      "original_matlab_index_1based": 1169,
+      "scene": "bedroom_0116",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "b660988c7b81db3fba365e2264dbef3f73872fd045ecf00f008cce867cdda56c",
+      "tensor_float32_nchw_sha256": "96ed6c3ac08c37ad78905a52ec7e8f4dbc6dc2ef45291690fe6db80a9b7062ae"
+    },
+    {
+      "row": 54,
+      "id": "nyu_1177",
+      "original_matlab_index_1based": 1177,
+      "scene": "bedroom_0120",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "77139f583954f53041de68fd06a6301a2e073b4b228e0f4da7b00361403a117b",
+      "tensor_float32_nchw_sha256": "adb4f2c6a0f7f4b166eb709ba8d713526d002c2daedd66df446b8bbbf701fc5f"
+    },
+    {
+      "row": 55,
+      "id": "nyu_1187",
+      "original_matlab_index_1based": 1187,
+      "scene": "bedroom_0125",
+      "category": "bedroom",
+      "decoded_rgb_sha256": "4627b9d0bf8b8561433039b5b68ec5a9ddea3fe87cdf2aadee4d6dd77b47eec1",
+      "tensor_float32_nchw_sha256": "e88e8b4cca9526a5338dd61974ddae5c818ffb981b2b8d99d34530a26fd666ee"
+    },
+    {
+      "row": 56,
+      "id": "nyu_1232",
+      "original_matlab_index_1based": 1232,
+      "scene": "living_room_0035",
+      "category": "living_room",
+      "decoded_rgb_sha256": "903b0c694b7ef3959102c98101ed27a39f21ba39e24c74c3a8da0a1e4edf047f",
+      "tensor_float32_nchw_sha256": "6e05de40b856d7629604782c1dc918485b83f6ac892a23901c267f3409e34551"
+    },
+    {
+      "row": 57,
+      "id": "nyu_1243",
+      "original_matlab_index_1based": 1243,
+      "scene": "living_room_0039",
+      "category": "living_room",
+      "decoded_rgb_sha256": "4a0990d065d8b3a8567945671d57fc280954859d45f084d2de21deb084fc466a",
+      "tensor_float32_nchw_sha256": "102268c791d1c5a787204940b6d8278c5f265dc233beabc2f2a361417de51af2"
+    },
+    {
+      "row": 58,
+      "id": "nyu_1282",
+      "original_matlab_index_1based": 1282,
+      "scene": "living_room_0050",
+      "category": "living_room",
+      "decoded_rgb_sha256": "f66614a809e9470652af30082382354387344704239391ab5a378a64a6fe2ee0",
+      "tensor_float32_nchw_sha256": "a82764a92411564d1f4ee994eb39fee9154abd3c1bb712213f7d74b56c777930"
+    },
+    {
+      "row": 59,
+      "id": "nyu_1296",
+      "original_matlab_index_1based": 1296,
+      "scene": "living_room_0055",
+      "category": "living_room",
+      "decoded_rgb_sha256": "49941130afabb6391090a52ab336ee7f502caa66248eb0ec986872d927774e6a",
+      "tensor_float32_nchw_sha256": "93108eb28e776ba90b88fab569713f7038f7addced32a6de577f9464be4d1062"
+    },
+    {
+      "row": 60,
+      "id": "nyu_1343",
+      "original_matlab_index_1based": 1343,
+      "scene": "dining_room_0001",
+      "category": "dining_room",
+      "decoded_rgb_sha256": "e8bd4b61c0750107a61e4c041a0cdbbeb461b552e218199bcaf44d15deb4e3cc",
+      "tensor_float32_nchw_sha256": "a84a7d909ed6eca87b55c6d6017df8734062a5f6b6c5cf78aa6e29f2b6c9aefa"
+    },
+    {
+      "row": 61,
+      "id": "nyu_1403",
+      "original_matlab_index_1based": 1403,
+      "scene": "dining_room_0023",
+      "category": "dining_room",
+      "decoded_rgb_sha256": "b8a096582865f7c651230736b97d9180be5a834e2771ad207dbde19d7d71f45f",
+      "tensor_float32_nchw_sha256": "faebc162a9461f4ca70cbf1caa4a1d7d9dc0644c1f3fdae89afced2fa06e3948"
+    },
+    {
+      "row": 62,
+      "id": "nyu_1418",
+      "original_matlab_index_1based": 1418,
+      "scene": "dining_room_0029",
+      "category": "dining_room",
+      "decoded_rgb_sha256": "a122158749199eba778a5bdbf986cebb29405c07cfb47bd6c2ded1d604af1e7d",
+      "tensor_float32_nchw_sha256": "ab6910c9a238c8f20f99651324c35cbc32323e95b80ff770973e6602c5283b00"
+    },
+    {
+      "row": 63,
+      "id": "nyu_1436",
+      "original_matlab_index_1based": 1436,
+      "scene": "dining_room_0033",
+      "category": "dining_room",
+      "decoded_rgb_sha256": "87de3b04d8667c4be3dacd93c1432c3f9ca58615778144b2d8714eac36290061",
+      "tensor_float32_nchw_sha256": "b4580dba744ed374f652761b2eb01022cc010333f69f83dd706b0a6b9c5c1783"
+    }
+  ]
+}

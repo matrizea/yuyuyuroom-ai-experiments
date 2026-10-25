@@ -1,0 +1,42 @@
+[
+  {
+    "M": 128,
+    "K": 384,
+    "N": 1152,
+    "finite": true,
+    "rmse_vs_dequantized_float32_reference": 0.00020401485380716622,
+    "max_abs_vs_dequantized_float32_reference": 0.0015249252319335938,
+    "activation_bins_different_from_float32_division": 267,
+    "first_run_ms": 12.550400104373693,
+    "profile": "models_fp8\\smoke_m128_profile_2026-10-25_21-19-39_034.json",
+    "placement": {
+      "CUDAExecutionProvider": {
+        "QuantizeLinear": 1,
+        "Cast": 1,
+        "GemmFloat8": 1
+      }
+    },
+    "relative_rmse_vs_quantized_reference": 0.00020780414336411823,
+    "numerical_assertion": "allclose(actual, quantized-FP32-matmul reference, rtol=0.002, atol=0.002); relative RMSE <0.001"
+  },
+  {
+    "M": 1370,
+    "K": 384,
+    "N": 1152,
+    "finite": true,
+    "rmse_vs_dequantized_float32_reference": 0.00020322087220847607,
+    "max_abs_vs_dequantized_float32_reference": 0.0019516944885253906,
+    "activation_bins_different_from_float32_division": 2625,
+    "first_run_ms": 5.451399949379265,
+    "profile": "models_fp8\\smoke_m1370_profile_2026-10-25_21-19-39_186.json",
+    "placement": {
+      "CUDAExecutionProvider": {
+        "QuantizeLinear": 1,
+        "Cast": 1,
+        "GemmFloat8": 1
+      }
+    },
+    "relative_rmse_vs_quantized_reference": 0.00020768807033072877,
+    "numerical_assertion": "allclose(actual, quantized-FP32-matmul reference, rtol=0.002, atol=0.002); relative RMSE <0.001"
+  }
+]

@@ -5,6 +5,7 @@ __pycache__/
 /models*/
 /data/
 /data_dense/
+/data_fp8_calibration/
 /results*/
 *.onnx
 *.pth

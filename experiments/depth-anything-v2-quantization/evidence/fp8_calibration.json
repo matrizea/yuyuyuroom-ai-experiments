@@ -1,0 +1,202 @@
+{
+  "method": "Maximum absolute FP16 activation over 64 NYUv2 official train images; symmetric per-tensor E4M3",
+  "input_path": "data_fp8_calibration\\inputs.npy",
+  "input_sha256": "f559691c51e2c60ef4c7008f5cdf2adc7f3826add7a7e6c98b0e64cb47d9612c",
+  "manifest_path": "data_fp8_calibration\\manifest.json",
+  "manifest_sha256": "558ac2da796e7a0ed1225dfba7369ed801282365bcbe6332b7852f6ea54eb493",
+  "images": 64,
+  "layers": {
+    "/blocks.0/attn/qkv/MatMul": {
+      "input": "/blocks.0/norm1/LayerNormalization_output_0",
+      "amax": 11.09375
+    },
+    "/blocks.0/attn/proj/MatMul": {
+      "input": "/blocks.0/attn/Reshape_1_output_0",
+      "amax": 8.453125
+    },
+    "/blocks.0/mlp/fc1/MatMul": {
+      "input": "/blocks.0/norm2/LayerNormalization_output_0",
+      "amax": 65.8125
+    },
+    "/blocks.0/mlp/fc2/MatMul": {
+      "input": "/blocks.0/mlp/act/Mul_1_output_0",
+      "amax": 13.703125
+    },
+    "/blocks.1/attn/qkv/MatMul": {
+      "input": "/blocks.1/norm1/LayerNormalization_output_0",
+      "amax": 24.71875
+    },
+    "/blocks.1/attn/proj/MatMul": {
+      "input": "/blocks.1/attn/Reshape_1_output_0",
+      "amax": 4.23828125
+    },
+    "/blocks.1/mlp/fc1/MatMul": {
+      "input": "/blocks.1/norm2/LayerNormalization_output_0",
+      "amax": 24.640625
+    },
+    "/blocks.1/mlp/fc2/MatMul": {
+      "input": "/blocks.1/mlp/act/Mul_1_output_0",
+      "amax": 7.90625
+    },
+    "/blocks.2/attn/qkv/MatMul": {
+      "input": "/blocks.2/norm1/LayerNormalization_output_0",
+      "amax": 25.234375
+    },
+    "/blocks.2/attn/proj/MatMul": {
+      "input": "/blocks.2/attn/Reshape_1_output_0",
+      "amax": 3.232421875
+    },
+    "/blocks.2/mlp/fc1/MatMul": {
+      "input": "/blocks.2/norm2/LayerNormalization_output_0",
+      "amax": 23.671875
+    },
+    "/blocks.2/mlp/fc2/MatMul": {
+      "input": "/blocks.2/mlp/act/Mul_1_output_0",
+      "amax": 16.671875
+    },
+    "/blocks.3/attn/qkv/MatMul": {
+      "input": "/blocks.3/norm1/LayerNormalization_output_0",
+      "amax": 30.328125
+    },
+    "/blocks.3/attn/proj/MatMul": {
+      "input": "/blocks.3/attn/Reshape_1_output_0",
+      "amax": 2.91796875
+    },
+    "/blocks.3/mlp/fc1/MatMul": {
+      "input": "/blocks.3/norm2/LayerNormalization_output_0",
+      "amax": 31.34375
+    },
+    "/blocks.3/mlp/fc2/MatMul": {
+      "input": "/blocks.3/mlp/act/Mul_1_output_0",
+      "amax": 3.421875
+    },
+    "/blocks.4/attn/qkv/MatMul": {
+      "input": "/blocks.4/norm1/LayerNormalization_output_0",
+      "amax": 21.90625
+    },
+    "/blocks.4/attn/proj/MatMul": {
+      "input": "/blocks.4/attn/Reshape_1_output_0",
+      "amax": 2.970703125
+    },
+    "/blocks.4/mlp/fc1/MatMul": {
+      "input": "/blocks.4/norm2/LayerNormalization_output_0",
+      "amax": 31.6875
+    },
+    "/blocks.4/mlp/fc2/MatMul": {
+      "input": "/blocks.4/mlp/act/Mul_1_output_0",
+      "amax": 4.44921875
+    },
+    "/blocks.5/attn/qkv/MatMul": {
+      "input": "/blocks.5/norm1/LayerNormalization_output_0",
+      "amax": 19.75
+    },
+    "/blocks.5/attn/proj/MatMul": {
+      "input": "/blocks.5/attn/Reshape_1_output_0",
+      "amax": 2.255859375
+    },
+    "/blocks.5/mlp/fc1/MatMul": {
+      "input": "/blocks.5/norm2/LayerNormalization_output_0",
+      "amax": 32.5
+    },
+    "/blocks.5/mlp/fc2/MatMul": {
+      "input": "/blocks.5/mlp/act/Mul_1_output_0",
+      "amax": 5.74609375
+    },
+    "/blocks.6/attn/qkv/MatMul": {
+      "input": "/blocks.6/norm1/LayerNormalization_output_0",
+      "amax": 24.03125
+    },
+    "/blocks.6/attn/proj/MatMul": {
+      "input": "/blocks.6/attn/Reshape_1_output_0",
+      "amax": 2.951171875
+    },
+    "/blocks.6/mlp/fc1/MatMul": {
+      "input": "/blocks.6/norm2/LayerNormalization_output_0",
+      "amax": 34.1875
+    },
+    "/blocks.6/mlp/fc2/MatMul": {
+      "input": "/blocks.6/mlp/act/Mul_1_output_0",
+      "amax": 4.87890625
+    },
+    "/blocks.7/attn/qkv/MatMul": {
+      "input": "/blocks.7/norm1/LayerNormalization_output_0",
+      "amax": 22.578125
+    },
+    "/blocks.7/attn/proj/MatMul": {
+      "input": "/blocks.7/attn/Reshape_1_output_0",
+      "amax": 2.248046875
+    },
+    "/blocks.7/mlp/fc1/MatMul": {
+      "input": "/blocks.7/norm2/LayerNormalization_output_0",
+      "amax": 19.921875
+    },
+    "/blocks.7/mlp/fc2/MatMul": {
+      "input": "/blocks.7/mlp/act/Mul_1_output_0",
+      "amax": 7.48828125
+    },
+    "/blocks.8/attn/qkv/MatMul": {
+      "input": "/blocks.8/norm1/LayerNormalization_output_0",
+      "amax": 25.0625
+    },
+    "/blocks.8/attn/proj/MatMul": {
+      "input": "/blocks.8/attn/Reshape_1_output_0",
+      "amax": 3.65625
+    },
+    "/blocks.8/mlp/fc1/MatMul": {
+      "input": "/blocks.8/norm2/LayerNormalization_output_0",
+      "amax": 24.265625
+    },
+    "/blocks.8/mlp/fc2/MatMul": {
+      "input": "/blocks.8/mlp/act/Mul_1_output_0",
+      "amax": 5.95703125
+    },
+    "/blocks.9/attn/qkv/MatMul": {
+      "input": "/blocks.9/norm1/LayerNormalization_output_0",
+      "amax": 33.59375
+    },
+    "/blocks.9/attn/proj/MatMul": {
+      "input": "/blocks.9/attn/Reshape_1_output_0",
+      "amax": 3.35546875
+    },
+    "/blocks.9/mlp/fc1/MatMul": {
+      "input": "/blocks.9/norm2/LayerNormalization_output_0",
+      "amax": 20.5625
+    },
+    "/blocks.9/mlp/fc2/MatMul": {
+      "input": "/blocks.9/mlp/act/Mul_1_output_0",
+      "amax": 11.21875
+    },
+    "/blocks.10/attn/qkv/MatMul": {
+      "input": "/blocks.10/norm1/LayerNormalization_output_0",
+      "amax": 30.0625
+    },
+    "/blocks.10/attn/proj/MatMul": {
+      "input": "/blocks.10/attn/Reshape_1_output_0",
+      "amax": 2.6328125
+    },
+    "/blocks.10/mlp/fc1/MatMul": {
+      "input": "/blocks.10/norm2/LayerNormalization_output_0",
+      "amax": 25.234375
+    },
+    "/blocks.10/mlp/fc2/MatMul": {
+      "input": "/blocks.10/mlp/act/Mul_1_output_0",
+      "amax": 7.11328125
+    },
+    "/blocks.11/attn/qkv/MatMul": {
+      "input": "/blocks.11/norm1/LayerNormalization_output_0",
+      "amax": 29.265625
+    },
+    "/blocks.11/attn/proj/MatMul": {
+      "input": "/blocks.11/attn/Reshape_1_output_0",
+      "amax": 3.615234375
+    },
+    "/blocks.11/mlp/fc1/MatMul": {
+      "input": "/blocks.11/norm2/LayerNormalization_output_0",
+      "amax": 17.625
+    },
+    "/blocks.11/mlp/fc2/MatMul": {
+      "input": "/blocks.11/mlp/act/Mul_1_output_0",
+      "amax": 4.87109375
+    }
+  }
+}

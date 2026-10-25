@@ -1,0 +1,99 @@
+{
+  "audit_type": "Read-only graph/data audit; no GPU inference run by auditor",
+  "source_fp16_unchanged": {
+    "path": "models_gpu/fp16.onnx",
+    "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999",
+    "matches_preexisting_models_gpu_metadata": true
+  },
+  "fp8_graph": {
+    "path": "models_fp8/fp8_w8a8.onnx",
+    "sha256": "021cab0ddf64e6b1977c1fbddeff03d4ced6cbcbc2333ea49f39f6ba6a346683",
+    "constant_matmuls_replaced": 48,
+    "raw_graph_GemmFloat8": 48,
+    "raw_graph_QuantizeLinear": 48,
+    "remaining_dynamic_MatMul": 24,
+    "external_input_output_dtype": "float32",
+    "GemmFloat8_output_dtype": "float16",
+    "weight_dtype": "FLOAT8E4M3FN",
+    "weight_quantization_byte_match": true,
+    "activation_scale_fp16_and_fp32_match": true,
+    "calibration_amax_covered": true,
+    "weight_transpose_transB1_verified": true,
+    "flatten_restore_initializers_verified": true,
+    "source_activation_rank_tokens_and_K_verified": 48,
+    "fixed_transformer_sequence_length": 1370,
+    "source_shape_note": "Intermediate batch dimension is symbolic in exported value_info, but model external batch is fixed to 1; token and feature dimensions agree for all 48 target MatMuls.",
+    "opset_conversion_control_max_abs": 0.0
+  },
+  "calibration": {
+    "array_sha256": "f559691c51e2c60ef4c7008f5cdf2adc7f3826add7a7e6c98b0e64cb47d9612c",
+    "manifest_sha256": "558ac2da796e7a0ed1225dfba7369ed801282365bcbe6332b7852f6ea54eb493",
+    "actual_build_calibration_hashes_match": true,
+    "shape": [
+      64,
+      3,
+      518,
+      518
+    ],
+    "dtype": "float32",
+    "all_64_row_hashes_match": true,
+    "count": 64,
+    "seed": 43,
+    "official_train_only": true,
+    "official_train_images": 795,
+    "official_test_images": 654,
+    "official_test_index_overlap": 0,
+    "calibration_scenes": 58,
+    "official_test_scene_overlap": 0,
+    "exact_evaluation_rgb_overlap": 0,
+    "evaluation_rgb_images_checked": 448,
+    "gt_values_used": false,
+    "gt_nonuse_evidence": "prepare_fp8_calibration.py opens only RGB/scenes/sceneTypes from HDF5; build_fp8_models.py reads normalized inputs.npy and model tensors, never GT arrays"
+  },
+  "sources": {
+    "dataset_url": "https://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat",
+    "dataset_sha256": "2d724b0c0ab358aa1ce5df855e5bd14a2279ab7202efe22f32a30d612dcb86aa",
+    "dataset_bytes": 2972037809,
+    "split_url": "https://horatio.cs.nyu.edu/mit/silberman/indoor_seg_sup/splits.mat",
+    "split_sha256": "6e081404491a8bfba2f066beaa9713ef6046f9007aa5f799f2a350506a580cee"
+  },
+  "evaluation_preservation": {
+    "manifest_sha256": {
+      "data_dense/manifest.json": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "data_dense/sintel_manifest.json": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "data/eval_manifest.json": "2bf0a933d58e1f01330f46d6c22e50fb4c8fa1dd0f810cc34e312da4f0bf3f4e"
+    },
+    "all_manifest_hashes_match_pinned_preexisting_versions": true,
+    "all_depth_and_mask_files_checked": 640,
+    "all_depth_and_mask_file_hashes_match": true,
+    "ordered_depth_mask_file_hash_digest": "90474a44dff7feea470376c315324ad14902d09b677921c20c8439a535dfcf8c",
+    "mask_rules": {
+      "data_dense/manifest.json": {
+        "min_depth": 0.0,
+        "max_depth": 10.0,
+        "max_depth_exclusive": true,
+        "mask_rule": "isfinite(depth) & (depth > 0) & (depth < 10.0)",
+        "crop": "none (full 480x640 image)"
+      },
+      "data_dense/sintel_manifest.json": {
+        "min_depth": 0.0,
+        "max_depth": 10000.0,
+        "max_depth_exclusive": true,
+        "mask_rule": "isfinite(depth) & (depth > 0) & (depth < 10000)",
+        "crop": "none (full 436x1024 image)"
+      }
+    }
+  },
+  "interpretation_notes": [
+    "Only the 48 constant MatMul operands are FP8; residual graph remains based on the preexisting FP16 model with FP32 external IO.",
+    "Static calibration uses original FP16 activation amax; evaluation-domain saturation is possible and is part of this specific PTQ setting.",
+    "ORT source selects CUBLAS_COMPUTE_32F and sets CUBLASLT_MATMUL_DESC_FAST_ACCUM=1; do not promise unrestricted full-precision accumulation.",
+    "CUDA profile establishes GemmFloat8 placement, not an instruction-level hardware trace.",
+    "Restore shapes are fixed to batch1 and 518x518; other input extents are unsupported."
+  ],
+  "primary_sources": [
+    "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.31.0/onnxruntime/contrib_ops/cuda/math/gemm_float8.cu",
+    "https://docs.nvidia.com/cuda/cublas/index.html",
+    "https://onnx.ai/onnx/operators/onnx__QuantizeLinear.html"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "created_utc": "2026-10-25T12:28:03.225976+00:00",
+  "interpretation": "Earlier opset17 vs fresh opset21 FP16 GPU predictions. Differences include possible rerun/kernel nondeterminism and cannot be attributed solely to conversion.",
+  "model_files": {
+    "opset17": {
+      "path": "models_gpu/fp16.onnx",
+      "sha256": "29d3a406f1758ebeced59665e5155a6a86e651c0a0f76c80fbba848c2a52f999"
+    },
+    "opset21": {
+      "path": "models_fp8/fp16_opset21.onnx",
+      "sha256": "7c333f2e78dd86d3b2d7eb0a1735fdda6c9fcfc7076c311689394d15f82a1afd"
+    }
+  },
+  "datasets": {
+    "nyu": {
+      "previous_run": "results_dense_nyu_gpu",
+      "current_run": "results_fp8/nyu",
+      "manifest_sha256": "ee80d4f2a009bef2eed5651f4f251408a96520d6f87b34d10dbe700b1296c43b",
+      "images": 128,
+      "bitwise_equal_images": 128,
+      "all_predictions_bitwise_equal": true,
+      "global_max_abs": 0.0,
+      "pooled_rmse": 0.0,
+      "pixels": 34345472,
+      "max_image_raw_nrmse": 0.0,
+      "metrics": {
+        "inpainted": {
+          "abs_rel": {
+            "old_image_mean": 0.08893212341884829,
+            "new_image_mean": 0.08893212341884829,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "rmse": {
+            "old_image_mean": 0.4059499459354171,
+            "new_image_mean": 0.4059499459354171,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "delta1": {
+            "old_image_mean": 0.9208508809407552,
+            "new_image_mean": 0.9208508809407552,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "inverse_nrmse": {
+            "old_image_mean": 0.46738981148362463,
+            "new_image_mean": 0.46738981148362463,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "clipped_inverse_depth_rate": {
+            "old_image_mean": 0.0,
+            "new_image_mean": 0.0,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          }
+        },
+        "measured": {
+          "abs_rel": {
+            "old_image_mean": 0.05175738674847545,
+            "new_image_mean": 0.05175738674847545,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "rmse": {
+            "old_image_mean": 0.2320273611796017,
+            "new_image_mean": 0.2320273611796017,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "delta1": {
+            "old_image_mean": 0.9756552342920973,
+            "new_image_mean": 0.9756552342920973,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "inverse_nrmse": {
+            "old_image_mean": 0.21764819281153736,
+            "new_image_mean": 0.21764819281153736,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "clipped_inverse_depth_rate": {
+            "old_image_mean": 0.00023410970430049483,
+            "new_image_mean": 0.00023410970430049483,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          }
+        }
+      }
+    },
+    "sintel": {
+      "previous_run": "results_dense_sintel_full_gpu",
+      "current_run": "results_fp8/sintel",
+      "manifest_sha256": "d2d9e7cf11412301ae98033083315a8e025d57bd443ad62b724e33b1d30ee01d",
+      "images": 64,
+      "bitwise_equal_images": 64,
+      "all_predictions_bitwise_equal": true,
+      "global_max_abs": 0.0,
+      "pooled_rmse": 0.0,
+      "pixels": 17172736,
+      "max_image_raw_nrmse": 0.0,
+      "metrics": {
+        "rendered_dense": {
+          "abs_rel": {
+            "old_image_mean": 4.944520279387375,
+            "new_image_mean": 4.944520279387375,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "rmse": {
+            "old_image_mean": 487.7243157748511,
+            "new_image_mean": 487.7243157748511,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "delta1": {
+            "old_image_mean": 0.6545455800483835,
+            "new_image_mean": 0.6545455800483835,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "inverse_nrmse": {
+            "old_image_mean": 0.4131020076645825,
+            "new_image_mean": 0.4131020076645825,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          },
+          "clipped_inverse_depth_rate": {
+            "old_image_mean": 0.014879725576979523,
+            "new_image_mean": 0.014879725576979523,
+            "mean_delta": 0.0,
+            "max_abs_image_delta": 0.0
+          }
+        }
+      }
+    }
+  }
+}

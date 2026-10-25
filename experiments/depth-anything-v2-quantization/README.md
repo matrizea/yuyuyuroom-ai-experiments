@@ -1,4 +1,4 @@
-# Depth Anything V2 SmallをFP32・INT8・INT4で比べる
+# Depth Anything V2 SmallをFP32・FP16・INT8・INT4・FP8で比べる
 
 同じV2 Smallの重みからONNXモデルを作り、CPUとCUDAで推論します。DA-2Kの近遠判定、NYUv2とMPI Sintelの深度評価、ファイル容量、推論時間を別々に記録します。
 
@@ -94,11 +94,43 @@ GPUのdense評価は、同じmanifestに対して次を実行します。NYUv2�
 
 maskは全モデル共通のGTだけから決め、予測が苦手な画素を後から落としません。整合した逆深度が非正値などになったときは`1 / max_depth`で下限処理して距離へ戻し、その画素も評価に残してclip率を記録します。主要値は画像ごとの指標の平均です。信頼区間は同じscene/sequenceをまとめて再抽出するものを優先します。
 
+## FP8を同じ条件のFP16と比べる
+
+上のCPU・GPU環境とモデルを用意した後、次の順でデータを準備します。追加の依存パッケージは不要です。校正用の準備はh5pyを含むCPU環境、モデル生成と推論はGPU環境で実行します。校正スクリプトは重複確認のため、3つの評価manifestとRGB画像も読みます。
+
+```powershell
+.venv/Scripts/python.exe scripts/prepare_data.py
+.venv/Scripts/python.exe scripts/prepare_dense_data.py
+.venv/Scripts/python.exe scripts/prepare_sintel_data.py
+.venv/Scripts/python.exe scripts/prepare_fp8_calibration.py
+.venv_gpu/Scripts/python.exe scripts/build_fp8_models.py
+```
+
+校正にはNYUv2の公式train795画像からseed43で選んだ64画像・58sceneを使い、GTは使いません。公式test654画像とはindexとsceneの重複がなく、3つの評価集合とのdecoded RGBの完全一致も確認します。前処理は評価と同じ518×518へのCUBIC直接リサイズです。`data_fp8_calibration/manifest.json`に選択ID、ハッシュ、重複確認を、`models_fp8/calibration.json`に各層の最大絶対値を保存します。
+
+`models_fp8/fp8_w8a8.onnx`は、48個の定数重みMatMulの重み・入力をE4M3FNのFP8へ写したモデルです。重みはテンソル全体の最大絶対値、入力は校正64画像でのテンソル全体の最大絶対値からスケールを決めます。ほかの部分は既存FP16モデルの構成、外部の入出力はFP32を保ちます。`GemmFloat8`はFP8のA/BをcuBLASLtへ渡し、FP32 compute type・FP8 fast accumulation有効（`FAST_ACCUM=1`）・FP16出力で計算します。純粋なFP32累積という意味ではありません。
+
+生成時に小さい行列と実際の1370トークンの行列で数値を照合し、全48演算のCUDA配置と有限出力を確認します。FP16基準には、同じopset21へ公式変換した`models_fp8/fp16_opset21.onnx`を使います。校正画像1枚で変換前のFP16との出力一致も確認し、各層のスケールとともに`models_fp8/metadata.json`へ記録します。
+
+```powershell
+.venv_gpu/Scripts/python.exe scripts/benchmark_fp8.py --fp16-model models_fp8/fp16_opset21.onnx --fp8-model models_fp8/fp8_w8a8.onnx --output-dir results_fp8/benchmark --rounds 3 --warmup 20 --iterations 100
+.venv_gpu/Scripts/python.exe scripts/evaluate_dense.py --manifest data_dense/manifest.json --provider CUDA --output-dir results_fp8/nyu --models fp16=models_fp8/fp16_opset21.onnx fp8=models_fp8/fp8_w8a8.onnx --reference fp16 --no-previews
+.venv_gpu/Scripts/python.exe scripts/evaluate_dense.py --manifest data_dense/sintel_manifest.json --provider CUDA --output-dir results_fp8/sintel --models fp16=models_fp8/fp16_opset21.onnx fp8=models_fp8/fp8_w8a8.onnx --reference fp16 --no-previews
+```
+
+速度はFP16→FP8→FP8→FP16とFP8→FP16→FP16→FP8を使って3巡し、各ブロックでウォームアップ20回・計測100回、TF32無効です。`results_fp8/benchmark/benchmark.json`の`status`が`complete`になったことを確認し、CPU上の入出力を使う時間と、同期を含むI/O Bindingの時間を比べます。モデル読込やprofile取得は計測外です。過去の測定がある出力先は上書きしないので、再測定時は別の`--output-dir`を指定します。
+
+GT評価は`results_fp8/nyu/summary.json`と`results_fp8/sintel/summary.json`へ保存します。差の基準はFP16で、AbsRel・逆深度NRMSEの差が正なら悪化です。NYUv2は実測GTと補完GTを分け、Sintelは逆深度NRMSEを主にδ1とclip率も見ます。画像別のGT整合とscene/sequence単位の信頼区間は上のdense評価と同じです。
+
+FP8演算がCUDA上で実行されたことと、モデル全体が速くなることは別です。このORT実装はGEMMごとに同期・一時領域確保・cuBLASLtハンドル生成を行います。保存したoptimized graphとprofileで型・配置を確認できますが、ネイティブTensor Core命令のtraceまでは行っていません。
+
 ## 保存した結果から図を作る
 
 ```powershell
 .venv/Scripts/python.exe scripts/plot_evidence.py
 .venv/Scripts/python.exe scripts/validate_evidence.py
+.venv/Scripts/python.exe scripts/plot_fp8_evidence.py
+.venv/Scripts/python.exe scripts/validate_fp8_evidence.py
 ```
 
 `article_figures/`へ、公開した数値記録を使ったCPU/GPUグラフが出ます。元のRGB画像やGTファイルは含みません。検算スクリプトはCSVから正答数・誤差平均を再集計し、各回の推論時間から中央値を計算し直します。
@@ -122,6 +154,7 @@ NYUv2をGPUで128画像評価した後は、保存した予測から4bitの差�
 
 - [Depth Anything V2公式実装](https://github.com/DepthAnything/Depth-Anything-V2)、[Small checkpoint](https://huggingface.co/depth-anything/Depth-Anything-V2-Small)、[論文](https://arxiv.org/abs/2406.09414)
 - [ONNX Runtimeの量子化](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html)、[CUDA Provider](https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html)
+- [ORT 1.31.0のGemmFloat8実装](https://github.com/microsoft/onnxruntime/blob/v1.31.0/onnxruntime/contrib_ops/cuda/math/gemm_float8.cu)、[cuBLASの低精度計算](https://docs.nvidia.com/cuda/cublas/index.html#narrow-precision-data-types-usage)
 - [DA-2K](https://huggingface.co/datasets/depth-anything/DA-2K)、[NYUv2作者配布元](https://cs.nyu.edu/~fergus/datasets/nyu_depth_v2.html)、[MPI Sintel depth](https://sintel.is.tue.mpg.de/depth)
 
 Small checkpointと公式実装はApache-2.0です。NYUv2とMPI Sintelについて、確認した作者配布資料から明示的な再配布ライセンスは確認できていません。映画Sintel自体のCC BY 3.0とMPIの変更された評価データを同じものとして扱わず、元データはそれぞれの公式配布元から取得してください。
