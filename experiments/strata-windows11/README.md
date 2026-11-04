@@ -2,6 +2,8 @@
 
 StrataのOpenAI互換APIへ日本語の説明文とPythonの関数生成を依頼し，最初の本文が届くまでの時間と生成速度を記録するコードです．モデルやエンジンは同梱していません．
 
+導入手順と検証結果の記事：[StrataをWindows 11で試す。RTX 5070 Ti 16GBとメモリ32GBで動かした](https://yuyuyuroom.site/2026/11/04/strata-windows11-rtx5070ti-32gb/)
+
 Strataの導入は[公式のv0.2.10リリース](https://github.com/Niko1221/Strata/releases/tag/v0.2.10)と[Terminalの説明](https://github.com/Niko1221/Strata/blob/v0.2.10/docs/TERMINAL_LAUNCH.md)を参照してください．このコード自体はPython標準ライブラリだけを使います．
 
 ## 確認した構成と結果
