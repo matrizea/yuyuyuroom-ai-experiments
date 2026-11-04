@@ -1,0 +1,9 @@
+runtime/
+strata-runtime/
+strata-models/
+results/
+*.zip
+*.gguf
+*.part*
+*.log
+__pycache__/
