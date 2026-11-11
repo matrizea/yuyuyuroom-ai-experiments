@@ -1,0 +1,193 @@
+{
+  "environment": {
+    "python_version": "3.12.14",
+    "ollama_version": "0.32.15"
+  },
+  "model_metadata": {
+    "model": "gemma3:4b-it-q4_K_M",
+    "model_info": {
+      "architecture": "gemma3",
+      "parameter_count": 4299915632
+    },
+    "details": {
+      "family": "gemma3",
+      "parameter_size": "4.3B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "config": {
+    "model": "gemma3:4b-it-q4_K_M",
+    "num_ctx": 4096,
+    "seed": 42,
+    "temperature": 0,
+    "keep_alive": "5m",
+    "limits": [
+      16,
+      64,
+      256
+    ],
+    "repeats": 3,
+    "prompt": "1から80までの整数を、小さい順に半角スペースで区切って書いてください。数字とスペース以外は書かないでください。"
+  },
+  "warmup": {
+    "num_predict": 1,
+    "response": "1",
+    "response_char_count": 1,
+    "done": true,
+    "done_reason": "length",
+    "eval_count": 1,
+    "prompt_eval_count": 41,
+    "total_duration": 23879822305,
+    "load_duration": 19698261238,
+    "eval_duration": 1000,
+    "wall_seconds": 23.881378,
+    "extracted_int_count": 1,
+    "matches_1_to_80": false
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "num_predict": 16,
+      "response": "1 2 3 4 5 6 7 8 ",
+      "response_char_count": 16,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 16,
+      "prompt_eval_count": 41,
+      "total_duration": 247667097,
+      "load_duration": 473848,
+      "eval_duration": 163924000,
+      "wall_seconds": 0.248762,
+      "extracted_int_count": 8,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 1,
+      "num_predict": 64,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 2",
+      "response_char_count": 64,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 64,
+      "prompt_eval_count": 41,
+      "total_duration": 384440990,
+      "load_duration": 538849,
+      "eval_duration": 356380000,
+      "wall_seconds": 0.385595,
+      "extracted_int_count": 25,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 1,
+      "num_predict": 256,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80\n",
+      "response_char_count": 231,
+      "done": true,
+      "done_reason": "stop",
+      "eval_count": 232,
+      "prompt_eval_count": 41,
+      "total_duration": 1309018497,
+      "load_duration": 609888,
+      "eval_duration": 1274271000,
+      "wall_seconds": 1.310136,
+      "extracted_int_count": 80,
+      "matches_1_to_80": true
+    },
+    {
+      "repeat": 2,
+      "num_predict": 16,
+      "response": "1 2 3 4 5 6 7 8 ",
+      "response_char_count": 16,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 16,
+      "prompt_eval_count": 41,
+      "total_duration": 120301024,
+      "load_duration": 466378,
+      "eval_duration": 85847000,
+      "wall_seconds": 0.121414,
+      "extracted_int_count": 8,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 2,
+      "num_predict": 64,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 2",
+      "response_char_count": 64,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 64,
+      "prompt_eval_count": 41,
+      "total_duration": 374489453,
+      "load_duration": 632617,
+      "eval_duration": 345509000,
+      "wall_seconds": 0.375561,
+      "extracted_int_count": 25,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 2,
+      "num_predict": 256,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80\n",
+      "response_char_count": 231,
+      "done": true,
+      "done_reason": "stop",
+      "eval_count": 232,
+      "prompt_eval_count": 41,
+      "total_duration": 1292394618,
+      "load_duration": 484356,
+      "eval_duration": 1266172000,
+      "wall_seconds": 1.293722,
+      "extracted_int_count": 80,
+      "matches_1_to_80": true
+    },
+    {
+      "repeat": 3,
+      "num_predict": 16,
+      "response": "1 2 3 4 5 6 7 8 ",
+      "response_char_count": 16,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 16,
+      "prompt_eval_count": 41,
+      "total_duration": 113201990,
+      "load_duration": 640040,
+      "eval_duration": 85869000,
+      "wall_seconds": 0.114217,
+      "extracted_int_count": 8,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 3,
+      "num_predict": 64,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 2",
+      "response_char_count": 64,
+      "done": true,
+      "done_reason": "length",
+      "eval_count": 64,
+      "prompt_eval_count": 41,
+      "total_duration": 375003986,
+      "load_duration": 492285,
+      "eval_duration": 348293000,
+      "wall_seconds": 0.376292,
+      "extracted_int_count": 25,
+      "matches_1_to_80": false
+    },
+    {
+      "repeat": 3,
+      "num_predict": 256,
+      "response": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80\n",
+      "response_char_count": 231,
+      "done": true,
+      "done_reason": "stop",
+      "eval_count": 232,
+      "prompt_eval_count": 41,
+      "total_duration": 1298432875,
+      "load_duration": 585737,
+      "eval_duration": 1271367000,
+      "wall_seconds": 1.299589,
+      "extracted_int_count": 80,
+      "matches_1_to_80": true
+    }
+  ]
+}
