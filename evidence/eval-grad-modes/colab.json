@@ -1,0 +1,300 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "cuda_available": true,
+    "gpu": "Tesla T4"
+  },
+  "devices": {
+    "cpu": {
+      "mode_combinations": [
+        {
+          "model_mode": "train",
+          "grad_mode": "normal",
+          "model_training": true,
+          "is_grad_enabled": true,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": true,
+          "first_output_has_grad_fn": true,
+          "first_output_grad_fn": "AddmmBackward0",
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -0.333066,
+            0.190096
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "train",
+          "grad_mode": "no_grad",
+          "model_training": true,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -0.333066,
+            0.190096
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "train",
+          "grad_mode": "inference_mode",
+          "model_training": true,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": true,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -0.333066,
+            0.190096
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "normal",
+          "model_training": false,
+          "is_grad_enabled": true,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": true,
+          "first_output_has_grad_fn": true,
+          "first_output_grad_fn": "AddmmBackward0",
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.212434,
+            0.157676
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "no_grad",
+          "model_training": false,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.212434,
+            0.157676
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "inference_mode",
+          "model_training": false,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": true,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.212434,
+            0.157676
+          ],
+          "self_check_passed": true
+        }
+      ],
+      "tensor_reuse_cases": [
+        {
+          "case": "no_grad_direct",
+          "is_inference_tensor": false,
+          "backward_succeeded": true,
+          "weight_grad_populated": true,
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "case": "inference_mode_direct",
+          "is_inference_tensor": true,
+          "backward_succeeded": false,
+          "weight_grad_populated": false,
+          "error_type": "RuntimeError",
+          "error_message": "Inference tensors cannot be saved for backward. Please do not use Tensors created in inference mode in computation tracked by autograd. To work around this, you can make a clone to get a normal tensor and use it in autograd, or use `torch.no_grad()` instead of `torch.inference_mode()`."
+        },
+        {
+          "case": "inference_mode_cloned_outside",
+          "original_is_inference_tensor": true,
+          "is_inference_tensor": false,
+          "backward_succeeded": true,
+          "weight_grad_populated": true,
+          "error_type": null,
+          "error_message": null
+        }
+      ]
+    },
+    "cuda": {
+      "mode_combinations": [
+        {
+          "model_mode": "train",
+          "grad_mode": "normal",
+          "model_training": true,
+          "is_grad_enabled": true,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": true,
+          "first_output_has_grad_fn": true,
+          "first_output_grad_fn": "AddmmBackward0",
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -1.380606,
+            1.063766
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "train",
+          "grad_mode": "no_grad",
+          "model_training": true,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -1.380606,
+            1.063766
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "train",
+          "grad_mode": "inference_mode",
+          "model_training": true,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": true,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": false,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 2,
+          "bn_num_batches_tracked_delta": 2,
+          "first_output_row0": [
+            -1.380606,
+            1.063766
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "normal",
+          "model_training": false,
+          "is_grad_enabled": true,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": true,
+          "first_output_has_grad_fn": true,
+          "first_output_grad_fn": "AddmmBackward0",
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.057308,
+            0.166631
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "no_grad",
+          "model_training": false,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": false,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.057308,
+            0.166631
+          ],
+          "self_check_passed": true
+        },
+        {
+          "model_mode": "eval",
+          "grad_mode": "inference_mode",
+          "model_training": false,
+          "is_grad_enabled": false,
+          "is_inference_mode_enabled": true,
+          "first_output_requires_grad": false,
+          "first_output_has_grad_fn": false,
+          "first_output_grad_fn": null,
+          "outputs_equal": true,
+          "bn_num_batches_tracked_before": 0,
+          "bn_num_batches_tracked_after": 0,
+          "bn_num_batches_tracked_delta": 0,
+          "first_output_row0": [
+            -0.057308,
+            0.166631
+          ],
+          "self_check_passed": true
+        }
+      ],
+      "tensor_reuse_cases": [
+        {
+          "case": "no_grad_direct",
+          "is_inference_tensor": false,
+          "backward_succeeded": true,
+          "weight_grad_populated": true,
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "case": "inference_mode_direct",
+          "is_inference_tensor": true,
+          "backward_succeeded": false,
+          "weight_grad_populated": false,
+          "error_type": "RuntimeError",
+          "error_message": "Inference tensors cannot be saved for backward. Please do not use Tensors created in inference mode in computation tracked by autograd. To work around this, you can make a clone to get a normal tensor and use it in autograd, or use `torch.no_grad()` instead of `torch.inference_mode()`."
+        },
+        {
+          "case": "inference_mode_cloned_outside",
+          "original_is_inference_tensor": true,
+          "is_inference_tensor": false,
+          "backward_succeeded": true,
+          "weight_grad_populated": true,
+          "error_type": null,
+          "error_message": null
+        }
+      ]
+    }
+  }
+}
