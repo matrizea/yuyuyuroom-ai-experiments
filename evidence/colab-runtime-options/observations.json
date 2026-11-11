@@ -1,0 +1,46 @@
+{
+  "environment": {
+    "torch": "2.14.1+cu130",
+    "python": "3.13.16"
+  },
+  "observations": [
+    {
+      "actual": "Tesla T4",
+      "system_ram_display_gb": 12.7,
+      "ccu_per_hour_display_approx": 1.15,
+      "task": "six eval/autograd cases plus three feature-reuse cases on CPU and CUDA",
+      "requested": "T4",
+      "high_memory": false,
+      "gpu_ram_display_gb": 15.0
+    },
+    {
+      "actual": "NVIDIA L4",
+      "system_ram_display_gb": 53.0,
+      "ccu_per_hour_display_approx": 1.94,
+      "task": "GPU identity query only",
+      "requested": "L4",
+      "high_memory": true,
+      "gpu_ram_display_gb": 22.5
+    },
+    {
+      "actual": "NVIDIA L4",
+      "ccu_per_hour_display_approx": 1.94,
+      "fallback_notice": "Selected GPU type unavailable; connected to L4",
+      "task": "GPU identity query only",
+      "requested": "A100",
+      "high_memory": true
+    }
+  ],
+  "method": "Runtime type selected in Colab UI. Actual GPU queried with torch.cuda.get_device_properties(0). Rate read from Resources panel. No throughput benchmark or long-duration run.",
+  "public_plan_reference": {
+    "benefit_source": "https://support.google.com/googleone/answer/14534406?hl=ja",
+    "recurrence_source": "https://research.google.com/colaboratory/faq.html#g1-recurrence",
+    "monthly_ccu": 200
+  },
+  "calculation": {
+    "l4_hours": 103.09278350515464,
+    "t4_hours": 173.91304347826087,
+    "formula": "200 / displayed CCU per hour",
+    "status": "Conditional arithmetic only. No guarantee of allocation, rate or uninterrupted runtime."
+  }
+}
