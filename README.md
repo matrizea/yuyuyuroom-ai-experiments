@@ -21,6 +21,7 @@ FashionMNISTを使う実験では、初回に画像をダウンロードしま�
 
 | 調べたいこと | 実行手順 |
 |---|---|
+| evalと勾配記録・Ollamaの出力上限・Colabの200 CCU | [検証コードと関連記事](RECENT_EXPERIMENTS.md) |
 | GPUメモリが解放されない | [empty_cache・del・detach](CUDA_MEMORY.md) |
 | CNNをCPUとGPUで学習する | [CNNの学習手順（英語）](README_EN.md#fashionmnist-cnn-training) |
 | ONNXモデルをINT8にする | [INT8量子化](#onnx-runtimeのint8量子化) |
